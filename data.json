@@ -3,7 +3,7 @@
   "program": "Exclusively Online MSW",
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
-  "version": 1,
+  "version": 2,
   "saved": null
  },
  "courses": [
@@ -1721,6 +1721,30 @@
    "note": "Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment."
   }
  ],
+ "standards": [
+  {
+   "id": 1,
+   "title": "Consistent graded-activity naming",
+   "status": "draft",
+   "rationale": "Use predictable names so learners can distinguish assignments, discussions, and graded discussions across the program.",
+   "example": "Use “Discussion Assignment” for graded discussions and reserve “Discussion” for ungraded interaction.",
+   "appliesTo": ["*"],
+   "sourceIssueId": 6,
+   "updatedAt": null
+  },
+  {
+   "id": 2,
+   "title": "Consistent rubric location",
+   "status": "draft",
+   "rationale": "Make grading expectations easy to find without duplicating generic material throughout a course.",
+   "example": "Use a standard Rubrics area and link the applicable rubric from each graded activity.",
+   "appliesTo": ["*"],
+   "sourceIssueId": 11,
+   "updatedAt": null
+  }
+ ],
  "nextIssueId": 12,
+ "nextStandardId": 3,
+ "standardChecks": {},
  "weekState": {}
 }

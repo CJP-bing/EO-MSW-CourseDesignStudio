@@ -69,7 +69,7 @@ button.ghost { border-color: transparent; color: var(--ink-2); }
 nav.tabs { display: flex; gap: 4px; padding: 0 22px; background: var(--surface-1); border-bottom: 1px solid var(--grid); }
 nav.tabs button {
   border: none; background: none; border-radius: 0; padding: 11px 16px;
-  color: var(--ink-2); border-bottom: 2px solid transparent; font-weight: 500;
+  color: var(--ink-2); border-bottom: 2px solid transparent; font-weight: 500; white-space: nowrap;
 }
 nav.tabs button.active { color: var(--ink-1); border-bottom-color: var(--accent); font-weight: 650; }
 main { max-width: 1220px; margin: 0 auto; padding: 22px; }
@@ -163,6 +163,42 @@ table.data th { text-align: left; color: var(--ink-3); font-weight: 600; font-si
 table.data td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
 table.data tr:hover td { background: var(--wash); }
 table.data td.num { font-variant-numeric: tabular-nums; }
+.table-wrap { overflow-x: auto; }
+/* focus queue */
+.focus-list { display: grid; gap: 10px; }
+.focus-item { border: 1px solid var(--grid); border-radius: 10px; padding: 12px 14px; background: var(--surface-1); }
+.focus-item.overdue { border-left: 4px solid var(--crit); }
+.focus-top { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+.focus-title { flex: 1; min-width: 240px; font-weight: 600; }
+.focus-meta { color: var(--ink-3); font-size: 12px; margin-top: 5px; }
+.focus-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 9px; }
+.scope-pill, .workflow-pill, .type-pill { font-size: 10.5px; border-radius: 5px; padding: 2px 7px; border: 1px solid var(--ring); background: var(--page); color: var(--ink-2); white-space: nowrap; }
+.workflow-pill.needs_sme, .workflow-pill.sme_revision { background: #fff1d5; color: #624500; border-color: #e6bd65; }
+.workflow-pill.ready_sme_review { background: var(--accent-soft); color: var(--ink-1); border-color: var(--accent); }
+.workflow-pill.approved { background: var(--good); color: #fff; border-color: var(--good); }
+.quick-filters { display: flex; gap: 7px; flex-wrap: wrap; margin: 0 0 14px; }
+.quick-filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* standards */
+.standard-card { border: 1px solid var(--grid); border-radius: 12px; padding: 15px 16px; margin-bottom: 12px; background: var(--surface-1); }
+.standard-card h3 { font-size: 14px; margin: 0; }
+.standard-head { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.standard-copy { flex: 1; min-width: 250px; }
+.standard-status { text-transform: uppercase; letter-spacing: .04em; font-size: 10px; font-weight: 700; }
+.standard-status.approved { color: var(--good-text); }
+.standard-status.retired { color: var(--ink-3); }
+.standard-grid { display: grid; grid-template-columns: minmax(170px,1.2fr) minmax(150px,.8fr) minmax(220px,2fr); gap: 6px 10px; align-items: center; margin-top: 10px; }
+.standard-grid .grid-head { color: var(--ink-3); font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.standard-grid input { width: 100%; }
+/* activity audits */
+.activity-audits { display: grid; gap: 7px; }
+.activity-audit { border: 1px solid var(--grid); border-radius: 8px; background: var(--page); }
+.activity-audit summary { cursor: pointer; padding: 8px 10px; font-size: 12.5px; font-weight: 600; }
+.activity-audit .checklist { padding: 0 10px 10px; }
+/* SME handoff */
+.handoff-item { border: 1px solid var(--grid); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: var(--surface-1); display: grid; grid-template-columns: auto 1fr; gap: 10px; }
+.handoff-item input[type=checkbox] { margin-top: 3px; accent-color: var(--accent); }
+.handoff-copy { white-space: pre-wrap; }
+.status-note { color: var(--good-text); font-size: 12px; min-height: 1.2em; }
 /* svg chart bits */
 .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 6px 0 2px; font-size: 12px; color: var(--ink-2); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
@@ -175,17 +211,30 @@ table.data td.num { font-variant-numeric: tabular-nums; }
 /* modal */
 .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 60; display: none; align-items: flex-start; justify-content: center; padding: 60px 16px; }
 .modal-back.show { display: flex; }
-.modal { background: var(--surface-1); border-radius: 14px; padding: 20px 22px; width: 520px; max-width: 100%; border: 1px solid var(--grid); }
+.modal { background: var(--surface-1); border-radius: 14px; padding: 20px 22px; width: 520px; max-width: 100%; max-height: calc(100vh - 80px); overflow-y: auto; border: 1px solid var(--grid); }
 .modal h3 { margin: 0 0 14px; font-size: 15px; }
 .modal .row { margin-bottom: 12px; }
 .modal label { display: block; font-size: 12px; color: var(--ink-2); margin-bottom: 4px; }
-.modal select, .modal input[type=text] { width: 100%; }
+.modal select, .modal input[type=text], .modal input[type=date] { width: 100%; }
 .modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px; }
 .muted { color: var(--ink-3); }
 .small { font-size: 12px; }
 .heat-wrap { overflow-x: auto; }
 footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding: 10px 0 30px; }
-@media (max-width: 700px) { main { padding: 14px; } .appbar { padding: 12px 14px; } }
+@media (max-width: 700px) {
+  main { padding: 14px; }
+  .appbar { padding: 12px 14px; }
+  nav.tabs { padding: 0 10px; overflow-x: auto; }
+  nav.tabs button { padding: 10px 12px; }
+  #coursePick { min-width: 0; max-width: 100%; width: 100%; }
+  .detail-head { align-items: stretch; }
+  .chip { white-space: normal; max-width: 100%; }
+  .week-head { align-items: flex-start; flex-wrap: wrap; }
+  .wk-title { min-width: calc(100% - 70px); }
+  .wk-flags { margin-left: 56px; flex-wrap: wrap; }
+  .standard-grid { grid-template-columns: 1fr; }
+  .standard-grid .grid-head { display: none; }
+}
 </style>
 </head>
 <body>
@@ -205,15 +254,21 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
   <input type="file" id="fileImport" accept=".json" style="display:none">
 </header>
 <nav class="tabs">
-  <button data-tab="overview" class="active">Program Overview</button>
+  <button data-tab="focus" class="active">Focus Queue</button>
+  <button data-tab="overview">Program Overview</button>
   <button data-tab="course">Course Detail</button>
   <button data-tab="issues">Issue Log</button>
+  <button data-tab="standards">Standards</button>
+  <button data-tab="sme">SME Handoff</button>
   <button data-tab="about">How This Works</button>
 </nav>
 <main>
-  <section id="tab-overview"></section>
+  <section id="tab-focus"></section>
+  <section id="tab-overview" style="display:none"></section>
   <section id="tab-course" style="display:none"></section>
   <section id="tab-issues" style="display:none"></section>
+  <section id="tab-standards" style="display:none"></section>
+  <section id="tab-sme" style="display:none"></section>
   <section id="tab-about" style="display:none"></section>
 </main>
 <footer class="foot">Edits autosave to this browser instantly. With a GitHub token configured (⚙), they also auto-commit to <span id="footRepo">the repo</span> as <b>data.json</b> — so any device loads the latest.</footer>
@@ -221,16 +276,27 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
 <div class="modal-back" id="modalBack">
   <div class="modal">
     <h3 id="modalTitle">Log an issue</h3>
-    <div class="row"><label>Course</label><select id="mCourse"></select></div>
     <div class="row" style="display:flex;gap:10px">
-      <div style="flex:1"><label>Week / scope</label><select id="mWeek"></select></div>
-      <div style="flex:1"><label>Activity type</label><select id="mType"></select></div>
+      <div style="flex:1"><label for="mScope">Scope</label><select id="mScope"></select></div>
+      <div style="flex:1"><label for="mRecordType">Record type</label><select id="mRecordType"></select></div>
+    </div>
+    <div class="row"><label for="mCourse">Course</label><select id="mCourse"></select></div>
+    <div class="row" style="display:flex;gap:10px">
+      <div style="flex:1"><label for="mWeek">Week / module</label><select id="mWeek"></select></div>
+      <div style="flex:1"><label for="mType">Activity type</label><select id="mType"></select></div>
     </div>
     <div class="row" style="display:flex;gap:10px">
-      <div style="flex:1"><label>Priority</label><select id="mPrio"><option>HIGH</option><option>MEDIUM</option><option selected>LOW</option></select></div>
-      <div style="flex:1"><label>Status</label><select id="mStatus"><option selected>Open</option><option>Resolved</option></select></div>
+      <div style="flex:1"><label for="mPrio">Priority</label><select id="mPrio"><option>HIGH</option><option>MEDIUM</option><option selected>LOW</option></select></div>
+      <div style="flex:1"><label for="mEffort">Effort</label><select id="mEffort"></select></div>
+      <div style="flex:1"><label for="mTarget">Target date</label><input type="date" id="mTarget"></div>
     </div>
-    <div class="row"><label>Description</label><textarea id="mNote" rows="4" placeholder="What's wrong, and what would 'fixed' look like?"></textarea></div>
+    <div class="row" style="display:flex;gap:10px">
+      <div style="flex:2"><label for="mWorkflow">Workflow</label><select id="mWorkflow"></select></div>
+      <div style="flex:1"><label for="mStatus">Status</label><select id="mStatus"><option selected>Open</option><option>Resolved</option></select></div>
+    </div>
+    <div class="row"><label for="mNote">Description / question</label><textarea id="mNote" rows="3" placeholder="What's wrong, unclear, or ready for a decision?"></textarea></div>
+    <div class="row"><label for="mRecommendation">ID recommendation</label><textarea id="mRecommendation" rows="2" placeholder="Recommended change or proposed decision…"></textarea></div>
+    <div class="row"><label for="mSmeResponse">SME response / decision</label><textarea id="mSmeResponse" rows="2" placeholder="Capture the faculty response when received…"></textarea></div>
     <div class="actions">
       <button id="mCancel">Cancel</button>
       <button id="mSave" class="primary">Save issue</button>
@@ -263,6 +329,22 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
     </div>
   </div>
 </div>
+<div class="modal-back" id="stdBack">
+  <div class="modal">
+    <h3 id="stdTitle">Add program standard</h3>
+    <div class="row"><label for="sTitle">Standard</label><input type="text" id="sTitle" placeholder="Example: Graded discussion naming and setup"></div>
+    <div class="row" style="display:flex;gap:10px">
+      <div style="flex:1"><label for="sStatus">Status</label><select id="sStatus"><option value="draft">Draft</option><option value="approved">Approved</option><option value="retired">Retired</option></select></div>
+      <div style="flex:2"><label for="sApplies">Applies to</label><select id="sApplies" multiple size="5"></select></div>
+    </div>
+    <div class="row"><label for="sRationale">Rationale</label><textarea id="sRationale" rows="3" placeholder="Why this standard exists…"></textarea></div>
+    <div class="row"><label for="sExample">Implementation example</label><textarea id="sExample" rows="3" placeholder="What good implementation looks like…"></textarea></div>
+    <div class="actions">
+      <button id="sCancel">Cancel</button>
+      <button id="sSave" class="primary">Save standard</button>
+    </div>
+  </div>
+</div>
 <script>
 /* ============ SEED DATA ============ */
 const STATUSES = ["Not Started","Auditing","Rebuilding","SME Review","Finalized"];
@@ -279,6 +361,34 @@ const CHECKLIST = [
   "Rubrics attached or linked",
   "Matches syllabus"
 ];
+const SCOPES = { program:"Program", course:"Course", week:"Week / module", activity:"Activity" };
+const RECORD_TYPES = {
+  defect:"Defect",
+  improvement:"Improvement",
+  sme_question:"Question for SME",
+  design_decision:"Design decision",
+  content_verification:"Content verification"
+};
+const WORKFLOWS = {
+  id_can_resolve:"ID can resolve",
+  needs_sme:"Needs SME answer",
+  ready_sme_review:"Ready for SME review",
+  sme_revision:"SME revision requested",
+  approved:"Approved",
+  deferred:"Deferred"
+};
+const EFFORTS = { quick:"Quick · ≤15 min", medium:"Medium", deep:"Deep work" };
+const STANDARD_STATUSES = { draft:"Draft", approved:"Approved", retired:"Retired" };
+const COMPLIANCE_STATUSES = { not_reviewed:"Not reviewed", in_progress:"In progress", compliant:"Compliant", exception:"Exception" };
+const ACTIVITY_CHECKLISTS = {
+  Reading: ["Purpose and reading focus are stated","Link or file opens correctly","Citation is complete","Format is accessible","Expected use is clear"],
+  Video: ["Purpose and context are stated","Embed or link works","Captions are accurate","Transcript is available","Duration is stated","Player is accessible"],
+  Discussion: ["Purpose and prompt are clear","Initial and reply due dates are stated","Response expectations are specific","Grading criteria or rubric is linked","Group restrictions are correct"],
+  Assignment: ["Purpose and outcomes are clear","Steps and deliverable format are specific","Due date is stated consistently","Rubric is attached or linked","Example or template is provided where useful","Submission settings are correct"],
+  Quiz: ["Purpose is clear","Availability and due dates are correct","Attempts and timing are configured","Question and answer settings are correct","Feedback settings are intentional","Accommodations are supported"],
+  "Group Work": ["Groups are configured correctly","Membership communication is clear","Roles and process are defined","Collaboration space is available","Deliverable and due date are clear","Accountability or assessment is explained"],
+  Milestone: ["Dates align across the course","Instructions and signposting are clear","Dependencies are identified","Announcements or reminders are planned"]
+};
 
 // activities: {t:type, n:label, major:true?, due:"..."}
 const SEED = {
@@ -445,16 +555,27 @@ const SEED = {
     {id:10, course:"Z504", week:6, type:"Video", prio:"MEDIUM", status:"Open", note:"Broken module image header. Found the Chicago-Times image on Google, but it isn't an ideal contextualized header image."},
     {id:11, course:"Z504", week:0, type:"Milestone", prio:"MEDIUM", status:"Open", note:"Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment."}
   ],
+  standards: [
+    {id:1, title:"Consistent graded-activity naming", status:"draft", rationale:"Use predictable names so learners can distinguish assignments, discussions, and graded discussions across the program.", example:"Use “Discussion Assignment” for graded discussions and reserve “Discussion” for ungraded interaction.", appliesTo:["*"], sourceIssueId:6, updatedAt:null},
+    {id:2, title:"Consistent rubric location", status:"draft", rationale:"Make grading expectations easy to find without duplicating generic material throughout a course.", example:"Use a standard Rubrics area and link the applicable rubric from each graded activity.", appliesTo:["*"], sourceIssueId:11, updatedAt:null}
+  ],
   nextIssueId: 12,
-  weekState: {} // key "Z504-3" -> {status:"todo|doing|done", checks:[bool x8], note:""}
+  nextStandardId: 3,
+  standardChecks: {},
+  weekState: {} // key "Z504-3" -> {status, checks, activityChecks, note}
 };
 
 /* ============ APP ============ */
-let D = JSON.parse(JSON.stringify(SEED));
-let activeTab = "overview";
+let D = migrate(JSON.parse(JSON.stringify(SEED)));
+let activeTab = "focus";
 let activeCourse = "Z504";
 let openWeeks = {};   // "Z504-3": true
-let issueFilter = { course:"all", prio:"all", status:"Open", q:"" };
+let issueFilter = { course:"all", scope:"all", workflow:"all", prio:"all", status:"Open", q:"" };
+let focusFilter = { course:"all", workflow:"all", prio:"all", effort:"all", quick:"all", q:"" };
+let standardFilter = { status:"all", q:"" };
+let smeFilter = { course:"all", workflow:"all" };
+let handoffSelected = new Set();
+let handoffInitialized = false;
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -481,7 +602,36 @@ function migrate(j){
   if(!j || !j.courses || !j.issues) throw new Error("not a Design Studio data file");
   j.weekState = j.weekState || {};
   j.meta = j.meta || {};
+  j.meta.version = 2;
+  j.standards = j.standards || [];
+  j.standardChecks = j.standardChecks || {};
+  j.issues.forEach(i=>{
+    const note = String(i.note||"");
+    if(!SCOPES[i.scope]) i.scope = /^program-wide:/i.test(note) ? "program" : (+i.week>0 ? "week" : "course");
+    if(!RECORD_TYPES[i.recordType]){
+      if(i.scope==="program") i.recordType = "design_decision";
+      else if(/verify|confirm/i.test(note)) i.recordType = "content_verification";
+      else if(/broken|missing|wrong|lacking/i.test(note)) i.recordType = "defect";
+      else i.recordType = "improvement";
+    }
+    if(!WORKFLOWS[i.workflow]) i.workflow = /SME|verify|unclear|confirm|keep or delete/i.test(note) ? "needs_sme" : "id_can_resolve";
+    if(!EFFORTS[i.effort]) i.effort = i.prio==="HIGH" ? "deep" : (i.prio==="LOW" ? "quick" : "medium");
+    if(!["HIGH","MEDIUM","LOW"].includes(i.prio)) i.prio = "MEDIUM";
+    if(!["Open","Resolved"].includes(i.status)) i.status = "Open";
+    i.targetDate = i.targetDate || "";
+    i.recommendation = i.recommendation || "";
+    i.smeResponse = i.smeResponse || "";
+    i.updatedAt = i.updatedAt || null;
+  });
+  j.standards.forEach(s=>{
+    if(!STANDARD_STATUSES[s.status]) s.status = "draft";
+    s.appliesTo = Array.isArray(s.appliesTo) && s.appliesTo.length ? s.appliesTo : ["*"];
+    s.rationale = s.rationale || "";
+    s.example = s.example || "";
+    s.updatedAt = s.updatedAt || null;
+  });
   if(!j.nextIssueId) j.nextIssueId = Math.max(0, ...j.issues.map(i=>i.id||0)) + 1;
+  if(!j.nextStandardId) j.nextStandardId = Math.max(0, ...j.standards.map(s=>s.id||0)) + 1;
   return j;
 }
 function setChip(text, tone){
@@ -571,13 +721,51 @@ async function syncToGitHub(manual){
   syncing = false;
 }
 function course(id){ return D.courses.find(c=>c.id===id); }
+function issueCourse(i){ return i && i.scope!=="program" ? course(i.course) : null; }
+function issueLocation(i){
+  if(i.scope==="program") return "Program-wide";
+  const c = course(i.course);
+  const base = c ? c.code : (i.course||"Course");
+  if(i.scope==="week" || i.scope==="activity") return base+" · Week "+(i.week||"—");
+  return base;
+}
+function scopeLabel(i){ return SCOPES[i.scope] || SCOPES.course; }
+function workflowLabel(i){ return WORKFLOWS[i.workflow] || WORKFLOWS.id_can_resolve; }
+function recordTypeLabel(i){ return RECORD_TYPES[i.recordType] || RECORD_TYPES.improvement; }
+function isOverdue(i){ return !!i.targetDate && i.status==="Open" && i.targetDate < new Date().toISOString().slice(0,10); }
+function issueSort(a,b){
+  const po={HIGH:0,MEDIUM:1,LOW:2};
+  const ad=a.targetDate||"9999-12-31", bd=b.targetDate||"9999-12-31";
+  return ad.localeCompare(bd) || po[a.prio]-po[b.prio] || issueLocation(a).localeCompare(issueLocation(b));
+}
 function wkKey(cid,n){ return cid+"-"+n; }
 function wkState(cid,n){
   const k = wkKey(cid,n);
-  if(!D.weekState[k]) D.weekState[k] = { status:"todo", checks:CHECKLIST.map(()=>false), note:"" };
+  if(!D.weekState[k]) D.weekState[k] = { status:"todo", checks:CHECKLIST.map(()=>false), activityChecks:{}, note:"" };
+  D.weekState[k].checks = D.weekState[k].checks || [];
+  D.weekState[k].activityChecks = D.weekState[k].activityChecks || {};
   // pad checks if checklist grew
   while(D.weekState[k].checks.length < CHECKLIST.length) D.weekState[k].checks.push(false);
   return D.weekState[k];
+}
+function activityCheckState(cid,week,index,type){
+  const st = wkState(cid,week);
+  const key = String(index);
+  const checklist = ACTIVITY_CHECKLISTS[type] || [];
+  if(!st.activityChecks[key]) st.activityChecks[key] = checklist.map(()=>false);
+  while(st.activityChecks[key].length < checklist.length) st.activityChecks[key].push(false);
+  return st.activityChecks[key];
+}
+function standardCourses(s){ return s.appliesTo.includes("*") ? D.courses : D.courses.filter(c=>s.appliesTo.includes(c.id)); }
+function standardCheck(sid,cid){
+  const key=sid+":"+cid;
+  if(!D.standardChecks[key]) D.standardChecks[key]={status:"not_reviewed",note:""};
+  return D.standardChecks[key];
+}
+function standardCounts(s){
+  const out={not_reviewed:0,in_progress:0,compliant:0,exception:0,total:0};
+  standardCourses(s).forEach(c=>{ const v=standardCheck(s.id,c.id).status; out[v]=(out[v]||0)+1; out.total++; });
+  return out;
 }
 function courseProgress(c){
   if(!c.weeks.length) return null;
@@ -586,7 +774,7 @@ function courseProgress(c){
   return { done, doing, total:c.weeks.length, pct: Math.round(100*done/c.weeks.length) };
 }
 function courseIssues(cid, onlyOpen=true){
-  return D.issues.filter(i=>i.course===cid && (!onlyOpen || i.status==="Open"));
+  return D.issues.filter(i=>i.scope!=="program" && i.course===cid && (!onlyOpen || i.status==="Open"));
 }
 function prioCounts(list){
   return { HIGH:list.filter(i=>i.prio==="HIGH").length, MEDIUM:list.filter(i=>i.prio==="MEDIUM").length, LOW:list.filter(i=>i.prio==="LOW").length };
@@ -597,7 +785,12 @@ const STATUS_CLASS = s => "st-"+STATUSES.indexOf(s);
 
 /* ---------- tooltip ---------- */
 const tip = $("#tooltip");
-function showTip(e, html){ tip.innerHTML = html; tip.style.display="block"; moveTip(e); }
+function showTip(e, html){
+  tip.textContent = String(html||"").replace(/<br\s*\/?>/gi,"\n").replace(/<[^>]*>/g,"");
+  tip.style.whiteSpace="pre-line";
+  tip.style.display="block";
+  moveTip(e);
+}
 function moveTip(e){
   const pad=14; let x=e.clientX+pad, y=e.clientY+pad;
   const r=tip.getBoundingClientRect();
@@ -612,6 +805,91 @@ function bindTips(root){
     el.addEventListener("mousemove", moveTip);
     el.addEventListener("mouseleave", hideTip);
   });
+}
+
+/* ---------- FOCUS QUEUE ---------- */
+function renderFocus(){
+  const el=$("#tab-focus");
+  const open=D.issues.filter(i=>i.status==="Open");
+  const counts={
+    mine:open.filter(i=>i.workflow==="id_can_resolve").length,
+    needs:open.filter(i=>i.workflow==="needs_sme").length,
+    review:open.filter(i=>i.workflow==="ready_sme_review").length,
+    high:open.filter(i=>i.prio==="HIGH").length
+  };
+  let list=open.slice();
+  const f=focusFilter;
+  if(f.course!=="all") list=list.filter(i=>f.course==="program"?i.scope==="program":i.course===f.course && i.scope!=="program");
+  if(f.workflow!=="all") list=list.filter(i=>i.workflow===f.workflow);
+  if(f.prio!=="all") list=list.filter(i=>i.prio===f.prio);
+  if(f.effort!=="all") list=list.filter(i=>i.effort===f.effort);
+  if(f.quick==="mine") list=list.filter(i=>i.workflow==="id_can_resolve");
+  if(f.quick==="sme") list=list.filter(i=>["needs_sme","ready_sme_review","sme_revision"].includes(i.workflow));
+  if(f.quick==="quick") list=list.filter(i=>i.effort==="quick");
+  if(f.quick==="overdue") list=list.filter(isOverdue);
+  if(f.q) list=list.filter(i=>[i.note,i.recommendation,i.smeResponse,issueLocation(i)].join(" ").toLowerCase().includes(f.q.toLowerCase()));
+  list.sort(issueSort);
+
+  el.innerHTML=`
+    <div class="tiles">
+      <div class="tile"><div class="label">ID can resolve</div><div class="value">${counts.mine}</div><div class="detail">Ready for your direct action</div></div>
+      <div class="tile"><div class="label">Needs SME answer</div><div class="value">${counts.needs}</div><div class="detail">Questions waiting on faculty</div></div>
+      <div class="tile"><div class="label">Ready for SME review</div><div class="value">${counts.review}</div><div class="detail">Changes ready to hand off</div></div>
+      <div class="tile"><div class="label">High priority</div><div class="value">${counts.high}</div><div class="detail">Across every scope</div></div>
+    </div>
+    <div class="card">
+      <h2>My next actions</h2>
+      <p class="note">Your working queue across program standards, courses, modules, and individual activities.</p>
+      <div class="quick-filters">
+        ${[["all","All open"],["mine","I can resolve"],["sme","SME work"],["quick","Quick fixes"],["overdue","Overdue"]].map(([v,l])=>`<button class="qf ${f.quick===v?"active":""}" data-value="${v}">${l}</button>`).join("")}
+      </div>
+      <div class="filter-row">
+        <label for="fqCourse">Scope / course</label>
+        <select id="fqCourse"><option value="all">All</option><option value="program" ${f.course==="program"?"selected":""}>Program-wide</option>${D.courses.map(c=>`<option value="${esc(c.id)}" ${f.course===c.id?"selected":""}>${esc(c.code)}</option>`).join("")}</select>
+        <label for="fqWorkflow">Workflow</label>
+        <select id="fqWorkflow"><option value="all">All</option>${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${f.workflow===v?"selected":""}>${l}</option>`).join("")}</select>
+        <label for="fqPrio">Priority</label>
+        <select id="fqPrio"><option value="all">All</option>${["HIGH","MEDIUM","LOW"].map(v=>`<option ${f.prio===v?"selected":""}>${v}</option>`).join("")}</select>
+        <label for="fqEffort">Effort</label>
+        <select id="fqEffort"><option value="all">All</option>${Object.entries(EFFORTS).map(([v,l])=>`<option value="${v}" ${f.effort===v?"selected":""}>${l}</option>`).join("")}</select>
+        <input id="fqQ" type="text" placeholder="Search queue…" value="${esc(f.q)}" style="flex:1;min-width:150px">
+        <button class="primary" id="fqNew">+ Log item</button>
+      </div>
+      <div class="focus-list">
+        ${list.length?list.map(i=>{
+          const promote=i.scope==="program" || i.recordType==="design_decision";
+          return `<div class="focus-item ${isOverdue(i)?"overdue":""}">
+            <div class="focus-top">
+              <span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span>
+              <span class="scope-pill">${esc(scopeLabel(i))}</span>
+              <span class="type-pill">${esc(recordTypeLabel(i))}</span>
+              <span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span>
+              <div class="focus-title">${esc(i.note)}</div>
+            </div>
+            ${i.recommendation?`<div class="small" style="margin-top:7px"><b>Recommendation:</b> ${esc(i.recommendation)}</div>`:""}
+            <div class="focus-meta">${esc(issueLocation(i))} · ${esc(EFFORTS[i.effort]||i.effort)}${i.targetDate?` · ${isOverdue(i)?"Overdue ":"Target "}${esc(i.targetDate)}`:""}</div>
+            <div class="focus-actions">
+              <button class="linkish fq-edit" data-id="${i.id}">edit</button>
+              ${i.scope!=="program"?`<button class="linkish fq-open" data-id="${i.id}">open course</button>`:""}
+              ${promote?`<button class="linkish fq-promote" data-id="${i.id}">promote to standard</button>`:""}
+              <button class="linkish fq-resolve" data-id="${i.id}">resolve</button>
+            </div>
+          </div>`;
+        }).join(""):`<p class="muted">Nothing matches these filters.</p>`}
+      </div>
+    </div>`;
+
+  el.querySelectorAll(".qf").forEach(b=>b.addEventListener("click",()=>{f.quick=b.dataset.value;renderFocus();}));
+  $("#fqCourse").addEventListener("change",e=>{f.course=e.target.value;renderFocus();});
+  $("#fqWorkflow").addEventListener("change",e=>{f.workflow=e.target.value;renderFocus();});
+  $("#fqPrio").addEventListener("change",e=>{f.prio=e.target.value;renderFocus();});
+  $("#fqEffort").addEventListener("change",e=>{f.effort=e.target.value;renderFocus();});
+  $("#fqQ").addEventListener("input",e=>{f.q=e.target.value;clearTimeout(window._fq);window._fq=setTimeout(renderFocus,250);});
+  $("#fqNew").addEventListener("click",()=>openModal({}));
+  el.querySelectorAll(".fq-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>i.id===+b.dataset.id)})));
+  el.querySelectorAll(".fq-open").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>x.id===+b.dataset.id);activeCourse=i.course;switchTab("course");}));
+  el.querySelectorAll(".fq-promote").forEach(b=>b.addEventListener("click",()=>openStandardModal({issue:D.issues.find(i=>i.id===+b.dataset.id)})));
+  el.querySelectorAll(".fq-resolve").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>x.id===+b.dataset.id);i.status="Resolved";i.updatedAt=new Date().toISOString();markDirty();renderFocus();}));
 }
 
 /* ---------- OVERVIEW ---------- */
@@ -785,7 +1063,7 @@ function renderCourse(){
   el.querySelectorAll("select.wk-status-sel").forEach(s=>{
     s.addEventListener("change", ()=>{ wkState(c.id, +s.dataset.week).status = s.value; markDirty(); renderCourse(); });
   });
-  el.querySelectorAll(".checklist input").forEach(cb=>{
+  el.querySelectorAll(".general-checklist input").forEach(cb=>{
     cb.addEventListener("change", ()=>{
       const st = wkState(c.id, +cb.dataset.week);
       st.checks[+cb.dataset.idx] = cb.checked;
@@ -793,6 +1071,15 @@ function renderCourse(){
       // auto-suggest done
       const head = el.querySelector(`.week[data-wk="${wkKey(c.id,+cb.dataset.week)}"] .ck-count`);
       if(head) head.textContent = st.checks.filter(Boolean).length + "/" + CHECKLIST.length;
+    });
+  });
+  el.querySelectorAll(".activity-check").forEach(cb=>{
+    cb.addEventListener("change",()=>{
+      const arr=activityCheckState(c.id,+cb.dataset.week,+cb.dataset.activity,cb.dataset.type);
+      arr[+cb.dataset.check]=cb.checked;
+      markDirty();
+      const summary=cb.closest("details").querySelector(".activity-count");
+      if(summary) summary.textContent=arr.filter(Boolean).length+"/"+arr.length;
     });
   });
   el.querySelectorAll(".wk-note").forEach(t=>{
@@ -818,6 +1105,15 @@ function weekRow(c, w){
   const openIss = iss.filter(i=>i.status==="Open");
   const major = w.acts.some(a=>a.major);
   const ckDone = st.checks.filter(Boolean).length;
+  const activityAudits=w.acts.map((a,ai)=>{
+    const checklist=ACTIVITY_CHECKLISTS[a.t]||[];
+    if(!checklist.length) return "";
+    const state=activityCheckState(c.id,w.n,ai,a.t);
+    return `<details class="activity-audit">
+      <summary>${esc(a.t)} · ${esc(a.n)} <span class="muted activity-count">${state.filter(Boolean).length}/${state.length}</span></summary>
+      <div class="checklist">${checklist.map((item,ci)=>`<label><input class="activity-check" type="checkbox" data-week="${w.n}" data-activity="${ai}" data-check="${ci}" data-type="${esc(a.t)}" ${state[ci]?"checked":""}> ${esc(item)}</label>`).join("")}</div>
+    </details>`;
+  }).join("");
   return `<div class="week ${openWeeks[k]? "open":""}" data-wk="${k}">
     <div class="week-head">
       <div class="wk-num">Wk ${w.n}</div>
@@ -836,7 +1132,9 @@ function weekRow(c, w){
       <h4>Learner to-do this week</h4>
       <div>${w.acts.map(a=>`<div class="issue-line" style="border:none;padding:2px 0"><span class="dot" style="background:${TYPE_COLORS[a.t]};margin-top:5px"></span><span class="small" style="min-width:86px;color:var(--ink-3)">${a.t}</span><span class="small">${esc(a.n)}${a.major? ' <b style="color:var(--ink-1)">● major</b>':""}</span></div>`).join("")}</div>
       <h4>Design-standards checklist</h4>
-      <div class="checklist">${CHECKLIST.map((item,i)=>`<label><input type="checkbox" data-week="${w.n}" data-idx="${i}" ${st.checks[i]?"checked":""}> ${item}</label>`).join("")}</div>
+      <div class="checklist general-checklist">${CHECKLIST.map((item,i)=>`<label><input type="checkbox" data-week="${w.n}" data-idx="${i}" ${st.checks[i]?"checked":""}> ${item}</label>`).join("")}</div>
+      <h4>Activity-specific checks</h4>
+      <div class="activity-audits">${activityAudits}</div>
       <h4>Issues (${iss.length}) <button class="linkish add-wk-issue" data-week="${w.n}" style="margin-left:8px">+ log issue</button></h4>
       ${iss.length? iss.map(i=>`<div class="issue-line ${i.status==='Resolved'?'resolved':''}">
           <span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span>
@@ -896,46 +1194,54 @@ function heatmap(c){
 /* ---------- ISSUES ---------- */
 function renderIssues(){
   const el = $("#tab-issues");
-  let list = D.issues.slice().sort((a,b)=>{
-    const po = {HIGH:0,MEDIUM:1,LOW:2};
-    return (a.status==="Resolved")-(b.status==="Resolved") || po[a.prio]-po[b.prio] || a.course.localeCompare(b.course) || a.week-b.week;
-  });
+  let list = D.issues.slice().sort((a,b)=>(a.status==="Resolved")-(b.status==="Resolved") || issueSort(a,b));
   const f = issueFilter;
   if(f.course!=="all") list = list.filter(i=>i.course===f.course);
+  if(f.scope!=="all") list = list.filter(i=>i.scope===f.scope);
+  if(f.workflow!=="all") list = list.filter(i=>i.workflow===f.workflow);
   if(f.prio!=="all") list = list.filter(i=>i.prio===f.prio);
   if(f.status!=="all") list = list.filter(i=>i.status===f.status);
-  if(f.q) list = list.filter(i=>i.note.toLowerCase().includes(f.q.toLowerCase()));
+  if(f.q) list = list.filter(i=>[i.note,i.recommendation,i.smeResponse].join(" ").toLowerCase().includes(f.q.toLowerCase()));
 
   el.innerHTML = `
   <div class="card">
     <div class="filter-row">
-      <label>Course</label>
-      <select id="fCourse"><option value="all">All</option>${D.courses.map(c=>`<option value="${c.id}" ${f.course===c.id?"selected":""}>${c.code}</option>`).join("")}</select>
-      <label>Priority</label>
+      <label for="fCourse">Course</label>
+      <select id="fCourse"><option value="all">All</option>${D.courses.map(c=>`<option value="${esc(c.id)}" ${f.course===c.id?"selected":""}>${esc(c.code)}</option>`).join("")}</select>
+      <label for="fScope">Scope</label>
+      <select id="fScope"><option value="all">All</option>${Object.entries(SCOPES).map(([v,l])=>`<option value="${v}" ${f.scope===v?"selected":""}>${l}</option>`).join("")}</select>
+      <label for="fWorkflow">Workflow</label>
+      <select id="fWorkflow"><option value="all">All</option>${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${f.workflow===v?"selected":""}>${l}</option>`).join("")}</select>
+      <label for="fPrio">Priority</label>
       <select id="fPrio"><option value="all">All</option><option ${f.prio==="HIGH"?"selected":""}>HIGH</option><option ${f.prio==="MEDIUM"?"selected":""}>MEDIUM</option><option ${f.prio==="LOW"?"selected":""}>LOW</option></select>
-      <label>Status</label>
+      <label for="fStatus">Status</label>
       <select id="fStatus"><option value="all" ${f.status==="all"?"selected":""}>All</option><option ${f.status==="Open"?"selected":""}>Open</option><option ${f.status==="Resolved"?"selected":""}>Resolved</option></select>
       <input type="text" id="fQ" placeholder="Search notes…" value="${esc(f.q)}" style="flex:1;min-width:140px">
       <button class="primary" id="btnNewIssue">+ Log issue</button>
     </div>
+    <div class="table-wrap">
     <table class="data">
-      <thead><tr><th>Priority</th><th>Course</th><th>Week</th><th>Type</th><th style="width:50%">Description</th><th>Status</th><th></th></tr></thead>
+      <thead><tr><th>Priority</th><th>Scope</th><th>Location</th><th>Record</th><th style="width:38%">Description</th><th>Workflow</th><th>Status</th><th></th></tr></thead>
       <tbody>
       ${list.length? list.map(i=>`<tr class="${i.status==='Resolved'?'':''}">
-        <td><span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span></td>
-        <td>${esc(i.course)}</td>
-        <td class="num">${i.week||"—"}</td>
-        <td class="muted">${esc(i.type)}</td>
+        <td><span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span></td>
+        <td>${esc(scopeLabel(i))}</td>
+        <td>${esc(issueLocation(i))}</td>
+        <td class="muted">${esc(recordTypeLabel(i))}</td>
         <td ${i.status==='Resolved'? 'style="text-decoration:line-through;color:var(--ink-3)"':''}>${esc(i.note)}</td>
-        <td>${i.status}</td>
-        <td style="white-space:nowrap"><button class="linkish t-iss" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button> · <button class="linkish e-iss" data-id="${i.id}">edit</button></td>
-      </tr>`).join("") : `<tr><td colspan="7" class="muted">No issues match these filters.</td></tr>`}
+        <td><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></td>
+        <td>${esc(i.status)}</td>
+        <td style="white-space:nowrap"><button class="linkish t-iss" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button> · <button class="linkish e-iss" data-id="${i.id}">edit</button>${i.scope==="program"||i.recordType==="design_decision"?` · <button class="linkish p-iss" data-id="${i.id}">standard</button>`:""}</td>
+      </tr>`).join("") : `<tr><td colspan="8" class="muted">No issues match these filters.</td></tr>`}
       </tbody>
     </table>
-    <p class="note" style="margin-top:10px">Week “—” = course- or program-level issue. Use <b>Issues → CSV</b> in the header to export this log for Google Sheets.</p>
+    </div>
+    <p class="note" style="margin-top:10px">Program-wide records are reported separately from individual course issue totals. Use <b>Issues → CSV</b> in the header to export this log.</p>
   </div>`;
 
   $("#fCourse").addEventListener("change", e=>{ f.course=e.target.value; renderIssues(); });
+  $("#fScope").addEventListener("change", e=>{ f.scope=e.target.value; renderIssues(); });
+  $("#fWorkflow").addEventListener("change", e=>{ f.workflow=e.target.value; renderIssues(); });
   $("#fPrio").addEventListener("change", e=>{ f.prio=e.target.value; renderIssues(); });
   $("#fStatus").addEventListener("change", e=>{ f.status=e.target.value; renderIssues(); });
   $("#fQ").addEventListener("input", e=>{ f.q=e.target.value; clearTimeout(window._qq); window._qq=setTimeout(renderIssues,350); });
@@ -947,6 +1253,146 @@ function renderIssues(){
   el.querySelectorAll(".e-iss").forEach(b=>b.addEventListener("click", ()=>{
     openModal({edit: D.issues.find(x=>x.id===+b.dataset.id)});
   }));
+  el.querySelectorAll(".p-iss").forEach(b=>b.addEventListener("click", ()=>{
+    openStandardModal({issue:D.issues.find(x=>x.id===+b.dataset.id)});
+  }));
+}
+
+/* ---------- PROGRAM STANDARDS ---------- */
+function renderStandards(){
+  const el=$("#tab-standards");
+  const f=standardFilter;
+  let list=D.standards.slice();
+  if(f.status!=="all") list=list.filter(s=>s.status===f.status);
+  if(f.q) list=list.filter(s=>[s.title,s.rationale,s.example].join(" ").toLowerCase().includes(f.q.toLowerCase()));
+  list.sort((a,b)=>({approved:0,draft:1,retired:2}[a.status]-{approved:0,draft:1,retired:2}[b.status])||a.title.localeCompare(b.title));
+  const approved=D.standards.filter(s=>s.status==="approved").length;
+  const checks=D.standards.reduce((n,s)=>n+standardCounts(s).compliant,0);
+  const total=D.standards.reduce((n,s)=>n+standardCounts(s).total,0);
+  el.innerHTML=`
+    <div class="tiles">
+      <div class="tile"><div class="label">Program standards</div><div class="value">${D.standards.length}</div><div class="detail">${approved} approved</div></div>
+      <div class="tile"><div class="label">Course checks</div><div class="value">${checks}<span class="muted" style="font-size:16px;font-weight:400"> / ${total}</span></div><div class="detail">Marked compliant</div></div>
+      <div class="tile"><div class="label">Program decisions awaiting approval</div><div class="value">${D.issues.filter(i=>i.status==="Open"&&i.scope==="program"&&i.recordType==="design_decision").length}</div><div class="detail">Promote decisions into reusable standards</div></div>
+    </div>
+    <div class="card">
+      <div class="filter-row">
+        <label for="stdStatusFilter">Status</label>
+        <select id="stdStatusFilter"><option value="all">All</option>${Object.entries(STANDARD_STATUSES).map(([v,l])=>`<option value="${v}" ${f.status===v?"selected":""}>${l}</option>`).join("")}</select>
+        <input type="text" id="stdQ" placeholder="Search standards…" value="${esc(f.q)}" style="flex:1;min-width:180px">
+        <button class="primary" id="stdNew">+ Add standard</button>
+      </div>
+      ${list.length?list.map(s=>{
+        const counts=standardCounts(s);
+        const courses=standardCourses(s);
+        return `<div class="standard-card">
+          <div class="standard-head">
+            <div class="standard-copy">
+              <div class="standard-status ${esc(s.status)}">${esc(STANDARD_STATUSES[s.status])}</div>
+              <h3>${esc(s.title)}</h3>
+              ${s.rationale?`<p class="small" style="margin:5px 0 0">${esc(s.rationale)}</p>`:""}
+              ${s.example?`<p class="note" style="margin:6px 0 0"><b>Example:</b> ${esc(s.example)}</p>`:""}
+            </div>
+            <span class="pill">${counts.compliant}/${counts.total} compliant</span>
+            <button class="linkish std-edit" data-id="${s.id}">edit</button>
+          </div>
+          <details>
+            <summary class="small" style="cursor:pointer;margin-top:10px">Review course compliance</summary>
+            <div class="standard-grid">
+              <div class="grid-head">Course</div><div class="grid-head">Status</div><div class="grid-head">Note / exception</div>
+              ${courses.map(c=>{const ck=standardCheck(s.id,c.id);return `<div><b>${esc(c.code)}</b><div class="muted small">${esc(c.title)}</div></div>
+                <select class="std-compliance" data-standard="${s.id}" data-course="${esc(c.id)}">${Object.entries(COMPLIANCE_STATUSES).map(([v,l])=>`<option value="${v}" ${ck.status===v?"selected":""}>${l}</option>`).join("")}</select>
+                <input type="text" class="std-note" data-standard="${s.id}" data-course="${esc(c.id)}" value="${esc(ck.note)}" placeholder="Optional note…">`;}).join("")}
+            </div>
+          </details>
+        </div>`;
+      }).join(""):`<p class="muted">No standards match these filters.</p>`}
+    </div>`;
+  $("#stdStatusFilter").addEventListener("change",e=>{f.status=e.target.value;renderStandards();});
+  $("#stdQ").addEventListener("input",e=>{f.q=e.target.value;clearTimeout(window._sq);window._sq=setTimeout(renderStandards,250);});
+  $("#stdNew").addEventListener("click",()=>openStandardModal({}));
+  el.querySelectorAll(".std-edit").forEach(b=>b.addEventListener("click",()=>openStandardModal({edit:D.standards.find(s=>s.id===+b.dataset.id)})));
+  el.querySelectorAll(".std-compliance").forEach(sel=>sel.addEventListener("change",()=>{
+    standardCheck(+sel.dataset.standard,sel.dataset.course).status=sel.value;markDirty();renderStandards();
+  }));
+  el.querySelectorAll(".std-note").forEach(inp=>inp.addEventListener("change",()=>{
+    standardCheck(+inp.dataset.standard,inp.dataset.course).note=inp.value.trim();markDirty();
+  }));
+}
+
+/* ---------- SME HANDOFF ---------- */
+function smeRecords(){
+  return D.issues.filter(i=>i.status==="Open"&&["needs_sme","ready_sme_review","sme_revision"].includes(i.workflow));
+}
+function handoffMarkdown(records){
+  const lines=[`# ${D.meta.program||"MSW"} · SME Review Handoff`,``, `Generated ${new Date().toLocaleDateString()}`, ``];
+  records.slice().sort(issueSort).forEach(i=>{
+    lines.push(`## ${issueLocation(i)}`);
+    lines.push(`**${recordTypeLabel(i)} · ${workflowLabel(i)} · ${i.prio} priority**`);
+    lines.push(``,i.note);
+    if(i.recommendation) lines.push(``,`**ID recommendation:** ${i.recommendation}`);
+    if(i.smeResponse) lines.push(``,`**Current SME response:** ${i.smeResponse}`);
+    lines.push(``,`---`,``);
+  });
+  return lines.join("\n");
+}
+async function copyText(text){
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return;}
+  const t=document.createElement("textarea");t.value=text;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();
+}
+function renderSme(){
+  const el=$("#tab-sme");
+  const all=smeRecords();
+  if(!handoffInitialized){all.forEach(i=>handoffSelected.add(i.id));handoffInitialized=true;}
+  const f=smeFilter;
+  let list=all.slice();
+  if(f.course!=="all") list=list.filter(i=>f.course==="program"?i.scope==="program":i.course===f.course&&i.scope!=="program");
+  if(f.workflow!=="all") list=list.filter(i=>i.workflow===f.workflow);
+  list.sort(issueSort);
+  const chosen=all.filter(i=>handoffSelected.has(i.id));
+  el.innerHTML=`
+    <div class="tiles">
+      <div class="tile"><div class="label">Needs SME answer</div><div class="value">${all.filter(i=>i.workflow==="needs_sme").length}</div></div>
+      <div class="tile"><div class="label">Ready for review</div><div class="value">${all.filter(i=>i.workflow==="ready_sme_review").length}</div></div>
+      <div class="tile"><div class="label">Revision requested</div><div class="value">${all.filter(i=>i.workflow==="sme_revision").length}</div></div>
+    </div>
+    <div class="card">
+      <h2>SME handoff builder</h2>
+      <p class="note">Select only the questions and changes a faculty reviewer needs to see, then copy or download a compact Markdown handoff.</p>
+      <div class="filter-row">
+        <label for="smeCourse">Course</label>
+        <select id="smeCourse"><option value="all">All</option><option value="program" ${f.course==="program"?"selected":""}>Program-wide</option>${D.courses.map(c=>`<option value="${esc(c.id)}" ${f.course===c.id?"selected":""}>${esc(c.code)}</option>`).join("")}</select>
+        <label for="smeWorkflow">Workflow</label>
+        <select id="smeWorkflow"><option value="all">All</option>${["needs_sme","ready_sme_review","sme_revision"].map(v=>`<option value="${v}" ${f.workflow===v?"selected":""}>${WORKFLOWS[v]}</option>`).join("")}</select>
+        <button id="smeAll">Select shown</button><button id="smeNone">Clear</button>
+        <span style="flex:1"></span>
+        <button id="smeCopy" ${chosen.length?"":"disabled"}>Copy handoff</button>
+        <button id="smeDownload" class="primary" ${chosen.length?"":"disabled"}>Download .md</button>
+      </div>
+      <div class="status-note" id="smeStatus">${chosen.length} item${chosen.length===1?"":"s"} selected</div>
+      <div style="margin-top:8px">
+        ${list.length?list.map(i=>`<div class="handoff-item">
+          <input type="checkbox" class="sme-pick" data-id="${i.id}" ${handoffSelected.has(i.id)?"checked":""} aria-label="Include ${esc(issueLocation(i))}">
+          <div>
+            <div class="focus-top"><span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span><span class="scope-pill">${esc(scopeLabel(i))}</span><span class="type-pill">${esc(recordTypeLabel(i))}</span><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></div>
+            <div style="font-weight:600;margin-top:6px">${esc(issueLocation(i))}</div>
+            <div class="small" style="margin-top:4px">${esc(i.note)}</div>
+            ${i.recommendation?`<div class="note" style="margin:6px 0 0"><b>ID recommendation:</b> ${esc(i.recommendation)}</div>`:""}
+            ${i.smeResponse?`<div class="note" style="margin:6px 0 0"><b>SME response:</b> ${esc(i.smeResponse)}</div>`:""}
+            <div class="focus-actions"><button class="linkish sme-edit" data-id="${i.id}">edit record</button><select class="sme-flow" data-id="${i.id}">${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${i.workflow===v?"selected":""}>${l}</option>`).join("")}</select></div>
+          </div>
+        </div>`).join(""):`<p class="muted">No SME items match these filters.</p>`}
+      </div>
+    </div>`;
+  $("#smeCourse").addEventListener("change",e=>{f.course=e.target.value;renderSme();});
+  $("#smeWorkflow").addEventListener("change",e=>{f.workflow=e.target.value;renderSme();});
+  $("#smeAll").addEventListener("click",()=>{list.forEach(i=>handoffSelected.add(i.id));renderSme();});
+  $("#smeNone").addEventListener("click",()=>{handoffSelected.clear();renderSme();});
+  el.querySelectorAll(".sme-pick").forEach(cb=>cb.addEventListener("change",()=>{cb.checked?handoffSelected.add(+cb.dataset.id):handoffSelected.delete(+cb.dataset.id);renderSme();}));
+  el.querySelectorAll(".sme-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>i.id===+b.dataset.id)})));
+  el.querySelectorAll(".sme-flow").forEach(sel=>sel.addEventListener("change",()=>{const i=D.issues.find(x=>x.id===+sel.dataset.id);i.workflow=sel.value;i.updatedAt=new Date().toISOString();if(sel.value==="approved")i.status="Resolved";markDirty();renderSme();}));
+  $("#smeCopy").addEventListener("click",async()=>{try{await copyText(handoffMarkdown(chosen));$("#smeStatus").textContent="Copied handoff to clipboard.";}catch(e){$("#smeStatus").textContent="Could not copy; use Download instead.";}});
+  $("#smeDownload").addEventListener("click",()=>download(`msw-sme-handoff-${new Date().toISOString().slice(0,10)}.md`,handoffMarkdown(chosen),"text/markdown"));
 }
 
 /* ---------- ABOUT ---------- */
@@ -954,12 +1400,13 @@ function renderAbout(){
   $("#tab-about").innerHTML = `
   <div class="card">
     <h2>What this is</h2>
-    <p>A single-file workspace for modernizing the Exclusively Online MSW curriculum: track redesign progress per course, review each week against a shared design-standards checklist, see the course the way a learner experiences it, and keep an issue log that leadership can read at a glance.</p>
+    <p>Your instructional-design cockpit for auditing, standardizing, improving, and maintaining the Exclusively Online MSW courses in Brightspace.</p>
     <h2 style="margin-top:16px">The workflow</h2>
-    <p><b>1. Pick a course</b> (Course Detail tab) and set its pipeline status — Not Started → Auditing → Rebuilding → SME Review → Finalized.<br>
-    <b>2. Work week by week.</b> Expand a week, compare the learner to-do list against what's actually in Brightspace, tick the checklist as you fix things, log issues where you can't fix immediately, and mark the week Done.<br>
-    <b>3. Use the heatmap</b> to sanity-check learner load: spikes, dead weeks, and stacked major deliverables (●) jump out.<br>
-    <b>4. Report up.</b> The Program Overview tab is the leadership view: pipeline, open issues by priority, and per-course progress.</p>
+    <p><b>1. Start in Focus Queue.</b> Filter your next actions by course, SME state, priority, effort, or target date.<br>
+    <b>2. Audit a course week by week.</b> Use the shared module checklist plus activity-specific checks for readings, videos, discussions, assignments, quizzes, and group work.<br>
+    <b>3. Capture records at the right scope.</b> An item can belong to the program, a course, a week/module, or one activity, and can be a defect, improvement, SME question, decision, or content verification.<br>
+    <b>4. Turn decisions into standards.</b> Promote program decisions into the Standards library and track compliance by course.<br>
+    <b>5. Hand off only what faculty need.</b> SME Handoff builds a concise review document from selected questions and proposed changes.</p>
     <h2 style="margin-top:16px">Saving your work</h2>
     <p><b>Autosave is on.</b> Every edit saves to this browser instantly. With a GitHub token configured (⚙ in the header), edits also auto-commit to <b>data.json</b> in the site's own repo about 20 seconds after you stop editing — the header chip shows the current state, and <b>Sync to GitHub</b> forces a commit immediately. On load, the page pulls the newest copy (browser vs. repo), so you can move between devices. If the repo copy is ever newer than what your page loaded (edits from another device), you'll be asked before anything is overwritten.</p>
     <p><b>Backups:</b> <b>Export JSON</b> downloads a snapshot file and <b>Import JSON</b> restores one. <b>Issues → CSV</b> exports the issue log for the shared Google Sheet. Every GitHub sync is also a commit, so the repo history is itself a full backup timeline.</p>
@@ -973,41 +1420,95 @@ let editingIssue = null;
 function openModal(opts){
   editingIssue = opts.edit || null;
   $("#modalTitle").textContent = editingIssue? "Edit issue" : "Log an issue";
-  $("#mCourse").innerHTML = D.courses.map(c=>`<option value="${c.id}">${c.code} — ${esc(c.title)}</option>`).join("");
+  $("#mScope").innerHTML = Object.entries(SCOPES).map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("#mRecordType").innerHTML = Object.entries(RECORD_TYPES).map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("#mWorkflow").innerHTML = Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("#mEffort").innerHTML = Object.entries(EFFORTS).map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("#mCourse").innerHTML = D.courses.map(c=>`<option value="${esc(c.id)}">${esc(c.code)} — ${esc(c.title)}</option>`).join("");
   $("#mType").innerHTML = ACTIVITY_TYPES.map(t=>`<option>${t}</option>`).join("") + `<option>Other</option>`;
   const cid = editingIssue?.course || opts.course || activeCourse;
   $("#mCourse").value = cid;
   fillWeeks(cid);
+  $("#mScope").value = editingIssue?.scope || (opts.week?"week":opts.course?"course":"course");
+  $("#mRecordType").value = editingIssue?.recordType || "improvement";
   $("#mWeek").value = String(editingIssue?.week ?? opts.week ?? 0);
   $("#mType").value = editingIssue?.type || "Assignment";
   $("#mPrio").value = editingIssue?.prio || "MEDIUM";
+  $("#mEffort").value = editingIssue?.effort || "medium";
+  $("#mTarget").value = editingIssue?.targetDate || "";
+  $("#mWorkflow").value = editingIssue?.workflow || "id_can_resolve";
   $("#mStatus").value = editingIssue?.status || "Open";
   $("#mNote").value = editingIssue?.note || "";
+  $("#mRecommendation").value = editingIssue?.recommendation || "";
+  $("#mSmeResponse").value = editingIssue?.smeResponse || "";
+  syncModalScope();
   $("#modalBack").classList.add("show");
   $("#mNote").focus();
 }
 function fillWeeks(cid){
   const c = course(cid);
-  const n = c.weeks.length || 14;
-  let opts = `<option value="0">Course/program level</option>`;
+  const n = c?.weeks?.length || 14;
+  let opts = `<option value="0">Not tied to a week</option>`;
   for(let i=1;i<=n;i++) opts += `<option value="${i}">Week ${i}</option>`;
   $("#mWeek").innerHTML = opts;
 }
-$("#mCourse").addEventListener("change", e=>fillWeeks(e.target.value));
+function syncModalScope(){
+  const scope=$("#mScope").value;
+  $("#mCourse").disabled=scope==="program";
+  $("#mWeek").disabled=!(["week","activity"].includes(scope));
+  if(scope==="program"||scope==="course") $("#mWeek").value="0";
+}
+$("#mScope").addEventListener("change",syncModalScope);
+$("#mCourse").addEventListener("change", e=>{const prior=$("#mWeek").value;fillWeeks(e.target.value);$("#mWeek").value=prior;});
 $("#mCancel").addEventListener("click", ()=>$("#modalBack").classList.remove("show"));
 $("#modalBack").addEventListener("click", e=>{ if(e.target.id==="modalBack") $("#modalBack").classList.remove("show"); });
+document.addEventListener("keydown",e=>{if(e.key==="Escape") $$(".modal-back.show").forEach(m=>m.classList.remove("show"));});
 $("#mSave").addEventListener("click", ()=>{
   const note = $("#mNote").value.trim();
   if(!note){ $("#mNote").focus(); return; }
+  const scope=$("#mScope").value;
   const rec = {
-    course: $("#mCourse").value, week: +$("#mWeek").value, type: $("#mType").value,
-    prio: $("#mPrio").value, status: $("#mStatus").value, note
+    scope, recordType:$("#mRecordType").value,
+    course: scope==="program"?"":$("#mCourse").value,
+    week: ["week","activity"].includes(scope)?+$("#mWeek").value:0,
+    type: $("#mType").value, prio: $("#mPrio").value, effort:$("#mEffort").value,
+    targetDate:$("#mTarget").value, workflow:$("#mWorkflow").value,
+    status: $("#mStatus").value, note,
+    recommendation:$("#mRecommendation").value.trim(), smeResponse:$("#mSmeResponse").value.trim(),
+    updatedAt:new Date().toISOString()
   };
+  if(rec.workflow==="approved") rec.status="Resolved";
   if(editingIssue){ Object.assign(editingIssue, rec); }
-  else { D.issues.push({ id: D.nextIssueId++, ...rec }); }
+  else { D.issues.push({ id: D.nextIssueId++, createdAt:new Date().toISOString(), ...rec }); }
   markDirty();
   $("#modalBack").classList.remove("show");
   render();
+});
+
+let editingStandard=null, standardSourceIssueId=null;
+function openStandardModal(opts){
+  editingStandard=opts.edit||null;
+  const source=opts.issue||null;
+  standardSourceIssueId=editingStandard?.sourceIssueId||source?.id||null;
+  $("#stdTitle").textContent=editingStandard?"Edit program standard":source?"Promote decision to standard":"Add program standard";
+  $("#sApplies").innerHTML=`<option value="*">All program courses</option>`+D.courses.map(c=>`<option value="${esc(c.id)}">${esc(c.code)} — ${esc(c.title)}</option>`).join("");
+  $("#sTitle").value=editingStandard?.title||(source?.note||"").replace(/^Program-wide:\s*/i,"");
+  $("#sStatus").value=editingStandard?.status||"draft";
+  $("#sRationale").value=editingStandard?.rationale||source?.note||"";
+  $("#sExample").value=editingStandard?.example||source?.recommendation||"";
+  const applies=editingStandard?.appliesTo||(source&&source.scope!=="program"?[source.course]:["*"]);
+  [...$("#sApplies").options].forEach(o=>o.selected=applies.includes(o.value));
+  $("#stdBack").classList.add("show");
+  $("#sTitle").focus();
+}
+$("#sCancel").addEventListener("click",()=>$("#stdBack").classList.remove("show"));
+$("#stdBack").addEventListener("click",e=>{if(e.target.id==="stdBack")$("#stdBack").classList.remove("show");});
+$("#sSave").addEventListener("click",()=>{
+  const title=$("#sTitle").value.trim();if(!title){$("#sTitle").focus();return;}
+  let applies=[...$("#sApplies").selectedOptions].map(o=>o.value);if(!applies.length||applies.includes("*"))applies=["*"];
+  const rec={title,status:$("#sStatus").value,appliesTo:applies,rationale:$("#sRationale").value.trim(),example:$("#sExample").value.trim(),sourceIssueId:standardSourceIssueId,updatedAt:new Date().toISOString()};
+  if(editingStandard)Object.assign(editingStandard,rec);else D.standards.push({id:D.nextStandardId++,...rec});
+  markDirty();$("#stdBack").classList.remove("show");switchTab("standards");
 });
 
 /* ---------- IMPORT / EXPORT ---------- */
@@ -1023,8 +1524,8 @@ $("#btnExport").addEventListener("click", ()=>{
 });
 $("#btnCSV").addEventListener("click", ()=>{
   const q = v => `"${String(v??"").replace(/"/g,'""')}"`;
-  const rows = [["Course","Week","Activity Type","Priority","Status","Description"].map(q).join(",")];
-  D.issues.forEach(i=>rows.push([i.course, i.week||"", i.type, i.prio, i.status, i.note].map(q).join(",")));
+  const rows = [["Scope","Course","Week","Record Type","Activity Type","Priority","Effort","Workflow","Target Date","Status","Description","ID Recommendation","SME Response"].map(q).join(",")];
+  D.issues.forEach(i=>rows.push([scopeLabel(i),i.course,i.week||"",recordTypeLabel(i),i.type,i.prio,EFFORTS[i.effort]||i.effort,workflowLabel(i),i.targetDate,i.status,i.note,i.recommendation,i.smeResponse].map(q).join(",")));
   download(`msw-course-issues-${new Date().toISOString().slice(0,10)}.csv`, "﻿"+rows.join("\r\n"), "text/csv");
 });
 $("#btnImport").addEventListener("click", ()=>$("#fileImport").click());
@@ -1074,7 +1575,7 @@ if(matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.
 function switchTab(t){
   activeTab = t;
   $$("nav.tabs button").forEach(b=>b.classList.toggle("active", b.dataset.tab===t));
-  ["overview","course","issues","about"].forEach(k=>{ $("#tab-"+k).style.display = k===t? "":"none"; });
+  ["focus","overview","course","issues","standards","sme","about"].forEach(k=>{ $("#tab-"+k).style.display = k===t? "":"none"; });
   render();
 }
 $$("nav.tabs button").forEach(b=>b.addEventListener("click", ()=>switchTab(b.dataset.tab)));
@@ -1085,9 +1586,12 @@ window.addEventListener("beforeunload", e=>{
 });
 
 function render(){
-  if(activeTab==="overview") renderOverview();
+  if(activeTab==="focus") renderFocus();
+  else if(activeTab==="overview") renderOverview();
   else if(activeTab==="course") renderCourse();
   else if(activeTab==="issues") renderIssues();
+  else if(activeTab==="standards") renderStandards();
+  else if(activeTab==="sme") renderSme();
   else renderAbout();
 }
 
