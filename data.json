@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": null
+  "saved": "2026-07-14T18:39:38.678Z"
  },
  "courses": [
   {
@@ -1628,7 +1628,15 @@
    "type": "Reading",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Asks learners to read 'BU Social Work Library Guide' — links to a huge database. What exactly should they read or do with it? Unclear."
+   "note": "Asks learners to read 'BU Social Work Library Guide' — links to a huge database. What exactly should they read or do with it? Unclear.",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "needs_sme",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 2,
@@ -1637,7 +1645,15 @@
    "type": "Reading",
    "prio": "LOW",
    "status": "Open",
-   "note": "'Types of Research Questions' table pasted into the module intro — purpose unclear, and it links to dissertationwritinghelp.uk, which appears to sell dissertations."
+   "note": "'Types of Research Questions' table pasted into the module intro — purpose unclear, and it links to dissertationwritinghelp.uk, which appears to sell dissertations.",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "needs_sme",
+   "effort": "quick",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 3,
@@ -1646,7 +1662,15 @@
    "type": "Assignment",
    "prio": "HIGH",
    "status": "Open",
-   "note": "Submission cadence/instructions unclear: are they ONLY submitting a group research question together? How and when are groups communicated?"
+   "note": "Submission cadence/instructions unclear: are they ONLY submitting a group research question together? How and when are groups communicated?",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "needs_sme",
+   "effort": "deep",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 4,
@@ -1655,7 +1679,15 @@
    "type": "Assignment",
    "prio": "LOW",
    "status": "Open",
-   "note": "'Paradigm Exercise (carryover from last week)' text in Week 3 Assignment — keep or delete? Meaning unclear for week 3."
+   "note": "'Paradigm Exercise (carryover from last week)' text in Week 3 Assignment — keep or delete? Meaning unclear for week 3.",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "needs_sme",
+   "effort": "quick",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 5,
@@ -1664,7 +1696,15 @@
    "type": "Discussion",
    "prio": "HIGH",
    "status": "Open",
-   "note": "Weekly Assignment/Discussion board instructions lacking, no due date; needs serious review and fixes."
+   "note": "Weekly Assignment/Discussion board instructions lacking, no due date; needs serious review and fixes.",
+   "scope": "week",
+   "recordType": "defect",
+   "workflow": "id_can_resolve",
+   "effort": "deep",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 6,
@@ -1673,7 +1713,15 @@
    "type": "Milestone",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Program-wide: differentiate between 'Assignment', 'Discussion', and 'Discussion Assignment / Graded Discussion' naming conventions."
+   "note": "Program-wide: differentiate between 'Assignment', 'Discussion', and 'Discussion Assignment / Graded Discussion' naming conventions.",
+   "scope": "program",
+   "recordType": "design_decision",
+   "workflow": "id_can_resolve",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 7,
@@ -1682,7 +1730,15 @@
    "type": "Milestone",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Missing weekly module introduction paragraph. AI-generated intro drafted — needs SME review."
+   "note": "Missing weekly module introduction paragraph. AI-generated intro drafted — needs SME review.",
+   "scope": "week",
+   "recordType": "defect",
+   "workflow": "needs_sme",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 8,
@@ -1691,7 +1747,15 @@
    "type": "Assignment",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Need due dates and clear instructions for assignment; the group work seems confusing and unclear."
+   "note": "Need due dates and clear instructions for assignment; the group work seems confusing and unclear.",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "needs_sme",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 9,
@@ -1700,7 +1764,15 @@
    "type": "Assignment",
    "prio": "LOW",
    "status": "Open",
-   "note": "CITI Training instructions could use more context/elaboration; previous instructions were minimally ported over."
+   "note": "CITI Training instructions could use more context/elaboration; previous instructions were minimally ported over.",
+   "scope": "week",
+   "recordType": "improvement",
+   "workflow": "id_can_resolve",
+   "effort": "quick",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 10,
@@ -1709,7 +1781,15 @@
    "type": "Video",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Broken module image header. Found the Chicago-Times image on Google, but it isn't an ideal contextualized header image."
+   "note": "Broken module image header. Found the Chicago-Times image on Google, but it isn't an ideal contextualized header image.",
+   "scope": "week",
+   "recordType": "defect",
+   "workflow": "id_can_resolve",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
   },
   {
    "id": 11,
@@ -1718,7 +1798,33 @@
    "type": "Milestone",
    "prio": "MEDIUM",
    "status": "Open",
-   "note": "Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment."
+   "note": "Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment.",
+   "scope": "program",
+   "recordType": "design_decision",
+   "workflow": "id_can_resolve",
+   "effort": "medium",
+   "targetDate": "",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": null
+  },
+  {
+   "id": 12,
+   "createdAt": "2026-07-14T18:39:18.677Z",
+   "scope": "activity",
+   "recordType": "defect",
+   "course": "Z504",
+   "week": 7,
+   "type": "Assignment",
+   "prio": "HIGH",
+   "effort": "quick",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "Need a due date for the Sampling Part 2 Discussion",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-14T18:39:18.677Z"
   }
  ],
  "standards": [
@@ -1728,7 +1834,9 @@
    "status": "draft",
    "rationale": "Use predictable names so learners can distinguish assignments, discussions, and graded discussions across the program.",
    "example": "Use “Discussion Assignment” for graded discussions and reserve “Discussion” for ungraded interaction.",
-   "appliesTo": ["*"],
+   "appliesTo": [
+    "*"
+   ],
    "sourceIssueId": 6,
    "updatedAt": null
   },
@@ -1738,13 +1846,1890 @@
    "status": "draft",
    "rationale": "Make grading expectations easy to find without duplicating generic material throughout a course.",
    "example": "Use a standard Rubrics area and link the applicable rubric from each graded activity.",
-   "appliesTo": ["*"],
+   "appliesTo": [
+    "*"
+   ],
    "sourceIssueId": 11,
    "updatedAt": null
   }
  ],
- "nextIssueId": 12,
+ "nextIssueId": 13,
  "nextStandardId": 3,
- "standardChecks": {},
- "weekState": {}
+ "standardChecks": {
+  "1:Z504": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z503": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z505": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z510": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z515": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z506": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z511": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z512": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z520": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z521": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z522": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z523": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z524": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "1:Z525": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z504": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z503": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z505": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z510": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z515": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z506": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z511": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z512": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z520": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z521": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z522": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z523": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z524": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "2:Z525": {
+   "status": "not_reviewed",
+   "note": ""
+  }
+ },
+ "weekState": {
+  "Z504-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "4": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "5": [
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z504-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z503-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": ""
+  },
+  "Z505-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z505-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z510-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z515-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  }
+ }
 }
