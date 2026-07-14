@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EO MSW Course Design Studio</title>
+<style>
+:root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --page: #f9f9f7;
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --ring: rgba(11,11,11,0.10);
+  --accent: #2a78d6;
+  --accent-soft: #cde2fb;
+  --seq-100:#cde2fb; --seq-200:#9ec5f4; --seq-300:#6da7ec; --seq-400:#3987e5; --seq-500:#256abf; --seq-600:#184f95; --seq-700:#0d366b;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#eda100; --s4:#008300; --s5:#4a3aa7; --s6:#e34948; --s7:#e87ba4; --s8:#eb6834;
+  --crit:#d03b3b; --warn:#fab219; --serious:#ec835a; --good:#0ca30c; --good-text:#006300;
+  --wash: rgba(42,120,214,0.08);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-1: #1a1a19;
+  --page: #0d0d0d;
+  --ink-1: #ffffff;
+  --ink-2: #c3c2b7;
+  --ink-3: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --ring: rgba(255,255,255,0.10);
+  --accent: #3987e5;
+  --accent-soft: #0d366b;
+  --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#008300; --s5:#9085e9; --s6:#e66767; --s7:#d55181; --s8:#d95926;
+  --good-text:#0ca30c;
+  --wash: rgba(57,135,229,0.14);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink-1);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px; line-height: 1.45;
+}
+header.appbar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 14px 22px; background: var(--surface-1);
+  border-bottom: 1px solid var(--grid); position: sticky; top: 0; z-index: 40;
+}
+.appbar h1 { font-size: 17px; margin: 0; font-weight: 650; letter-spacing: -0.01em; }
+.appbar .sub { color: var(--ink-3); font-size: 12.5px; }
+.appbar .spacer { flex: 1; }
+.dirty-pill {
+  font-size: 12px; color: var(--ink-2); background: var(--wash);
+  border: 1px solid var(--ring); border-radius: 20px; padding: 3px 12px; display: none;
+}
+.dirty-pill.show { display: inline-block; }
+button, .btn {
+  font: inherit; font-size: 13px; cursor: pointer; color: var(--ink-1);
+  background: var(--surface-1); border: 1px solid var(--baseline);
+  border-radius: 8px; padding: 6px 13px;
+}
+button:hover { background: var(--wash); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary:hover { opacity: 0.9; }
+button.ghost { border-color: transparent; color: var(--ink-2); }
+nav.tabs { display: flex; gap: 4px; padding: 0 22px; background: var(--surface-1); border-bottom: 1px solid var(--grid); }
+nav.tabs button {
+  border: none; background: none; border-radius: 0; padding: 11px 16px;
+  color: var(--ink-2); border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs button.active { color: var(--ink-1); border-bottom-color: var(--accent); font-weight: 650; }
+main { max-width: 1220px; margin: 0 auto; padding: 22px; }
+.card {
+  background: var(--surface-1); border: 1px solid var(--grid);
+  border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;
+}
+.card h2 { font-size: 14.5px; margin: 0 0 4px; font-weight: 650; }
+.card .note { color: var(--ink-3); font-size: 12.5px; margin: 0 0 12px; }
+/* stat tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.tile { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px; padding: 14px 16px; }
+.tile .label { color: var(--ink-2); font-size: 12.5px; }
+.tile .value { font-size: 30px; font-weight: 600; margin-top: 2px; }
+.tile .detail { color: var(--ink-3); font-size: 12px; margin-top: 3px; }
+/* course cards */
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 14px; }
+.ccard {
+  background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px;
+  padding: 14px 16px; cursor: pointer; transition: border-color .12s;
+}
+.ccard:hover { border-color: var(--accent); }
+.ccard .code { font-weight: 650; font-size: 13.5px; }
+.ccard .title { color: var(--ink-2); font-size: 12.5px; min-height: 2.6em; margin-top: 1px; }
+.ccard .meta { display: flex; gap: 8px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+.pill { font-size: 11.5px; border-radius: 20px; padding: 2px 10px; border: 1px solid var(--ring); color: var(--ink-2); background: var(--page); white-space: nowrap; }
+.pill.st-0 { }
+.pill.st-1 { background: var(--wash); color: var(--ink-1); }
+.pill.st-2 { background: var(--accent); color: #fff; border-color: var(--accent); }
+.pill.st-3 { background: var(--seq-600); color: #fff; border-color: var(--seq-600); }
+.pill.st-4 { background: var(--good); color: #fff; border-color: var(--good); }
+.meter { height: 6px; border-radius: 4px; background: var(--accent-soft); overflow: hidden; margin-top: 10px; }
+.meter > div { height: 100%; background: var(--accent); border-radius: 4px; }
+.ccard .foot { display: flex; justify-content: space-between; color: var(--ink-3); font-size: 11.5px; margin-top: 6px; }
+.issue-dots { display: flex; gap: 6px; font-size: 11.5px; color: var(--ink-2); }
+.issue-dots b { font-weight: 600; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; vertical-align: 1px; }
+/* chips */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px;
+  border: 1px solid var(--ring); background: var(--page); color: var(--ink-2);
+  border-radius: 6px; padding: 2px 8px; margin: 2px 4px 2px 0; white-space: nowrap;
+}
+.chip .dot { margin-right: 0; }
+/* course detail */
+.detail-head { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.detail-head h2 { font-size: 17px; margin: 0; }
+select, input[type=text], textarea {
+  font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface-1);
+  border: 1px solid var(--baseline); border-radius: 8px; padding: 6px 10px;
+}
+textarea { width: 100%; resize: vertical; }
+.filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+.filter-row label { color: var(--ink-2); font-size: 12.5px; }
+/* week rows */
+.week {
+  border: 1px solid var(--grid); border-radius: 10px; margin-bottom: 10px;
+  background: var(--surface-1); overflow: hidden;
+}
+.week-head { display: flex; align-items: center; gap: 12px; padding: 10px 14px; cursor: pointer; }
+.week-head:hover { background: var(--wash); }
+.wk-num {
+  min-width: 44px; text-align: center; font-weight: 650; font-size: 12px;
+  color: var(--ink-2); border: 1px solid var(--grid); border-radius: 8px; padding: 4px 2px; background: var(--page);
+}
+.wk-title { font-weight: 600; font-size: 13.5px; flex: 1; }
+.wk-title .dates { color: var(--ink-3); font-weight: 400; font-size: 11.5px; margin-left: 8px; }
+.wk-flags { display: flex; gap: 6px; align-items: center; }
+.wk-status { font-size: 11.5px; border-radius: 20px; padding: 2px 10px; border: 1px solid var(--ring); }
+.wk-status.todo { color: var(--ink-3); background: var(--page); }
+.wk-status.doing { color: #fff; background: var(--accent); border-color: var(--accent); }
+.wk-status.done { color: #fff; background: var(--good); border-color: var(--good); }
+.week-body { border-top: 1px solid var(--grid); padding: 12px 16px; display: none; }
+.week.open .week-body { display: block; }
+.week-body h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); margin: 12px 0 6px; font-weight: 600; }
+.week-body h4:first-child { margin-top: 0; }
+.checklist { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 4px 14px; }
+.checklist label { display: flex; gap: 7px; align-items: center; font-size: 12.5px; color: var(--ink-2); cursor: pointer; }
+.checklist input { accent-color: var(--accent); }
+.issue-line { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; border-bottom: 1px solid var(--grid); font-size: 12.5px; }
+.issue-line:last-child { border-bottom: none; }
+.prio { font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; border-radius: 5px; padding: 1px 7px; color: #fff; white-space: nowrap; }
+.prio.HIGH { background: var(--crit); }
+.prio.MEDIUM { background: var(--warn); color: #4a3400; }
+.prio.LOW { background: var(--page); color: var(--ink-2); border: 1px solid var(--baseline); }
+.issue-line.resolved .txt { text-decoration: line-through; color: var(--ink-3); }
+.linkish { color: var(--accent); cursor: pointer; font-size: 12px; background: none; border: none; padding: 0; }
+/* tables */
+table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.data th { text-align: left; color: var(--ink-3); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 10px; border-bottom: 1px solid var(--baseline); }
+table.data td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+table.data tr:hover td { background: var(--wash); }
+table.data td.num { font-variant-numeric: tabular-nums; }
+/* svg chart bits */
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 6px 0 2px; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+#tooltip {
+  position: fixed; pointer-events: none; z-index: 90; display: none;
+  background: var(--ink-1); color: var(--surface-1); font-size: 12px;
+  border-radius: 7px; padding: 6px 10px; max-width: 280px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+/* modal */
+.modal-back { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 60; display: none; align-items: flex-start; justify-content: center; padding: 60px 16px; }
+.modal-back.show { display: flex; }
+.modal { background: var(--surface-1); border-radius: 14px; padding: 20px 22px; width: 520px; max-width: 100%; border: 1px solid var(--grid); }
+.modal h3 { margin: 0 0 14px; font-size: 15px; }
+.modal .row { margin-bottom: 12px; }
+.modal label { display: block; font-size: 12px; color: var(--ink-2); margin-bottom: 4px; }
+.modal select, .modal input[type=text] { width: 100%; }
+.modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px; }
+.muted { color: var(--ink-3); }
+.small { font-size: 12px; }
+.heat-wrap { overflow-x: auto; }
+footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding: 10px 0 30px; }
+@media (max-width: 700px) { main { padding: 14px; } .appbar { padding: 12px 14px; } }
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div>
+    <h1>EO MSW Course Design Studio</h1>
+    <div class="sub">Binghamton University · CCPA · Exclusively Online MSW — course modernization workspace</div>
+  </div>
+  <div class="spacer"></div>
+  <span class="dirty-pill" id="dirtyPill">Unsaved edits — export JSON to keep them</span>
+  <button id="btnImport" title="Load a previously exported JSON file">Import JSON</button>
+  <button id="btnExport" class="primary" title="Download all data as JSON (your save file)">Export JSON</button>
+  <button id="btnCSV" title="Download issues as CSV for Google Sheets">Issues → CSV</button>
+  <button id="btnTheme" class="ghost" title="Toggle light/dark">◐</button>
+  <input type="file" id="fileImport" accept=".json" style="display:none">
+</header>
+<nav class="tabs">
+  <button data-tab="overview" class="active">Program Overview</button>
+  <button data-tab="course">Course Detail</button>
+  <button data-tab="issues">Issue Log</button>
+  <button data-tab="about">How This Works</button>
+</nav>
+<main>
+  <section id="tab-overview"></section>
+  <section id="tab-course" style="display:none"></section>
+  <section id="tab-issues" style="display:none"></section>
+  <section id="tab-about" style="display:none"></section>
+</main>
+<footer class="foot">Edits live in this page until you click <b>Export JSON</b>. Re-import that file next session, or ask Claude to bake your latest export into this dashboard.</footer>
+<div id="tooltip"></div>
+<div class="modal-back" id="modalBack">
+  <div class="modal">
+    <h3 id="modalTitle">Log an issue</h3>
+    <div class="row"><label>Course</label><select id="mCourse"></select></div>
+    <div class="row" style="display:flex;gap:10px">
+      <div style="flex:1"><label>Week / scope</label><select id="mWeek"></select></div>
+      <div style="flex:1"><label>Activity type</label><select id="mType"></select></div>
+    </div>
+    <div class="row" style="display:flex;gap:10px">
+      <div style="flex:1"><label>Priority</label><select id="mPrio"><option>HIGH</option><option>MEDIUM</option><option selected>LOW</option></select></div>
+      <div style="flex:1"><label>Status</label><select id="mStatus"><option selected>Open</option><option>Resolved</option></select></div>
+    </div>
+    <div class="row"><label>Description</label><textarea id="mNote" rows="4" placeholder="What's wrong, and what would 'fixed' look like?"></textarea></div>
+    <div class="actions">
+      <button id="mCancel">Cancel</button>
+      <button id="mSave" class="primary">Save issue</button>
+    </div>
+  </div>
+</div>
+<script>
+/* ============ SEED DATA ============ */
+const STATUSES = ["Not Started","Auditing","Rebuilding","SME Review","Finalized"];
+const WEEK_STATUSES = { todo:"Not reviewed", doing:"In progress", done:"Done" };
+const ACTIVITY_TYPES = ["Reading","Video","Discussion","Assignment","Quiz","Group Work","Milestone"];
+const TYPE_COLORS = { "Reading":"var(--s1)","Video":"var(--s2)","Discussion":"var(--s5)","Assignment":"var(--s8)","Quiz":"var(--s3)","Group Work":"var(--s7)","Milestone":"var(--s4)" };
+const CHECKLIST = [
+  "Module structure flattened",
+  "Weekly intro/overview present",
+  "Instructions clear & complete",
+  "Due dates stated everywhere",
+  "Consistent activity naming",
+  "Links & media verified",
+  "Rubrics attached or linked",
+  "Matches syllabus"
+];
+
+// activities: {t:type, n:label, major:true?, due:"..."}
+const SEED = {
+  meta: { program: "Exclusively Online MSW", org: "Binghamton University · CCPA · Dept. of Social Work", exported: null, version: 1 },
+  courses: [
+  {
+    id:"Z504", code:"SW Z504", title:"Foundations of Scientific Inquiry with Social Systems",
+    term:"Fall · Year 1 (Generalist)", credits:3, status:"Rebuilding", pilot:true,
+    notes:"Active redesign — first course in the modernization effort. Master syllabus last updated 8/14/2023.",
+    assessments:[
+      {name:"Research Article Critique", weight:"20%"},
+      {name:"Weekly Assignments", weight:"20%"},
+      {name:"Research Project Exercises (Parts 1–2)", weight:"~25% — verify split", verify:true},
+      {name:"Final Research Project (group)", weight:"20%"},
+      {name:"Reading Quizzes + CITI Training", weight:"verify weight", verify:true}
+    ],
+    weeks:[
+      {n:1, title:"Introduction to Scientific Inquiry in Social Work", acts:[{t:"Reading",n:"3 readings (Rubin & Babbie Ch.1 + 2 articles)"},{t:"Video",n:"2 videos"},{t:"Discussion",n:"Weekly Assignment: Discussion Board Post"}]},
+      {n:2, title:"The Research Process & Research Paradigms", acts:[{t:"Reading",n:"3 readings"},{t:"Video",n:"1 video"},{t:"Assignment",n:"Weekly Assignment: Part 1 submit + Part 2 discussion"},{t:"Quiz",n:"Module 2 Reading Quiz"}]},
+      {n:3, title:"Problem Formulation", acts:[{t:"Reading",n:"4 readings incl. BU SW Library Guide"},{t:"Video",n:"2 videos"},{t:"Group Work",n:"Group Discussion Board Posts"}]},
+      {n:4, title:"Evidence-Based Practice", acts:[{t:"Reading",n:"3 readings"},{t:"Video",n:"4 videos"},{t:"Group Work",n:"Group Discussion Board Post"},{t:"Quiz",n:"Module 4 Reading Quiz"}]},
+      {n:5, title:"Ethical & Cultural Issues in Social Work Research", acts:[{t:"Reading",n:"3 readings"},{t:"Assignment",n:"CITI Training (Human Subjects Certification)",major:true},{t:"Group Work",n:"Group Discussion Board Post"},{t:"Quiz",n:"Module 5 Reading Quiz"}]},
+      {n:6, title:"Measurement", acts:[{t:"Reading",n:"3 readings"},{t:"Video",n:"6 videos"},{t:"Group Work",n:"Group Discussion Board Post"},{t:"Quiz",n:"Module 6 Reading Quiz"}]},
+      {n:7, title:"Sampling & Group Research Designs", acts:[{t:"Reading",n:"2 readings"},{t:"Video",n:"1 video"},{t:"Assignment",n:"Research Paper — Phase I",major:true},{t:"Group Work",n:"Group + class discussion posts"},{t:"Quiz",n:"Module 7 Reading Quiz"},{t:"Milestone",n:"Midterm break follows"}]},
+      {n:8, title:"Survey Research", acts:[{t:"Reading",n:"2 readings"},{t:"Video",n:"2 videos"},{t:"Discussion",n:"2-part class + group discussion"},{t:"Quiz",n:"Module 8 Reading Quiz"}]},
+      {n:9, title:"Research Designs (Experiments & Quasi-Experiments)", acts:[{t:"Reading",n:"2 readings"},{t:"Video",n:"3 videos"},{t:"Group Work",n:"Group Discussion Board Post"},{t:"Quiz",n:"Module 9 Reading Quiz"}]},
+      {n:10, title:"Single-Case Evaluation Designs & Program Evaluation", acts:[{t:"Reading",n:"2 readings"},{t:"Video",n:"3 videos"},{t:"Assignment",n:"Research Paper — Phase II",major:true},{t:"Quiz",n:"Module 10 Reading Quiz"}]},
+      {n:11, title:"Article Critique Immersion Week", acts:[{t:"Reading",n:"1 article"},{t:"Video",n:"Sample critique video"},{t:"Assignment",n:"Weekly Assignment: submission to instructor"}]},
+      {n:12, title:"Analyzing Existing Data", acts:[{t:"Reading",n:"1 reading"},{t:"Video",n:"3 videos"},{t:"Assignment",n:"Research Article Critique due",major:true},{t:"Quiz",n:"Module 12 Reading Quiz"}]},
+      {n:13, title:"Quantitative Inquiry", acts:[{t:"Reading",n:"1 reading (2 chapters)"},{t:"Video",n:"3 videos incl. Binghamton Babies dataset sub-module"},{t:"Assignment",n:"Weekly Assignment: submission to instructor"},{t:"Quiz",n:"Module 13 Reading Quiz"}]},
+      {n:14, title:"Qualitative Inquiry", acts:[{t:"Reading",n:"2 readings"},{t:"Video",n:"3 videos"},{t:"Assignment",n:"Research Paper — FINAL",major:true},{t:"Assignment",n:"Weekly Assignment: submission to instructor"}]}
+    ]
+  },
+  {
+    id:"Z503", code:"SW Z503", title:"Diversity and Oppression",
+    term:"Spring · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:true,
+    notes:"Spring 2026 syllabus. Recurring Social Issue Facilitation discussion runs weeks 3–9.",
+    assessments:[
+      {name:"Virtual Class Engagement", weight:"10%"},
+      {name:"Social Issue Facilitation (discussion forums)", weight:"20%"},
+      {name:"Culturagram", weight:"15%"},
+      {name:"Systems of Oppression Intersectional Analysis (A, B, C)", weight:"40%"},
+      {name:"Case Analysis", weight:"15%"}
+    ],
+    weeks:[
+      {n:1, dates:"1/19–1/25", title:"Course introduction, expectations & syllabus contract", acts:[{t:"Reading",n:"Syllabus + intro readings"},{t:"Discussion",n:"Module 1 Discussion"}]},
+      {n:2, dates:"1/26–2/1", title:"Theoretical Foundations: social identities, cultural competence & the Culturagram", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Module 2 Discussion (tripartite framework, MSWP reflection)"}]},
+      {n:3, dates:"2/2–2/8", title:"Ethnocentrism, monoculturalism & historical influences; Culturagram in practice", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Assignment",n:"Sign up for Systems of Oppression assignment SOPs"}]},
+      {n:4, dates:"2/9–2/15", title:"Communication Strategies in Clinical Practice & Forms of Structural Oppression", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Assignment",n:"Culturagram due (submit via Assignments)",major:true}]},
+      {n:5, dates:"2/16–2/22", title:"Structural Oppression: Racism, Xenophobia & White Supremacy", acts:[{t:"Reading",n:"MSWP Ch. 6 & 7"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Discussion",n:"Post reflections via designated discussion"}]},
+      {n:6, dates:"2/23–3/1", title:"Structural Oppression: Historical & Intergenerational Trauma; Resistance and Resilience", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Group Work",n:"Connect with Case Analysis group"}]},
+      {n:7, dates:"3/2–3/8", title:"Structural Oppression: Religion/Spirituality, Diverse Populations & Mass Incarceration", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Milestone",n:"Spring break follows"}]},
+      {n:8, dates:"3/16–3/22", title:"Evidence-Based Practices with Diverse Populations", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"}]},
+      {n:9, dates:"3/23–3/29", title:"Structural Oppression: Ableism, Heteronormativity, Homophobia & Transphobia", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Social Issue Discussion Forum"},{t:"Group Work",n:"Case Analysis group work"}]},
+      {n:10, dates:"3/30–4/5", title:"Structural Oppression: Environmental Injustice", acts:[{t:"Reading",n:"Assigned readings"},{t:"Assignment",n:"Component A — Intersectionality Paper due",major:true},{t:"Group Work",n:"Case Analysis group work"}]},
+      {n:11, dates:"4/6–4/12", title:"Structural Oppression: Poverty", acts:[{t:"Reading",n:"Assigned readings"},{t:"Assignment",n:"Component B — Presentation posted to designated discussion",major:true},{t:"Group Work",n:"Case Analysis group work"}]},
+      {n:12, dates:"4/13–4/19", title:"Equal Rights for Women: Voting & Reproductive Rights + student presentations", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"View assigned student presentation + respond"},{t:"Group Work",n:"Post Case Analysis group presentation",major:true}]},
+      {n:13, dates:"4/20–4/26", title:"Multicultural Organizational Change: Antiracist Practice & Social Justice Models", acts:[{t:"Discussion",n:"View assigned Case Analysis presentations + respond"},{t:"Assignment",n:"Complete Case Analysis assignment",major:true}]},
+      {n:14, dates:"4/27–5/3", title:"Summary: Diversity & Oppression; Multicultural Social Work Practice", acts:[{t:"Discussion",n:"Module 14 Discussion Forum"}]}
+    ]
+  },
+  {
+    id:"Z505", code:"SW Z505", title:"Human Behavior in the Social Environment (HBSE)",
+    term:"Summer · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:true,
+    notes:"Summer 2026 syllabus. 10 reading quizzes at 3% each spread across the term.",
+    assessments:[
+      {name:"Discussion board participation / engagement", weight:"verify", verify:true},
+      {name:"Reading quizzes (10 × 3%)", weight:"30%"},
+      {name:"Film Assessment Paper", weight:"verify", verify:true},
+      {name:"Final paper (theory application / autobiography)", weight:"verify", verify:true}
+    ],
+    weeks:[
+      {n:1, title:"Course Overview & Introduction to Theory and Its Application to Social Work", acts:[{t:"Reading",n:"Koenig Ch.1 + NASW Code of Ethics"},{t:"Discussion",n:"Weekly discussion"},{t:"Assignment",n:"Review syllabus; get familiar with Brightspace site"}]},
+      {n:2, title:"Critique of Theory Use in Social Work Practice & Contextualizing Human Development", acts:[{t:"Reading",n:"Koenig Ch.2–3"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:3, title:"Psychodynamic Theory", acts:[{t:"Reading",n:"Koenig Ch.5, Hartmann, Freud"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:4, title:"Systems Theories; Environmental & Ecological Theory; Eco-maps", acts:[{t:"Reading",n:"Koenig Ch.6–7, Bronfenbrenner"},{t:"Discussion",n:"Weekly discussion"},{t:"Assignment",n:"Practice eco-map skills"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:5, title:"Life Span Theories, Family Life Course Perspectives & Historical Context", acts:[{t:"Reading",n:"Koenig Ch.8, Erikson readings"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:6, title:"Film Assignment week", acts:[{t:"Video",n:"Assigned film"},{t:"Reading",n:"Review theories for film assignment"},{t:"Assignment",n:"Work on Film Assessment Paper",major:true}]},
+      {n:7, title:"Attachment Theory", acts:[{t:"Reading",n:"Ainsworth, Bowlby"},{t:"Video",n:"Instructor weekly video"},{t:"Assignment",n:"Submit Film Assessment Paper",major:true},{t:"Quiz",n:"Reading quiz"}]},
+      {n:8, title:"Symbolic Interactionism & Social Constructionism", acts:[{t:"Reading",n:"Koenig Ch.9, Blumer, Berger & Luckmann"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:9, title:"Behaviorism, Social Learning & Exchange Theory", acts:[{t:"Reading",n:"Koenig Ch.10, Bandura, Skinner"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:10, title:"Cognitive & Moral Development Theories", acts:[{t:"Reading",n:"Koenig Ch.13, Fowler, Gilligan, Kohlberg"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:11, title:"Empowerment Theory & Strengths Perspective", acts:[{t:"Reading",n:"Koenig Ch.12, Solomon, Saleebey"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:12, title:"Critical Theories", acts:[{t:"Reading",n:"Koenig Ch.4, Abrams, Keenan, Kina"},{t:"Discussion",n:"Weekly discussion"},{t:"Assignment",n:"Begin theoretical autobiography work"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:13, title:"Theories of Culture, White Privilege & Applying Theory to Macro Social Work", acts:[{t:"Reading",n:"Assigned readings"},{t:"Discussion",n:"Weekly discussion"},{t:"Quiz",n:"Reading quiz"}]},
+      {n:14, title:"Feminist Theory & course wrap-up", acts:[{t:"Reading",n:"Fahs & Plante, Kimmel & Wade"},{t:"Assignment",n:"Submit final paper",major:true}]}
+    ]
+  },
+  {
+    id:"Z510", code:"SW Z510", title:"Generalist Social Work Practice I",
+    term:"Fall · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:true,
+    notes:"Fall 2025 syllabus. Two-session structure with mid-semester break after week 7. Weeks 11–13 center on role-play review.",
+    assessments:[
+      {name:"Module discussions (weekly)", weight:"verify", verify:true},
+      {name:"Values Paper (wk 7)", weight:"verify", verify:true},
+      {name:"Guest Speaker Reflection Paper (wk 8)", weight:"verify", verify:true},
+      {name:"Videotape Interview Assignment (wk 10)", weight:"verify", verify:true},
+      {name:"Case Study / case conference (rubric-graded)", weight:"verify", verify:true}
+    ],
+    weeks:[
+      {n:1, dates:"8/25–8/31", title:"Introduction to course, each other & social work practice", acts:[{t:"Discussion",n:"Introduce yourself + Module 1 Discussion"}]},
+      {n:2, dates:"9/1–9/7", title:"Introduction to the profession and its history", acts:[{t:"Reading",n:"Shulman Ch.1–2 + 2 articles"},{t:"Video",n:"Guest speaker series videos"},{t:"Discussion",n:"Module 2 Discussion"}]},
+      {n:3, dates:"9/8–9/14", title:"Engaging clients; social work professional values", acts:[{t:"Reading",n:"Timbers; White et al."},{t:"Discussion",n:"Module 3 Discussion"}]},
+      {n:4, dates:"9/15–9/21", title:"Strengths-based perspective & social constructivism", acts:[{t:"Reading",n:"Saleebey Ch.1–2 + DSM intro + 2 articles"},{t:"Discussion",n:"Module 4 Discussion"}]},
+      {n:5, dates:"9/22–9/28", title:"Tuning in; use of self; values and ethics", acts:[{t:"Reading",n:"6 readings incl. NASW Code"},{t:"Discussion",n:"Module 5 Discussion"}]},
+      {n:6, dates:"9/29–10/5", title:"Beginning phase of work; contracting skills", acts:[{t:"Reading",n:"Saleebey Ch.5 & 13; Shulman Ch.4 + 2 articles"},{t:"Discussion",n:"Module 6 Discussion"}]},
+      {n:7, dates:"10/6–10/12", title:"Middle phase of work; practice skills", acts:[{t:"Reading",n:"Saleebey Ch.14; Shulman Ch.5 + 2 articles"},{t:"Discussion",n:"Module 7 Discussion"},{t:"Assignment",n:"Values Paper due Sunday 11:59pm",major:true},{t:"Milestone",n:"Mid-semester break follows (ends Session 1)"}]},
+      {n:8, dates:"10/20–10/26", title:"Middle phase (continued) — guest speaker focus", acts:[{t:"Video",n:"Guest speaker video series"},{t:"Discussion",n:"Module 8 Discussion"},{t:"Assignment",n:"Guest Speaker Reflection Paper due",major:true}]},
+      {n:9, dates:"10/27–11/2", title:"Professional identity and licensing", acts:[{t:"Discussion",n:"Module 9 Discussion"}]},
+      {n:10, dates:"11/3–11/9", title:"Endings & transitions; strengths-based practice with diverse populations", acts:[{t:"Reading",n:"Saleebey Ch.4,7,9; Shulman Ch.6 + 2 articles"},{t:"Discussion",n:"Module 10 Discussion"},{t:"Assignment",n:"Videotape Interview Assignment due",major:true}]},
+      {n:11, dates:"11/10–11/16", title:"Review and critique role-plays", acts:[{t:"Discussion",n:"Module 11 Discussion"},{t:"Group Work",n:"View & critique classmates' role-plays"}]},
+      {n:12, dates:"11/17–11/23", title:"Review and critique role-plays", acts:[{t:"Discussion",n:"Module 12 Discussion"},{t:"Group Work",n:"View & critique classmates' role-plays"}]},
+      {n:13, dates:"11/24–11/30", title:"Review and critique role-plays", acts:[{t:"Discussion",n:"Module 13 Discussion"},{t:"Group Work",n:"View & critique classmates' role-plays"}]},
+      {n:14, dates:"12/1–12/7", title:"Evaluation of practice; course evaluations", acts:[{t:"Reading",n:"Saleebey Ch.8 & 15; Soydan"},{t:"Discussion",n:"Module 14 Discussion"}]}
+    ]
+  },
+  {
+    id:"Z515", code:"SW Z515", title:"Social Welfare Policy and Programs",
+    term:"Fall · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:true,
+    notes:"Fall 2025 syllabus. Includes cross-professional IPE Healthcare Delivery Project and Legislative Meeting Simulation.",
+    assessments:[
+      {name:"Classroom Engagement (1 pt × 14 wks)", weight:"14 pts"},
+      {name:"Policy Analysis (4 parts: 10/5/20/5)", weight:"40 pts"},
+      {name:"IPE Healthcare Delivery Project (anchor)", weight:"25 pts"},
+      {name:"Legislative Meeting Simulation", weight:"21 pts"}
+    ],
+    weeks:[
+      {n:1, dates:"8/25–8/31", title:"Course Overview · Foundations: Introduction to Policy Practice", acts:[{t:"Reading",n:"Syllabus + NASW Code excerpt"},{t:"Video",n:"Brightspace tour + weekly lecture"},{t:"Discussion",n:"Welcome introductions + course questions thread"},{t:"Assignment",n:"Participation self-assessment"},{t:"Group Work",n:"IPE: orientation + completion quiz by 9/2"}]},
+      {n:2, dates:"9/1–9/7", title:"IPE Overview · Foundations: History & Delivery of Social Welfare in America", acts:[{t:"Reading",n:"Segal Ch.2 & 8 + NASW tools"},{t:"Video",n:"Weekly lecture"},{t:"Assignment",n:"Participation self-assessment"},{t:"Group Work",n:"IPE: schedule group meeting, complete Ice Breaker"}]},
+      {n:3, dates:"9/8–9/14", title:"Foundations: Policy Analysis (assignment overview & applications)", acts:[{t:"Reading",n:"Segal Ch.4"},{t:"Video",n:"Policy Analysis overview + weekly lecture"},{t:"Assignment",n:"Identify issue/problem of focus for policy analysis"},{t:"Assignment",n:"Participation self-assessment"}]},
+      {n:4, dates:"9/15–9/21", title:"Policy Focus: Health Care", acts:[{t:"Reading",n:"Readings + 'In the News': Health Care"},{t:"Video",n:"Weekly lecture"},{t:"Assignment",n:"Policy Analysis Part One due 9/21",major:true},{t:"Assignment",n:"Participation self-assessment"}]},
+      {n:5, dates:"9/22–9/28", title:"Policy Focus: Social Justice", acts:[{t:"Reading",n:"NASW (2025) Social Justice + readings"},{t:"Video",n:"Weekly lecture"},{t:"Group Work",n:"IPE: group submission; Ice Breaker due 9/28"},{t:"Assignment",n:"Participation self-assessment"}]},
+      {n:6, dates:"9/29–10/5", title:"Policy Focus: Disability", acts:[{t:"Reading",n:"Assigned readings"},{t:"Video",n:"Weekly lecture"},{t:"Group Work",n:"IPE: group Template due 10/2"},{t:"Assignment",n:"Policy Analysis Part Two due 10/5",major:true}]},
+      {n:7, dates:"10/6–10/12", title:"Policy Focus: Aging", acts:[{t:"Reading",n:"AARP Policy Book + 'In the News': Aging"},{t:"Video",n:"Weekly lecture"},{t:"Group Work",n:"IPE: convene group, review Group Paper plan"},{t:"Milestone",n:"Mid-semester break follows"}]},
+      {n:8, dates:"10/20–10/26", title:"Policy Focus: Environmental Justice", acts:[{t:"Reading",n:"Assigned readings"},{t:"Video",n:"Weekly lecture"},{t:"Assignment",n:"Policy Analysis Part Three due 10/26",major:true}]},
+      {n:9, dates:"10/27–11/2", title:"Policy Focus: Poverty & Economics", acts:[{t:"Reading",n:"Assigned readings"},{t:"Video",n:"Weekly lecture"},{t:"Group Work",n:"IPE: continue drafting Group Paper"}]},
+      {n:10, dates:"11/3–11/9", title:"Policy Focus: Children & Families", acts:[{t:"Reading",n:"Assigned readings"},{t:"Video",n:"Weekly lecture"},{t:"Assignment",n:"Policy Analysis Part Four due 11/9",major:true}]},
+      {n:11, dates:"11/10–11/16", title:"Legislative Advocacy", acts:[{t:"Reading",n:"Legislative Meeting Simulation materials"},{t:"Video",n:"Weekly lecture"},{t:"Group Work",n:"IPE: Group Paper due 11/16",major:true}]},
+      {n:12, dates:"11/17–11/23", title:"Foundations: wrap-up & simulation prep", acts:[{t:"Assignment",n:"IPE: Peer-/Self-Evaluation due 11/18"},{t:"Group Work",n:"Send Legislative Meeting scheduling email by 11/23"}]},
+      {n:13, dates:"11/24–11/30", title:"Policy Analysis & Legislative Advocacy (prep)", acts:[{t:"Group Work",n:"Prepare for Legislative Meeting Simulation"}]},
+      {n:14, dates:"12/1–12/7", title:"Legislative Meeting Simulations", acts:[{t:"Group Work",n:"Convene Legislative Meeting Simulation (as assigned)",major:true},{t:"Assignment",n:"Send follow-up email by 12/7"}]}
+    ]
+  },
+  { id:"Z506", code:"SW Z506", title:"Psychopathology & Pharmacology", term:"Spring · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z511", code:"SW Z511", title:"Generalist Social Work Practice II", term:"Spring · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z512", code:"SW Z512", title:"Generalist Social Work Practice III", term:"Summer · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z520", code:"SW Z520", title:"Evaluation of Practice", term:"Advanced year", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z521", code:"SW Z521", title:"Advanced SW Practice with Individuals", term:"Fall · Advanced", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z522", code:"SW Z522", title:"Advanced SW Practice with Organizations", term:"Fall · Advanced", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z523", code:"SW Z523", title:"Advanced SW Practice with Groups", term:"Fall · Advanced", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z524", code:"SW Z524", title:"Advanced SW Practice with Families", term:"Advanced year", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
+  { id:"Z525", code:"SW Z525", title:"Advanced SW Practice with Communities", term:"Spring · Advanced", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] }
+  ],
+  issues: [
+    {id:1, course:"Z504", week:3, type:"Reading", prio:"MEDIUM", status:"Open", note:"Asks learners to read 'BU Social Work Library Guide' — links to a huge database. What exactly should they read or do with it? Unclear."},
+    {id:2, course:"Z504", week:3, type:"Reading", prio:"LOW", status:"Open", note:"'Types of Research Questions' table pasted into the module intro — purpose unclear, and it links to dissertationwritinghelp.uk, which appears to sell dissertations."},
+    {id:3, course:"Z504", week:3, type:"Assignment", prio:"HIGH", status:"Open", note:"Submission cadence/instructions unclear: are they ONLY submitting a group research question together? How and when are groups communicated?"},
+    {id:4, course:"Z504", week:3, type:"Assignment", prio:"LOW", status:"Open", note:"'Paradigm Exercise (carryover from last week)' text in Week 3 Assignment — keep or delete? Meaning unclear for week 3."},
+    {id:5, course:"Z504", week:4, type:"Discussion", prio:"HIGH", status:"Open", note:"Weekly Assignment/Discussion board instructions lacking, no due date; needs serious review and fixes."},
+    {id:6, course:"Z504", week:0, type:"Milestone", prio:"MEDIUM", status:"Open", note:"Program-wide: differentiate between 'Assignment', 'Discussion', and 'Discussion Assignment / Graded Discussion' naming conventions."},
+    {id:7, course:"Z504", week:5, type:"Milestone", prio:"MEDIUM", status:"Open", note:"Missing weekly module introduction paragraph. AI-generated intro drafted — needs SME review."},
+    {id:8, course:"Z504", week:5, type:"Assignment", prio:"MEDIUM", status:"Open", note:"Need due dates and clear instructions for assignment; the group work seems confusing and unclear."},
+    {id:9, course:"Z504", week:5, type:"Assignment", prio:"LOW", status:"Open", note:"CITI Training instructions could use more context/elaboration; previous instructions were minimally ported over."},
+    {id:10, course:"Z504", week:6, type:"Video", prio:"MEDIUM", status:"Open", note:"Broken module image header. Found the Chicago-Times image on Google, but it isn't an ideal contextualized header image."},
+    {id:11, course:"Z504", week:0, type:"Milestone", prio:"MEDIUM", status:"Open", note:"Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment."}
+  ],
+  nextIssueId: 12,
+  weekState: {} // key "Z504-3" -> {status:"todo|doing|done", checks:[bool x8], note:""}
+};
+
+/* ============ APP ============ */
+let D = JSON.parse(JSON.stringify(SEED));
+let dirty = false;
+let activeTab = "overview";
+let activeCourse = "Z504";
+let openWeeks = {};   // "Z504-3": true
+let issueFilter = { course:"all", prio:"all", status:"Open", q:"" };
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s??"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function markDirty(){ dirty = true; $("#dirtyPill").classList.add("show"); }
+function course(id){ return D.courses.find(c=>c.id===id); }
+function wkKey(cid,n){ return cid+"-"+n; }
+function wkState(cid,n){
+  const k = wkKey(cid,n);
+  if(!D.weekState[k]) D.weekState[k] = { status:"todo", checks:CHECKLIST.map(()=>false), note:"" };
+  // pad checks if checklist grew
+  while(D.weekState[k].checks.length < CHECKLIST.length) D.weekState[k].checks.push(false);
+  return D.weekState[k];
+}
+function courseProgress(c){
+  if(!c.weeks.length) return null;
+  let done=0, doing=0;
+  c.weeks.forEach(w=>{ const s=wkState(c.id,w.n).status; if(s==="done") done++; else if(s==="doing") doing++; });
+  return { done, doing, total:c.weeks.length, pct: Math.round(100*done/c.weeks.length) };
+}
+function courseIssues(cid, onlyOpen=true){
+  return D.issues.filter(i=>i.course===cid && (!onlyOpen || i.status==="Open"));
+}
+function prioCounts(list){
+  return { HIGH:list.filter(i=>i.prio==="HIGH").length, MEDIUM:list.filter(i=>i.prio==="MEDIUM").length, LOW:list.filter(i=>i.prio==="LOW").length };
+}
+const PRIO_ICON = { HIGH:"▲", MEDIUM:"◆", LOW:"▽" };
+const PRIO_COLOR = { HIGH:"var(--crit)", MEDIUM:"var(--warn)", LOW:"var(--ink-3)" };
+const STATUS_CLASS = s => "st-"+STATUSES.indexOf(s);
+
+/* ---------- tooltip ---------- */
+const tip = $("#tooltip");
+function showTip(e, html){ tip.innerHTML = html; tip.style.display="block"; moveTip(e); }
+function moveTip(e){
+  const pad=14; let x=e.clientX+pad, y=e.clientY+pad;
+  const r=tip.getBoundingClientRect();
+  if(x+r.width>innerWidth-8) x=e.clientX-r.width-pad;
+  if(y+r.height>innerHeight-8) y=e.clientY-r.height-pad;
+  tip.style.left=x+"px"; tip.style.top=y+"px";
+}
+function hideTip(){ tip.style.display="none"; }
+function bindTips(root){
+  root.querySelectorAll("[data-tip]").forEach(el=>{
+    el.addEventListener("mouseenter", e=>showTip(e, el.dataset.tip));
+    el.addEventListener("mousemove", moveTip);
+    el.addEventListener("mouseleave", hideTip);
+  });
+}
+
+/* ---------- OVERVIEW ---------- */
+function renderOverview(){
+  const el = $("#tab-overview");
+  const open = D.issues.filter(i=>i.status==="Open");
+  const pc = prioCounts(open);
+  const pilots = D.courses.filter(c=>c.weeks.length);
+  let weeksDone=0, weeksTotal=0;
+  pilots.forEach(c=>{ const p=courseProgress(c); weeksDone+=p.done; weeksTotal+=p.total; });
+  const finalized = D.courses.filter(c=>c.status==="Finalized").length;
+  const inFlight = D.courses.filter(c=>["Auditing","Rebuilding","SME Review"].includes(c.status)).length;
+
+  // pipeline counts
+  const pipe = STATUSES.map(s=>({ s, n: D.courses.filter(c=>c.status===s).length }));
+
+  el.innerHTML = `
+  <div class="tiles">
+    <div class="tile"><div class="label">Courses finalized</div><div class="value">${finalized}<span class="muted" style="font-size:16px;font-weight:400"> / ${D.courses.length}</span></div><div class="detail">${inFlight} in active redesign</div></div>
+    <div class="tile"><div class="label">Weeks reviewed (pilot courses)</div><div class="value">${weeksDone}<span class="muted" style="font-size:16px;font-weight:400"> / ${weeksTotal}</span></div><div class="detail">across ${pilots.length} mapped courses</div></div>
+    <div class="tile"><div class="label">Open issues</div><div class="value">${open.length}</div><div class="detail"><span style="color:${PRIO_COLOR.HIGH}">${PRIO_ICON.HIGH}</span> ${pc.HIGH} high · <span style="color:${PRIO_COLOR.MEDIUM}">${PRIO_ICON.MEDIUM}</span> ${pc.MEDIUM} medium · ${PRIO_ICON.LOW} ${pc.LOW} low</div></div>
+    <div class="tile"><div class="label">Issues resolved</div><div class="value">${D.issues.length-open.length}</div><div class="detail">of ${D.issues.length} logged</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Redesign pipeline</h2>
+    <p class="note">Where each of the ${D.courses.length} courses sits in the modernization workflow. Click a course card below to open it.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      ${pipe.map((p,i)=>`<div style="flex:1;min-width:130px;text-align:center;border:1px solid var(--grid);border-radius:10px;padding:10px 6px;${p.n? "":"opacity:.55"}">
+        <div style="font-size:24px;font-weight:600">${p.n}</div>
+        <div><span class="pill ${STATUS_CLASS(p.s)}">${p.s}</span></div>
+      </div>${i<pipe.length-1? '<div style="align-self:center;color:var(--ink-3)">→</div>':''}`).join("")}
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Open issues by course & priority</h2>
+    <p class="note">Only courses with open issues are shown. Full detail lives in the Issue Log tab (its table is the accessible twin of this chart).</p>
+    ${issueBarChart()}
+  </div>
+
+  <div class="card">
+    <h2>Courses</h2>
+    <p class="note">Progress bar = weeks marked “Done” in the week-by-week review. Issue counts are open issues.</p>
+    <div class="course-grid">
+      ${D.courses.map(c=>{
+        const p = courseProgress(c);
+        const ci = prioCounts(courseIssues(c.id));
+        return `<div class="ccard" data-course="${c.id}">
+          <div class="code">${esc(c.code)}${c.pilot? "":""}</div>
+          <div class="title">${esc(c.title)}</div>
+          <div class="meta"><span class="pill ${STATUS_CLASS(c.status)}">${c.status}</span><span class="muted small">${esc(c.term)}</span></div>
+          ${p? `<div class="meter" data-tip="${p.done} of ${p.total} weeks done${p.doing? ` · ${p.doing} in progress`:''}"><div style="width:${p.pct}%"></div></div>
+          <div class="foot"><span>${p.done}/${p.total} weeks</span>
+            <span class="issue-dots">${ci.HIGH? `<span><span class="dot" style="background:${PRIO_COLOR.HIGH}"></span><b>${ci.HIGH}</b></span>`:""}${ci.MEDIUM? `<span><span class="dot" style="background:${PRIO_COLOR.MEDIUM}"></span><b>${ci.MEDIUM}</b></span>`:""}${ci.LOW? `<span><span class="dot" style="background:var(--baseline)"></span><b>${ci.LOW}</b></span>`:""}</span></div>`
+          : `<div class="foot" style="margin-top:12px"><span class="muted">Weekly map not built yet</span><span class="linkish">+ map it</span></div>`}
+        </div>`;
+      }).join("")}
+    </div>
+  </div>`;
+
+  el.querySelectorAll(".ccard").forEach(card=>{
+    card.addEventListener("click", ()=>{ activeCourse = card.dataset.course; switchTab("course"); });
+  });
+  bindTips(el);
+}
+
+function issueBarChart(){
+  const rows = D.courses.map(c=>{
+    const open = courseIssues(c.id);
+    return { id:c.id, code:c.code, ...prioCounts(open), total: open.length };
+  }).filter(r=>r.total>0).sort((a,b)=>b.total-a.total);
+  if(!rows.length) return `<p class="muted">No open issues. 🎉</p>`;
+  const max = Math.max(...rows.map(r=>r.total));
+  const W=760, LBL=90, BARH=18, GAP=14, PADT=6;
+  const H = PADT + rows.length*(BARH+GAP) + 24;
+  const xw = W-LBL-60;
+  const x = v => LBL + (v/max)*xw;
+  // gridlines at integers (max<=10ish)
+  const step = max>12? Math.ceil(max/6) : (max>6? 2:1);
+  let grid="";
+  for(let g=step; g<=max; g+=step){
+    grid += `<line x1="${x(g)}" y1="${PADT}" x2="${x(g)}" y2="${H-22}" stroke="var(--grid)" stroke-width="1"/>
+             <text x="${x(g)}" y="${H-8}" font-size="10" fill="var(--ink-3)" text-anchor="middle">${g}</text>`;
+  }
+  const segs = [["HIGH",PRIO_COLOR.HIGH],["MEDIUM",PRIO_COLOR.MEDIUM],["LOW","var(--baseline)"]];
+  let bars="";
+  rows.forEach((r,i)=>{
+    const y = PADT + i*(BARH+GAP);
+    bars += `<text x="${LBL-8}" y="${y+BARH-5}" font-size="12" fill="var(--ink-2)" text-anchor="end">${esc(r.code)}</text>`;
+    let cx = LBL;
+    segs.forEach(([p,col],si)=>{
+      const v = r[p]; if(!v) return;
+      const w = (v/max)*xw - 2; // 2px surface gap
+      const last = segs.slice(si+1).every(([q])=>!r[q]);
+      const rr = last? 4:0;
+      bars += `<path d="M${cx},${y} h${Math.max(w-rr,0)} ${rr? `a${rr},${rr} 0 0 1 ${rr},${rr} v${BARH-2*rr} a${rr},${rr} 0 0 1 -${rr},${rr}`:`v${BARH}`} h-${Math.max(w-rr,0)} z"
+        fill="${col}" data-tip="<b>${esc(r.code)}</b> — ${v} ${p.toLowerCase()}-priority open issue${v>1?'s':''}" style="cursor:default"/>`;
+      cx += w+2;
+    });
+    bars += `<text x="${cx+6}" y="${y+BARH-5}" font-size="11" fill="var(--ink-2)">${r.total}</text>`;
+  });
+  return `<div class="legend">
+      <span><i style="background:${PRIO_COLOR.HIGH}"></i>${PRIO_ICON.HIGH} High</span>
+      <span><i style="background:${PRIO_COLOR.MEDIUM}"></i>${PRIO_ICON.MEDIUM} Medium</span>
+      <span><i style="background:var(--baseline)"></i>${PRIO_ICON.LOW} Low</span></div>
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;display:block">${grid}
+    <line x1="${LBL}" y1="${PADT}" x2="${LBL}" y2="${H-22}" stroke="var(--baseline)" stroke-width="1"/>${bars}</svg>`;
+}
+
+/* ---------- COURSE DETAIL ---------- */
+function renderCourse(){
+  const el = $("#tab-course");
+  const c = course(activeCourse);
+  const p = courseProgress(c);
+  const openIss = courseIssues(c.id);
+
+  el.innerHTML = `
+  <div class="card">
+    <div class="detail-head">
+      <select id="coursePick">${D.courses.map(k=>`<option value="${k.id}" ${k.id===c.id?"selected":""}>${esc(k.code)} — ${esc(k.title)}</option>`).join("")}</select>
+      <span class="muted small">${esc(c.term)} · ${c.credits} credits</span>
+      <span style="flex:1"></span>
+      <label class="small muted">Redesign status&nbsp;</label>
+      <select id="courseStatus">${STATUSES.map(s=>`<option ${s===c.status?"selected":""}>${s}</option>`).join("")}</select>
+    </div>
+    ${c.notes? `<p class="note" style="margin-top:10px">${esc(c.notes)}</p>`:""}
+    ${p? `<div class="meter" style="max-width:420px" data-tip="${p.done}/${p.total} weeks done"><div style="width:${p.pct}%"></div></div>
+      <div class="small muted" style="margin-top:4px">${p.done} of ${p.total} weeks done · ${p.doing} in progress · ${openIss.length} open issue${openIss.length===1?"":"s"}</div>`:""}
+    ${c.assessments.length? `<h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin:14px 0 6px">Graded components</h4>
+      <div>${c.assessments.map(a=>`<span class="chip" ${a.verify? `data-tip="Weight not confirmed in syllabus — verify"`:""}>${esc(a.name)} — <b>${esc(a.weight)}</b>${a.verify? " ⚠":""}</span>`).join("")}</div>`:""}
+  </div>
+
+  ${c.weeks.length? `
+  <div class="card">
+    <h2>Learner's week at a glance</h2>
+    <p class="note">What a student is expected to touch each week, by activity type. Darker = more items. Hover a cell for detail; ● marks a major deliverable that week. This is the learner-load view — use it to spot spikes and dead weeks.</p>
+    <div class="heat-wrap">${heatmap(c)}</div>
+  </div>
+
+  <div class="card">
+    <h2>Week-by-week review</h2>
+    <p class="note">Expand a week to see the learner view, run the design-standards checklist, set review status, and log issues in place. Checklist: ${CHECKLIST.join(" · ")}.</p>
+    <div style="margin-bottom:10px;display:flex;gap:8px">
+      <button class="small" id="expandAll">Expand all</button>
+      <button class="small" id="collapseAll">Collapse all</button>
+      <span style="flex:1"></span>
+      <button class="primary" id="addIssueCourse">+ Log issue for this course</button>
+    </div>
+    ${c.weeks.map(w=>weekRow(c,w)).join("")}
+  </div>`
+  : `<div class="card"><h2>No weekly map yet</h2>
+     <p class="note">This course hasn't been mapped week-by-week. Add its syllabus/Brightspace structure to the data file (or ask Claude to extract it from the syllabus) and it will appear here with the same heatmap + checklist workflow as the pilot courses.</p>
+     <button class="primary" id="addIssueCourse">+ Log issue for this course</button></div>`}
+  `;
+
+  $("#coursePick").addEventListener("change", e=>{ activeCourse=e.target.value; renderCourse(); });
+  $("#courseStatus").addEventListener("change", e=>{ c.status=e.target.value; markDirty(); renderCourse(); });
+  $("#addIssueCourse")?.addEventListener("click", ()=>openModal({course:c.id}));
+  $("#expandAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>openWeeks[wkKey(c.id,w.n)]=true); renderCourse(); });
+  $("#collapseAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>delete openWeeks[wkKey(c.id,w.n)]); renderCourse(); });
+
+  el.querySelectorAll(".week-head").forEach(h=>{
+    h.addEventListener("click", e=>{
+      if(e.target.closest("select,button,input,a")) return;
+      const k = h.parentElement.dataset.wk;
+      openWeeks[k] = !openWeeks[k];
+      h.parentElement.classList.toggle("open", openWeeks[k]);
+    });
+  });
+  el.querySelectorAll("select.wk-status-sel").forEach(s=>{
+    s.addEventListener("change", ()=>{ wkState(c.id, +s.dataset.week).status = s.value; markDirty(); renderCourse(); });
+  });
+  el.querySelectorAll(".checklist input").forEach(cb=>{
+    cb.addEventListener("change", ()=>{
+      const st = wkState(c.id, +cb.dataset.week);
+      st.checks[+cb.dataset.idx] = cb.checked;
+      markDirty();
+      // auto-suggest done
+      const head = el.querySelector(`.week[data-wk="${wkKey(c.id,+cb.dataset.week)}"] .ck-count`);
+      if(head) head.textContent = st.checks.filter(Boolean).length + "/" + CHECKLIST.length;
+    });
+  });
+  el.querySelectorAll(".wk-note").forEach(t=>{
+    t.addEventListener("change", ()=>{ wkState(c.id, +t.dataset.week).note = t.value; markDirty(); });
+  });
+  el.querySelectorAll(".add-wk-issue").forEach(b=>{
+    b.addEventListener("click", ()=>openModal({course:c.id, week:+b.dataset.week}));
+  });
+  el.querySelectorAll(".toggle-issue").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const iss = D.issues.find(i=>i.id===+b.dataset.id);
+      iss.status = iss.status==="Open" ? "Resolved":"Open";
+      markDirty(); renderCourse();
+    });
+  });
+  bindTips(el);
+}
+
+function weekRow(c, w){
+  const st = wkState(c.id, w.n);
+  const k = wkKey(c.id, w.n);
+  const iss = D.issues.filter(i=>i.course===c.id && i.week===w.n);
+  const openIss = iss.filter(i=>i.status==="Open");
+  const major = w.acts.some(a=>a.major);
+  const ckDone = st.checks.filter(Boolean).length;
+  return `<div class="week ${openWeeks[k]? "open":""}" data-wk="${k}">
+    <div class="week-head">
+      <div class="wk-num">Wk ${w.n}</div>
+      <div class="wk-title">${esc(w.title)}${w.dates? `<span class="dates">${esc(w.dates)}</span>`:""}
+        <div style="margin-top:3px">${w.acts.map(a=>`<span class="chip" data-tip="${esc(a.n)}"><span class="dot" style="background:${TYPE_COLORS[a.t]}"></span>${a.t}${a.major? " ●":""}</span>`).join("")}</div>
+      </div>
+      <div class="wk-flags">
+        ${openIss.length? `<span class="small" data-tip="${openIss.length} open issue${openIss.length>1?'s':''} this week" style="color:${openIss.some(i=>i.prio==='HIGH')? PRIO_COLOR.HIGH:'var(--ink-2)'}">${openIss.some(i=>i.prio==='HIGH')? PRIO_ICON.HIGH:PRIO_ICON.MEDIUM} ${openIss.length}</span>`:""}
+        <span class="small muted ck-count" data-tip="Design-standards checklist">${ckDone}/${CHECKLIST.length}</span>
+        <select class="wk-status-sel" data-week="${w.n}">
+          ${Object.entries(WEEK_STATUSES).map(([v,l])=>`<option value="${v}" ${st.status===v?"selected":""}>${l}</option>`).join("")}
+        </select>
+      </div>
+    </div>
+    <div class="week-body">
+      <h4>Learner to-do this week</h4>
+      <div>${w.acts.map(a=>`<div class="issue-line" style="border:none;padding:2px 0"><span class="dot" style="background:${TYPE_COLORS[a.t]};margin-top:5px"></span><span class="small" style="min-width:86px;color:var(--ink-3)">${a.t}</span><span class="small">${esc(a.n)}${a.major? ' <b style="color:var(--ink-1)">● major</b>':""}</span></div>`).join("")}</div>
+      <h4>Design-standards checklist</h4>
+      <div class="checklist">${CHECKLIST.map((item,i)=>`<label><input type="checkbox" data-week="${w.n}" data-idx="${i}" ${st.checks[i]?"checked":""}> ${item}</label>`).join("")}</div>
+      <h4>Issues (${iss.length}) <button class="linkish add-wk-issue" data-week="${w.n}" style="margin-left:8px">+ log issue</button></h4>
+      ${iss.length? iss.map(i=>`<div class="issue-line ${i.status==='Resolved'?'resolved':''}">
+          <span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span>
+          <span class="txt" style="flex:1">${esc(i.note)} <span class="muted small">(${esc(i.type)})</span></span>
+          <button class="linkish toggle-issue" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button>
+        </div>`).join("") : `<p class="muted small" style="margin:2px 0">None logged.</p>`}
+      <h4>Working note</h4>
+      <textarea class="wk-note" data-week="${w.n}" rows="2" placeholder="Scratch notes for this week's rebuild…">${esc(st.note)}</textarea>
+    </div>
+  </div>`;
+}
+
+function heatmap(c){
+  const types = ACTIVITY_TYPES.filter(t=>t!=="Milestone");
+  const counts = {};
+  let max=1;
+  c.weeks.forEach(w=>{
+    types.forEach(t=>{
+      const n = w.acts.filter(a=>a.t===t).length;
+      counts[t+"-"+w.n]=n; if(n>max) max=n;
+    });
+  });
+  const ramp = ["var(--seq-100)","var(--seq-200)","var(--seq-300)","var(--seq-400)","var(--seq-500)","var(--seq-600)","var(--seq-700)"];
+  const cell = 34, gap=2, lbl=96, top=22;
+  const W = lbl + c.weeks.length*(cell+gap)+10;
+  const H = top + types.length*(cell+gap) + 30;
+  let svg = "";
+  c.weeks.forEach((w,wi)=>{
+    const x = lbl + wi*(cell+gap);
+    svg += `<text x="${x+cell/2}" y="${top-8}" font-size="10.5" fill="var(--ink-3)" text-anchor="middle">W${w.n}</text>`;
+    if(w.acts.some(a=>a.major)) svg += `<text x="${x+cell/2}" y="${H-10}" font-size="11" fill="var(--ink-1)" text-anchor="middle" data-tip="Major deliverable due week ${w.n}">●</text>`;
+  });
+  types.forEach((t,ti)=>{
+    const y = top + ti*(cell+gap);
+    svg += `<text x="${lbl-8}" y="${y+cell/2+4}" font-size="11.5" fill="var(--ink-2)" text-anchor="end">${t}</text>`;
+    c.weeks.forEach((w,wi)=>{
+      const x = lbl + wi*(cell+gap);
+      const n = counts[t+"-"+w.n];
+      const items = w.acts.filter(a=>a.t===t).map(a=>esc(a.n)).join("<br>");
+      const col = n===0? "var(--page)" : ramp[Math.min(ramp.length-1, Math.ceil(n/max*(ramp.length-1)))];
+      const ink = n/max>0.55? "#fff" : "var(--ink-2)";
+      svg += `<g data-tip="<b>Week ${w.n} · ${t}</b>${n? "<br>"+items : "<br>none"}">
+        <rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="5" fill="${col}" ${n===0? 'stroke="var(--grid)" stroke-width="1"':''}/>
+        ${n? `<text x="${x+cell/2}" y="${y+cell/2+4}" font-size="11.5" fill="${ink}" text-anchor="middle">${n}</text>`:""}
+      </g>`;
+    });
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" style="min-width:${W*0.8}px;width:100%;max-width:${W}px;display:block">${svg}</svg>
+  <div class="legend" style="margin-top:8px"><span class="muted small">items per week:</span>
+    <span><i style="background:var(--page);border:1px solid var(--grid)"></i>0</span>
+    <span><i style="background:var(--seq-200)"></i>low</span>
+    <span><i style="background:var(--seq-400)"></i>mid</span>
+    <span><i style="background:var(--seq-700)"></i>high</span>
+    <span class="muted small">· ● = major deliverable due</span></div>`;
+}
+
+/* ---------- ISSUES ---------- */
+function renderIssues(){
+  const el = $("#tab-issues");
+  let list = D.issues.slice().sort((a,b)=>{
+    const po = {HIGH:0,MEDIUM:1,LOW:2};
+    return (a.status==="Resolved")-(b.status==="Resolved") || po[a.prio]-po[b.prio] || a.course.localeCompare(b.course) || a.week-b.week;
+  });
+  const f = issueFilter;
+  if(f.course!=="all") list = list.filter(i=>i.course===f.course);
+  if(f.prio!=="all") list = list.filter(i=>i.prio===f.prio);
+  if(f.status!=="all") list = list.filter(i=>i.status===f.status);
+  if(f.q) list = list.filter(i=>i.note.toLowerCase().includes(f.q.toLowerCase()));
+
+  el.innerHTML = `
+  <div class="card">
+    <div class="filter-row">
+      <label>Course</label>
+      <select id="fCourse"><option value="all">All</option>${D.courses.map(c=>`<option value="${c.id}" ${f.course===c.id?"selected":""}>${c.code}</option>`).join("")}</select>
+      <label>Priority</label>
+      <select id="fPrio"><option value="all">All</option><option ${f.prio==="HIGH"?"selected":""}>HIGH</option><option ${f.prio==="MEDIUM"?"selected":""}>MEDIUM</option><option ${f.prio==="LOW"?"selected":""}>LOW</option></select>
+      <label>Status</label>
+      <select id="fStatus"><option value="all" ${f.status==="all"?"selected":""}>All</option><option ${f.status==="Open"?"selected":""}>Open</option><option ${f.status==="Resolved"?"selected":""}>Resolved</option></select>
+      <input type="text" id="fQ" placeholder="Search notes…" value="${esc(f.q)}" style="flex:1;min-width:140px">
+      <button class="primary" id="btnNewIssue">+ Log issue</button>
+    </div>
+    <table class="data">
+      <thead><tr><th>Priority</th><th>Course</th><th>Week</th><th>Type</th><th style="width:50%">Description</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+      ${list.length? list.map(i=>`<tr class="${i.status==='Resolved'?'':''}">
+        <td><span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span></td>
+        <td>${esc(i.course)}</td>
+        <td class="num">${i.week||"—"}</td>
+        <td class="muted">${esc(i.type)}</td>
+        <td ${i.status==='Resolved'? 'style="text-decoration:line-through;color:var(--ink-3)"':''}>${esc(i.note)}</td>
+        <td>${i.status}</td>
+        <td style="white-space:nowrap"><button class="linkish t-iss" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button> · <button class="linkish e-iss" data-id="${i.id}">edit</button></td>
+      </tr>`).join("") : `<tr><td colspan="7" class="muted">No issues match these filters.</td></tr>`}
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:10px">Week “—” = course- or program-level issue. Use <b>Issues → CSV</b> in the header to export this log for Google Sheets.</p>
+  </div>`;
+
+  $("#fCourse").addEventListener("change", e=>{ f.course=e.target.value; renderIssues(); });
+  $("#fPrio").addEventListener("change", e=>{ f.prio=e.target.value; renderIssues(); });
+  $("#fStatus").addEventListener("change", e=>{ f.status=e.target.value; renderIssues(); });
+  $("#fQ").addEventListener("input", e=>{ f.q=e.target.value; clearTimeout(window._qq); window._qq=setTimeout(renderIssues,350); });
+  $("#btnNewIssue").addEventListener("click", ()=>openModal({}));
+  el.querySelectorAll(".t-iss").forEach(b=>b.addEventListener("click", ()=>{
+    const i = D.issues.find(x=>x.id===+b.dataset.id);
+    i.status = i.status==="Open"?"Resolved":"Open"; markDirty(); renderIssues();
+  }));
+  el.querySelectorAll(".e-iss").forEach(b=>b.addEventListener("click", ()=>{
+    openModal({edit: D.issues.find(x=>x.id===+b.dataset.id)});
+  }));
+}
+
+/* ---------- ABOUT ---------- */
+function renderAbout(){
+  $("#tab-about").innerHTML = `
+  <div class="card">
+    <h2>What this is</h2>
+    <p>A single-file workspace for modernizing the Exclusively Online MSW curriculum: track redesign progress per course, review each week against a shared design-standards checklist, see the course the way a learner experiences it, and keep an issue log that leadership can read at a glance.</p>
+    <h2 style="margin-top:16px">The workflow</h2>
+    <p><b>1. Pick a course</b> (Course Detail tab) and set its pipeline status — Not Started → Auditing → Rebuilding → SME Review → Finalized.<br>
+    <b>2. Work week by week.</b> Expand a week, compare the learner to-do list against what's actually in Brightspace, tick the checklist as you fix things, log issues where you can't fix immediately, and mark the week Done.<br>
+    <b>3. Use the heatmap</b> to sanity-check learner load: spikes, dead weeks, and stacked major deliverables (●) jump out.<br>
+    <b>4. Report up.</b> The Program Overview tab is the leadership view: pipeline, open issues by priority, and per-course progress.</p>
+    <h2 style="margin-top:16px">Saving your work</h2>
+    <p>This page keeps edits in memory while open. Click <b>Export JSON</b> to download your save file, and <b>Import JSON</b> to pick up where you left off. <b>Issues → CSV</b> exports the issue log for the shared Google Sheet. You can also hand your latest JSON export back to Claude to bake it in as the new default, extend the weekly maps to more courses, or add features.</p>
+    <h2 style="margin-top:16px">Data provenance & caveats</h2>
+    <p>The five pilot courses (Z503, Z504, Z505, Z510, Z515) were seeded from the master syllabi you provided (OCR'd), and the Z504 issues from your Course Issues Google Sheet. Syllabi may lag the live Brightspace shells — treat seeded weekly maps as a starting hypothesis and correct them as you audit. Items marked ⚠ are grading weights the syllabus didn't state clearly.</p>
+  </div>`;
+}
+
+/* ---------- MODAL ---------- */
+let editingIssue = null;
+function openModal(opts){
+  editingIssue = opts.edit || null;
+  $("#modalTitle").textContent = editingIssue? "Edit issue" : "Log an issue";
+  $("#mCourse").innerHTML = D.courses.map(c=>`<option value="${c.id}">${c.code} — ${esc(c.title)}</option>`).join("");
+  $("#mType").innerHTML = ACTIVITY_TYPES.map(t=>`<option>${t}</option>`).join("") + `<option>Other</option>`;
+  const cid = editingIssue?.course || opts.course || activeCourse;
+  $("#mCourse").value = cid;
+  fillWeeks(cid);
+  $("#mWeek").value = String(editingIssue?.week ?? opts.week ?? 0);
+  $("#mType").value = editingIssue?.type || "Assignment";
+  $("#mPrio").value = editingIssue?.prio || "MEDIUM";
+  $("#mStatus").value = editingIssue?.status || "Open";
+  $("#mNote").value = editingIssue?.note || "";
+  $("#modalBack").classList.add("show");
+  $("#mNote").focus();
+}
+function fillWeeks(cid){
+  const c = course(cid);
+  const n = c.weeks.length || 14;
+  let opts = `<option value="0">Course/program level</option>`;
+  for(let i=1;i<=n;i++) opts += `<option value="${i}">Week ${i}</option>`;
+  $("#mWeek").innerHTML = opts;
+}
+$("#mCourse").addEventListener("change", e=>fillWeeks(e.target.value));
+$("#mCancel").addEventListener("click", ()=>$("#modalBack").classList.remove("show"));
+$("#modalBack").addEventListener("click", e=>{ if(e.target.id==="modalBack") $("#modalBack").classList.remove("show"); });
+$("#mSave").addEventListener("click", ()=>{
+  const note = $("#mNote").value.trim();
+  if(!note){ $("#mNote").focus(); return; }
+  const rec = {
+    course: $("#mCourse").value, week: +$("#mWeek").value, type: $("#mType").value,
+    prio: $("#mPrio").value, status: $("#mStatus").value, note
+  };
+  if(editingIssue){ Object.assign(editingIssue, rec); }
+  else { D.issues.push({ id: D.nextIssueId++, ...rec }); }
+  markDirty();
+  $("#modalBack").classList.remove("show");
+  render();
+});
+
+/* ---------- IMPORT / EXPORT ---------- */
+function download(name, text, type){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+}
+$("#btnExport").addEventListener("click", ()=>{
+  D.meta.exported = new Date().toISOString();
+  download(`msw-design-studio-${new Date().toISOString().slice(0,10)}.json`, JSON.stringify(D, null, 1), "application/json");
+  dirty = false; $("#dirtyPill").classList.remove("show");
+});
+$("#btnCSV").addEventListener("click", ()=>{
+  const q = v => `"${String(v??"").replace(/"/g,'""')}"`;
+  const rows = [["Course","Week","Activity Type","Priority","Status","Description"].map(q).join(",")];
+  D.issues.forEach(i=>rows.push([i.course, i.week||"", i.type, i.prio, i.status, i.note].map(q).join(",")));
+  download(`msw-course-issues-${new Date().toISOString().slice(0,10)}.csv`, "﻿"+rows.join("\r\n"), "text/csv");
+});
+$("#btnImport").addEventListener("click", ()=>$("#fileImport").click());
+$("#fileImport").addEventListener("change", e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>{
+    try {
+      const j = JSON.parse(r.result);
+      if(!j.courses || !j.issues) throw new Error("Not a Design Studio export");
+      D = j;
+      dirty=false; $("#dirtyPill").classList.remove("show");
+      render();
+    } catch(err){ alert("Couldn't import: "+err.message); }
+    e.target.value="";
+  };
+  r.readAsText(f);
+});
+
+/* ---------- THEME / TABS / BOOT ---------- */
+$("#btnTheme").addEventListener("click", ()=>{
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme==="dark" ? "light":"dark";
+});
+if(matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme="dark";
+
+function switchTab(t){
+  activeTab = t;
+  $$("nav.tabs button").forEach(b=>b.classList.toggle("active", b.dataset.tab===t));
+  ["overview","course","issues","about"].forEach(k=>{ $("#tab-"+k).style.display = k===t? "":"none"; });
+  render();
+}
+$$("nav.tabs button").forEach(b=>b.addEventListener("click", ()=>switchTab(b.dataset.tab)));
+window.addEventListener("beforeunload", e=>{ if(dirty){ e.preventDefault(); e.returnValue=""; } });
+
+function render(){
+  if(activeTab==="overview") renderOverview();
+  else if(activeTab==="course") renderCourse();
+  else if(activeTab==="issues") renderIssues();
+  else renderAbout();
+}
+render();
+
+</script>
+</body>
+</html>
