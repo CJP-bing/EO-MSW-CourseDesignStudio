@@ -1,0 +1,1726 @@
+{
+ "meta": {
+  "program": "Exclusively Online MSW",
+  "org": "Binghamton University · CCPA · Dept. of Social Work",
+  "exported": null,
+  "version": 1,
+  "saved": null
+ },
+ "courses": [
+  {
+   "id": "Z504",
+   "code": "SW Z504",
+   "title": "Foundations of Scientific Inquiry with Social Systems",
+   "term": "Fall · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Rebuilding",
+   "pilot": true,
+   "notes": "Active redesign — first course in the modernization effort. Master syllabus last updated 8/14/2023.",
+   "assessments": [
+    {
+     "name": "Research Article Critique",
+     "weight": "20%"
+    },
+    {
+     "name": "Weekly Assignments",
+     "weight": "20%"
+    },
+    {
+     "name": "Research Project Exercises (Parts 1–2)",
+     "weight": "~25% — verify split",
+     "verify": true
+    },
+    {
+     "name": "Final Research Project (group)",
+     "weight": "20%"
+    },
+    {
+     "name": "Reading Quizzes + CITI Training",
+     "weight": "verify weight",
+     "verify": true
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "title": "Introduction to Scientific Inquiry in Social Work",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "3 readings (Rubin & Babbie Ch.1 + 2 articles)"
+      },
+      {
+       "t": "Video",
+       "n": "2 videos"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly Assignment: Discussion Board Post"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The Research Process & Research Paradigms",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "3 readings"
+      },
+      {
+       "t": "Video",
+       "n": "1 video"
+      },
+      {
+       "t": "Assignment",
+       "n": "Weekly Assignment: Part 1 submit + Part 2 discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 2 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Problem Formulation",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "4 readings incl. BU SW Library Guide"
+      },
+      {
+       "t": "Video",
+       "n": "2 videos"
+      },
+      {
+       "t": "Group Work",
+       "n": "Group Discussion Board Posts"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Evidence-Based Practice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "3 readings"
+      },
+      {
+       "t": "Video",
+       "n": "4 videos"
+      },
+      {
+       "t": "Group Work",
+       "n": "Group Discussion Board Post"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 4 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Ethical & Cultural Issues in Social Work Research",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "3 readings"
+      },
+      {
+       "t": "Assignment",
+       "n": "CITI Training (Human Subjects Certification)",
+       "major": true
+      },
+      {
+       "t": "Group Work",
+       "n": "Group Discussion Board Post"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 5 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Measurement",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "3 readings"
+      },
+      {
+       "t": "Video",
+       "n": "6 videos"
+      },
+      {
+       "t": "Group Work",
+       "n": "Group Discussion Board Post"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 6 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Sampling & Group Research Designs",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "2 readings"
+      },
+      {
+       "t": "Video",
+       "n": "1 video"
+      },
+      {
+       "t": "Assignment",
+       "n": "Research Paper — Phase I",
+       "major": true
+      },
+      {
+       "t": "Group Work",
+       "n": "Group + class discussion posts"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 7 Reading Quiz"
+      },
+      {
+       "t": "Milestone",
+       "n": "Midterm break follows"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Survey Research",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "2 readings"
+      },
+      {
+       "t": "Video",
+       "n": "2 videos"
+      },
+      {
+       "t": "Discussion",
+       "n": "2-part class + group discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 8 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "title": "Research Designs (Experiments & Quasi-Experiments)",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "2 readings"
+      },
+      {
+       "t": "Video",
+       "n": "3 videos"
+      },
+      {
+       "t": "Group Work",
+       "n": "Group Discussion Board Post"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 9 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "title": "Single-Case Evaluation Designs & Program Evaluation",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "2 readings"
+      },
+      {
+       "t": "Video",
+       "n": "3 videos"
+      },
+      {
+       "t": "Assignment",
+       "n": "Research Paper — Phase II",
+       "major": true
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 10 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "title": "Article Critique Immersion Week",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "1 article"
+      },
+      {
+       "t": "Video",
+       "n": "Sample critique video"
+      },
+      {
+       "t": "Assignment",
+       "n": "Weekly Assignment: submission to instructor"
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "title": "Analyzing Existing Data",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "1 reading"
+      },
+      {
+       "t": "Video",
+       "n": "3 videos"
+      },
+      {
+       "t": "Assignment",
+       "n": "Research Article Critique due",
+       "major": true
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 12 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "title": "Quantitative Inquiry",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "1 reading (2 chapters)"
+      },
+      {
+       "t": "Video",
+       "n": "3 videos incl. Binghamton Babies dataset sub-module"
+      },
+      {
+       "t": "Assignment",
+       "n": "Weekly Assignment: submission to instructor"
+      },
+      {
+       "t": "Quiz",
+       "n": "Module 13 Reading Quiz"
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "title": "Qualitative Inquiry",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "2 readings"
+      },
+      {
+       "t": "Video",
+       "n": "3 videos"
+      },
+      {
+       "t": "Assignment",
+       "n": "Research Paper — FINAL",
+       "major": true
+      },
+      {
+       "t": "Assignment",
+       "n": "Weekly Assignment: submission to instructor"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z503",
+   "code": "SW Z503",
+   "title": "Diversity and Oppression",
+   "term": "Spring · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": true,
+   "notes": "Spring 2026 syllabus. Recurring Social Issue Facilitation discussion runs weeks 3–9.",
+   "assessments": [
+    {
+     "name": "Virtual Class Engagement",
+     "weight": "10%"
+    },
+    {
+     "name": "Social Issue Facilitation (discussion forums)",
+     "weight": "20%"
+    },
+    {
+     "name": "Culturagram",
+     "weight": "15%"
+    },
+    {
+     "name": "Systems of Oppression Intersectional Analysis (A, B, C)",
+     "weight": "40%"
+    },
+    {
+     "name": "Case Analysis",
+     "weight": "15%"
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "dates": "1/19–1/25",
+     "title": "Course introduction, expectations & syllabus contract",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Syllabus + intro readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 1 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "dates": "1/26–2/1",
+     "title": "Theoretical Foundations: social identities, cultural competence & the Culturagram",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 2 Discussion (tripartite framework, MSWP reflection)"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "dates": "2/2–2/8",
+     "title": "Ethnocentrism, monoculturalism & historical influences; Culturagram in practice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Assignment",
+       "n": "Sign up for Systems of Oppression assignment SOPs"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "dates": "2/9–2/15",
+     "title": "Communication Strategies in Clinical Practice & Forms of Structural Oppression",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Assignment",
+       "n": "Culturagram due (submit via Assignments)",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "dates": "2/16–2/22",
+     "title": "Structural Oppression: Racism, Xenophobia & White Supremacy",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "MSWP Ch. 6 & 7"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Discussion",
+       "n": "Post reflections via designated discussion"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "dates": "2/23–3/1",
+     "title": "Structural Oppression: Historical & Intergenerational Trauma; Resistance and Resilience",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Group Work",
+       "n": "Connect with Case Analysis group"
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "dates": "3/2–3/8",
+     "title": "Structural Oppression: Religion/Spirituality, Diverse Populations & Mass Incarceration",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Milestone",
+       "n": "Spring break follows"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "dates": "3/16–3/22",
+     "title": "Evidence-Based Practices with Diverse Populations",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "dates": "3/23–3/29",
+     "title": "Structural Oppression: Ableism, Heteronormativity, Homophobia & Transphobia",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Social Issue Discussion Forum"
+      },
+      {
+       "t": "Group Work",
+       "n": "Case Analysis group work"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "dates": "3/30–4/5",
+     "title": "Structural Oppression: Environmental Injustice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Assignment",
+       "n": "Component A — Intersectionality Paper due",
+       "major": true
+      },
+      {
+       "t": "Group Work",
+       "n": "Case Analysis group work"
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "dates": "4/6–4/12",
+     "title": "Structural Oppression: Poverty",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Assignment",
+       "n": "Component B — Presentation posted to designated discussion",
+       "major": true
+      },
+      {
+       "t": "Group Work",
+       "n": "Case Analysis group work"
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "dates": "4/13–4/19",
+     "title": "Equal Rights for Women: Voting & Reproductive Rights + student presentations",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "View assigned student presentation + respond"
+      },
+      {
+       "t": "Group Work",
+       "n": "Post Case Analysis group presentation",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "dates": "4/20–4/26",
+     "title": "Multicultural Organizational Change: Antiracist Practice & Social Justice Models",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "View assigned Case Analysis presentations + respond"
+      },
+      {
+       "t": "Assignment",
+       "n": "Complete Case Analysis assignment",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "dates": "4/27–5/3",
+     "title": "Summary: Diversity & Oppression; Multicultural Social Work Practice",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Module 14 Discussion Forum"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z505",
+   "code": "SW Z505",
+   "title": "Human Behavior in the Social Environment (HBSE)",
+   "term": "Summer · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": true,
+   "notes": "Summer 2026 syllabus. 10 reading quizzes at 3% each spread across the term.",
+   "assessments": [
+    {
+     "name": "Discussion board participation / engagement",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Reading quizzes (10 × 3%)",
+     "weight": "30%"
+    },
+    {
+     "name": "Film Assessment Paper",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Final paper (theory application / autobiography)",
+     "weight": "verify",
+     "verify": true
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "title": "Course Overview & Introduction to Theory and Its Application to Social Work",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.1 + NASW Code of Ethics"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Review syllabus; get familiar with Brightspace site"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Critique of Theory Use in Social Work Practice & Contextualizing Human Development",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.2–3"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Psychodynamic Theory",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.5, Hartmann, Freud"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Systems Theories; Environmental & Ecological Theory; Eco-maps",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.6–7, Bronfenbrenner"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Practice eco-map skills"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Life Span Theories, Family Life Course Perspectives & Historical Context",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.8, Erikson readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Film Assignment week",
+     "acts": [
+      {
+       "t": "Video",
+       "n": "Assigned film"
+      },
+      {
+       "t": "Reading",
+       "n": "Review theories for film assignment"
+      },
+      {
+       "t": "Assignment",
+       "n": "Work on Film Assessment Paper",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Attachment Theory",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Ainsworth, Bowlby"
+      },
+      {
+       "t": "Video",
+       "n": "Instructor weekly video"
+      },
+      {
+       "t": "Assignment",
+       "n": "Submit Film Assessment Paper",
+       "major": true
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Symbolic Interactionism & Social Constructionism",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.9, Blumer, Berger & Luckmann"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "title": "Behaviorism, Social Learning & Exchange Theory",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.10, Bandura, Skinner"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "title": "Cognitive & Moral Development Theories",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.13, Fowler, Gilligan, Kohlberg"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "title": "Empowerment Theory & Strengths Perspective",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.12, Solomon, Saleebey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "title": "Critical Theories",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Koenig Ch.4, Abrams, Keenan, Kina"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Begin theoretical autobiography work"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "title": "Theories of Culture, White Privilege & Applying Theory to Macro Social Work",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Discussion",
+       "n": "Weekly discussion"
+      },
+      {
+       "t": "Quiz",
+       "n": "Reading quiz"
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "title": "Feminist Theory & course wrap-up",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Fahs & Plante, Kimmel & Wade"
+      },
+      {
+       "t": "Assignment",
+       "n": "Submit final paper",
+       "major": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z510",
+   "code": "SW Z510",
+   "title": "Generalist Social Work Practice I",
+   "term": "Fall · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": true,
+   "notes": "Fall 2025 syllabus. Two-session structure with mid-semester break after week 7. Weeks 11–13 center on role-play review.",
+   "assessments": [
+    {
+     "name": "Module discussions (weekly)",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Values Paper (wk 7)",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Guest Speaker Reflection Paper (wk 8)",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Videotape Interview Assignment (wk 10)",
+     "weight": "verify",
+     "verify": true
+    },
+    {
+     "name": "Case Study / case conference (rubric-graded)",
+     "weight": "verify",
+     "verify": true
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "dates": "8/25–8/31",
+     "title": "Introduction to course, each other & social work practice",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Introduce yourself + Module 1 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "dates": "9/1–9/7",
+     "title": "Introduction to the profession and its history",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Shulman Ch.1–2 + 2 articles"
+      },
+      {
+       "t": "Video",
+       "n": "Guest speaker series videos"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 2 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "dates": "9/8–9/14",
+     "title": "Engaging clients; social work professional values",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Timbers; White et al."
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 3 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "dates": "9/15–9/21",
+     "title": "Strengths-based perspective & social constructivism",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Saleebey Ch.1–2 + DSM intro + 2 articles"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 4 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "dates": "9/22–9/28",
+     "title": "Tuning in; use of self; values and ethics",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "6 readings incl. NASW Code"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 5 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "dates": "9/29–10/5",
+     "title": "Beginning phase of work; contracting skills",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Saleebey Ch.5 & 13; Shulman Ch.4 + 2 articles"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 6 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "dates": "10/6–10/12",
+     "title": "Middle phase of work; practice skills",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Saleebey Ch.14; Shulman Ch.5 + 2 articles"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 7 Discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Values Paper due Sunday 11:59pm",
+       "major": true
+      },
+      {
+       "t": "Milestone",
+       "n": "Mid-semester break follows (ends Session 1)"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "dates": "10/20–10/26",
+     "title": "Middle phase (continued) — guest speaker focus",
+     "acts": [
+      {
+       "t": "Video",
+       "n": "Guest speaker video series"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 8 Discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Guest Speaker Reflection Paper due",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "dates": "10/27–11/2",
+     "title": "Professional identity and licensing",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Module 9 Discussion"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "dates": "11/3–11/9",
+     "title": "Endings & transitions; strengths-based practice with diverse populations",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Saleebey Ch.4,7,9; Shulman Ch.6 + 2 articles"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 10 Discussion"
+      },
+      {
+       "t": "Assignment",
+       "n": "Videotape Interview Assignment due",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "dates": "11/10–11/16",
+     "title": "Review and critique role-plays",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Module 11 Discussion"
+      },
+      {
+       "t": "Group Work",
+       "n": "View & critique classmates' role-plays"
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "dates": "11/17–11/23",
+     "title": "Review and critique role-plays",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Module 12 Discussion"
+      },
+      {
+       "t": "Group Work",
+       "n": "View & critique classmates' role-plays"
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "dates": "11/24–11/30",
+     "title": "Review and critique role-plays",
+     "acts": [
+      {
+       "t": "Discussion",
+       "n": "Module 13 Discussion"
+      },
+      {
+       "t": "Group Work",
+       "n": "View & critique classmates' role-plays"
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "dates": "12/1–12/7",
+     "title": "Evaluation of practice; course evaluations",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Saleebey Ch.8 & 15; Soydan"
+      },
+      {
+       "t": "Discussion",
+       "n": "Module 14 Discussion"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z515",
+   "code": "SW Z515",
+   "title": "Social Welfare Policy and Programs",
+   "term": "Fall · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": true,
+   "notes": "Fall 2025 syllabus. Includes cross-professional IPE Healthcare Delivery Project and Legislative Meeting Simulation.",
+   "assessments": [
+    {
+     "name": "Classroom Engagement (1 pt × 14 wks)",
+     "weight": "14 pts"
+    },
+    {
+     "name": "Policy Analysis (4 parts: 10/5/20/5)",
+     "weight": "40 pts"
+    },
+    {
+     "name": "IPE Healthcare Delivery Project (anchor)",
+     "weight": "25 pts"
+    },
+    {
+     "name": "Legislative Meeting Simulation",
+     "weight": "21 pts"
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "dates": "8/25–8/31",
+     "title": "Course Overview · Foundations: Introduction to Policy Practice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Syllabus + NASW Code excerpt"
+      },
+      {
+       "t": "Video",
+       "n": "Brightspace tour + weekly lecture"
+      },
+      {
+       "t": "Discussion",
+       "n": "Welcome introductions + course questions thread"
+      },
+      {
+       "t": "Assignment",
+       "n": "Participation self-assessment"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: orientation + completion quiz by 9/2"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "dates": "9/1–9/7",
+     "title": "IPE Overview · Foundations: History & Delivery of Social Welfare in America",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Segal Ch.2 & 8 + NASW tools"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Assignment",
+       "n": "Participation self-assessment"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: schedule group meeting, complete Ice Breaker"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "dates": "9/8–9/14",
+     "title": "Foundations: Policy Analysis (assignment overview & applications)",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Segal Ch.4"
+      },
+      {
+       "t": "Video",
+       "n": "Policy Analysis overview + weekly lecture"
+      },
+      {
+       "t": "Assignment",
+       "n": "Identify issue/problem of focus for policy analysis"
+      },
+      {
+       "t": "Assignment",
+       "n": "Participation self-assessment"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "dates": "9/15–9/21",
+     "title": "Policy Focus: Health Care",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Readings + 'In the News': Health Care"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Assignment",
+       "n": "Policy Analysis Part One due 9/21",
+       "major": true
+      },
+      {
+       "t": "Assignment",
+       "n": "Participation self-assessment"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "dates": "9/22–9/28",
+     "title": "Policy Focus: Social Justice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "NASW (2025) Social Justice + readings"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: group submission; Ice Breaker due 9/28"
+      },
+      {
+       "t": "Assignment",
+       "n": "Participation self-assessment"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "dates": "9/29–10/5",
+     "title": "Policy Focus: Disability",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: group Template due 10/2"
+      },
+      {
+       "t": "Assignment",
+       "n": "Policy Analysis Part Two due 10/5",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "dates": "10/6–10/12",
+     "title": "Policy Focus: Aging",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "AARP Policy Book + 'In the News': Aging"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: convene group, review Group Paper plan"
+      },
+      {
+       "t": "Milestone",
+       "n": "Mid-semester break follows"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "dates": "10/20–10/26",
+     "title": "Policy Focus: Environmental Justice",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Assignment",
+       "n": "Policy Analysis Part Three due 10/26",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "dates": "10/27–11/2",
+     "title": "Policy Focus: Poverty & Economics",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: continue drafting Group Paper"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "dates": "11/3–11/9",
+     "title": "Policy Focus: Children & Families",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Assigned readings"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Assignment",
+       "n": "Policy Analysis Part Four due 11/9",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "dates": "11/10–11/16",
+     "title": "Legislative Advocacy",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Legislative Meeting Simulation materials"
+      },
+      {
+       "t": "Video",
+       "n": "Weekly lecture"
+      },
+      {
+       "t": "Group Work",
+       "n": "IPE: Group Paper due 11/16",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "dates": "11/17–11/23",
+     "title": "Foundations: wrap-up & simulation prep",
+     "acts": [
+      {
+       "t": "Assignment",
+       "n": "IPE: Peer-/Self-Evaluation due 11/18"
+      },
+      {
+       "t": "Group Work",
+       "n": "Send Legislative Meeting scheduling email by 11/23"
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "dates": "11/24–11/30",
+     "title": "Policy Analysis & Legislative Advocacy (prep)",
+     "acts": [
+      {
+       "t": "Group Work",
+       "n": "Prepare for Legislative Meeting Simulation"
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "dates": "12/1–12/7",
+     "title": "Legislative Meeting Simulations",
+     "acts": [
+      {
+       "t": "Group Work",
+       "n": "Convene Legislative Meeting Simulation (as assigned)",
+       "major": true
+      },
+      {
+       "t": "Assignment",
+       "n": "Send follow-up email by 12/7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z506",
+   "code": "SW Z506",
+   "title": "Psychopathology & Pharmacology",
+   "term": "Spring · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z511",
+   "code": "SW Z511",
+   "title": "Generalist Social Work Practice II",
+   "term": "Spring · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z512",
+   "code": "SW Z512",
+   "title": "Generalist Social Work Practice III",
+   "term": "Summer · Year 1 (Generalist)",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z520",
+   "code": "SW Z520",
+   "title": "Evaluation of Practice",
+   "term": "Advanced year",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z521",
+   "code": "SW Z521",
+   "title": "Advanced SW Practice with Individuals",
+   "term": "Fall · Advanced",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z522",
+   "code": "SW Z522",
+   "title": "Advanced SW Practice with Organizations",
+   "term": "Fall · Advanced",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z523",
+   "code": "SW Z523",
+   "title": "Advanced SW Practice with Groups",
+   "term": "Fall · Advanced",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z524",
+   "code": "SW Z524",
+   "title": "Advanced SW Practice with Families",
+   "term": "Advanced year",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  },
+  {
+   "id": "Z525",
+   "code": "SW Z525",
+   "title": "Advanced SW Practice with Communities",
+   "term": "Spring · Advanced",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": false,
+   "notes": "",
+   "assessments": [],
+   "weeks": []
+  }
+ ],
+ "issues": [
+  {
+   "id": 1,
+   "course": "Z504",
+   "week": 3,
+   "type": "Reading",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Asks learners to read 'BU Social Work Library Guide' — links to a huge database. What exactly should they read or do with it? Unclear."
+  },
+  {
+   "id": 2,
+   "course": "Z504",
+   "week": 3,
+   "type": "Reading",
+   "prio": "LOW",
+   "status": "Open",
+   "note": "'Types of Research Questions' table pasted into the module intro — purpose unclear, and it links to dissertationwritinghelp.uk, which appears to sell dissertations."
+  },
+  {
+   "id": 3,
+   "course": "Z504",
+   "week": 3,
+   "type": "Assignment",
+   "prio": "HIGH",
+   "status": "Open",
+   "note": "Submission cadence/instructions unclear: are they ONLY submitting a group research question together? How and when are groups communicated?"
+  },
+  {
+   "id": 4,
+   "course": "Z504",
+   "week": 3,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "note": "'Paradigm Exercise (carryover from last week)' text in Week 3 Assignment — keep or delete? Meaning unclear for week 3."
+  },
+  {
+   "id": 5,
+   "course": "Z504",
+   "week": 4,
+   "type": "Discussion",
+   "prio": "HIGH",
+   "status": "Open",
+   "note": "Weekly Assignment/Discussion board instructions lacking, no due date; needs serious review and fixes."
+  },
+  {
+   "id": 6,
+   "course": "Z504",
+   "week": 0,
+   "type": "Milestone",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Program-wide: differentiate between 'Assignment', 'Discussion', and 'Discussion Assignment / Graded Discussion' naming conventions."
+  },
+  {
+   "id": 7,
+   "course": "Z504",
+   "week": 5,
+   "type": "Milestone",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Missing weekly module introduction paragraph. AI-generated intro drafted — needs SME review."
+  },
+  {
+   "id": 8,
+   "course": "Z504",
+   "week": 5,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Need due dates and clear instructions for assignment; the group work seems confusing and unclear."
+  },
+  {
+   "id": 9,
+   "course": "Z504",
+   "week": 5,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "note": "CITI Training instructions could use more context/elaboration; previous instructions were minimally ported over."
+  },
+  {
+   "id": 10,
+   "course": "Z504",
+   "week": 6,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Broken module image header. Found the Chicago-Times image on Google, but it isn't an ideal contextualized header image."
+  },
+  {
+   "id": 11,
+   "course": "Z504",
+   "week": 0,
+   "type": "Milestone",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "note": "Program-wide: consider a default 'Rubrics' module/section in all courses instead of copy-pasting the generic rubric into every assignment."
+  }
+ ],
+ "nextIssueId": 12,
+ "weekState": {}
+}
