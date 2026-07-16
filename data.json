@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-14T18:39:38.678Z"
+  "saved": "2026-07-16T14:53:51.876Z"
  },
  "courses": [
   {
@@ -1825,6 +1825,24 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-14T18:39:18.677Z"
+  },
+  {
+   "id": 13,
+   "createdAt": "2026-07-16T14:53:31.874Z",
+   "scope": "week",
+   "recordType": "improvement",
+   "course": "Z504",
+   "week": 8,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "Missing Due Date cadence from assignment instructions (Need this in order to update Module Overview)",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-16T14:53:31.874Z"
   }
  ],
  "standards": [
@@ -1853,7 +1871,7 @@
    "updatedAt": null
   }
  ],
- "nextIssueId": 13,
+ "nextIssueId": 14,
  "nextStandardId": 3,
  "standardChecks": {
   "1:Z504": {
