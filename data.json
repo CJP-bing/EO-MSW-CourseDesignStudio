@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-16T18:56:25.081Z"
+  "saved": "2026-07-16T18:59:59.853Z"
  },
  "courses": [
   {
@@ -1857,10 +1857,10 @@
    "targetDate": "",
    "workflow": "id_can_resolve",
    "status": "Open",
-   "note": "Syllabus says no weekly assignment due this week, but in brightspace module there is \"Research Paper Phase 2\" in the assignment section?",
+   "note": "Need to confirm Sunday due date for Research Paper Phase II",
    "recommendation": "",
    "smeResponse": "",
-   "updatedAt": "2026-07-16T18:56:05.080Z"
+   "updatedAt": "2026-07-16T18:59:39.852Z"
   }
  ],
  "standards": [
