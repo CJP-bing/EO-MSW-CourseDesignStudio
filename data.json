@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-16T19:32:30.552Z"
+  "saved": "2026-07-16T19:33:57.229Z"
  },
  "courses": [
   {
@@ -1861,6 +1861,24 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-16T18:59:39.852Z"
+  },
+  {
+   "id": 15,
+   "createdAt": "2026-07-16T19:33:37.227Z",
+   "scope": "week",
+   "recordType": "improvement",
+   "course": "Z504",
+   "week": 11,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Article Critique Assignment needs an instruction and standardization pass, we can simplify the structure of it for the Brightspace module flow.",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-16T19:33:37.227Z"
   }
  ],
  "standards": [
@@ -1889,7 +1907,7 @@
    "updatedAt": null
   }
  ],
- "nextIssueId": 15,
+ "nextIssueId": 16,
  "nextStandardId": 3,
  "standardChecks": {
   "1:Z504": {
