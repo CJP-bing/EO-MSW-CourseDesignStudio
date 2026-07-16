@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-16T15:59:11.596Z"
+  "saved": "2026-07-16T18:56:25.081Z"
  },
  "courses": [
   {
@@ -1843,6 +1843,24 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-16T14:53:31.874Z"
+  },
+  {
+   "id": 14,
+   "createdAt": "2026-07-16T18:56:05.080Z",
+   "scope": "week",
+   "recordType": "improvement",
+   "course": "Z504",
+   "week": 10,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Syllabus says no weekly assignment due this week, but in brightspace module there is \"Research Paper Phase 2\" in the assignment section?",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-16T18:56:05.080Z"
   }
  ],
  "standards": [
@@ -1871,7 +1889,7 @@
    "updatedAt": null
   }
  ],
- "nextIssueId": 14,
+ "nextIssueId": 15,
  "nextStandardId": 3,
  "standardChecks": {
   "1:Z504": {
