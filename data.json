@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-17T16:00:33.867Z"
+  "saved": "2026-07-20T19:56:48.761Z"
  },
  "courses": [
   {
@@ -1199,7 +1199,7 @@
    "title": "Social Welfare Policy and Programs",
    "term": "Fall · Year 1 (Generalist)",
    "credits": 3,
-   "status": "Not Started",
+   "status": "Rebuilding",
    "pilot": true,
    "notes": "Fall 2025 syllabus. Includes cross-professional IPE Healthcare Delivery Project and Legislative Meeting Simulation.",
    "assessments": [
@@ -3578,8 +3578,8 @@
   "Z515-1": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3587,14 +3587,53 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "4": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-2": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3602,14 +3641,46 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-3": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3617,14 +3688,46 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-4": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3632,14 +3735,46 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-5": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3647,14 +3782,46 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-6": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3662,14 +3829,46 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-7": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3677,14 +3876,44 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-8": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3692,14 +3921,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-9": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3707,14 +3960,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-10": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3722,14 +3999,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-11": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3737,14 +4038,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-12": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3752,14 +4077,31 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-13": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3767,14 +4109,23 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z515-14": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3782,7 +4133,24 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   }
  }
