@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-21T18:06:35.830Z"
+  "saved": "2026-07-21T18:09:27.029Z"
  },
  "courses": [
   {
@@ -1897,6 +1897,24 @@
    "recommendation": "Leave it for now or unpublish/hide from view.",
    "smeResponse": "",
    "updatedAt": "2026-07-21T18:06:10.190Z"
+  },
+  {
+   "id": 17,
+   "createdAt": "2026-07-21T18:09:06.406Z",
+   "scope": "week",
+   "recordType": "improvement",
+   "course": "Z515",
+   "week": 1,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "effort": "quick",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "IPE assignment is embedded on the page as a google doc (requires sign-in). We should ideally provide the instructions for the assignment directly in HTML on this page, and link out only where absolutely necessary.",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-21T18:09:06.406Z"
   }
  ],
  "standards": [
@@ -1925,7 +1943,7 @@
    "updatedAt": null
   }
  ],
- "nextIssueId": 17,
+ "nextIssueId": 18,
  "nextStandardId": 3,
  "standardChecks": {
   "1:Z504": {
