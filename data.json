@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-20T19:56:48.761Z"
+  "saved": "2026-07-21T18:06:35.830Z"
  },
  "courses": [
   {
@@ -1879,6 +1879,24 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-16T19:33:37.227Z"
+  },
+  {
+   "id": 16,
+   "createdAt": "2026-07-21T18:06:10.190Z",
+   "scope": "week",
+   "recordType": "design_decision",
+   "course": "Z515",
+   "week": 1,
+   "type": "Video",
+   "prio": "LOW",
+   "effort": "deep",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "Brightspace tour video will be a bit outdated visually after our first update pass. Not a huge deal, but should be updated at some point in the future. Also, might not even be the right place for a video like this; it should be included in a resource hub or orientation course, not really necessary in the course pages.",
+   "recommendation": "Leave it for now or unpublish/hide from view.",
+   "smeResponse": "",
+   "updatedAt": "2026-07-21T18:06:10.190Z"
   }
  ],
  "standards": [
@@ -1907,7 +1925,7 @@
    "updatedAt": null
   }
  ],
- "nextIssueId": 16,
+ "nextIssueId": 17,
  "nextStandardId": 3,
  "standardChecks": {
   "1:Z504": {
@@ -3583,7 +3601,7 @@
     false,
     false,
     false,
-    false,
+    true,
     false,
     false
    ],
