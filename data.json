@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-21T18:39:34.997Z"
+  "saved": "2026-07-23T14:45:51.743Z"
  },
  "courses": [
   {
@@ -1929,10 +1929,10 @@
    "targetDate": "",
    "workflow": "needs_sme",
    "status": "Open",
-   "note": "Jackie/Instructor to review and update general due dates throughout",
+   "note": "Jackie/Instructor to review and update general due dates throughout, or just suggest the assignment cadence to me and I can update throughout (Wednesdays for discussion board, Sundays for assignments, etc.)",
    "recommendation": "",
    "smeResponse": "",
-   "updatedAt": "2026-07-21T18:13:46.182Z"
+   "updatedAt": "2026-07-23T14:45:30.925Z"
   },
   {
    "id": 19,
