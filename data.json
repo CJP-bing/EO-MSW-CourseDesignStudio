@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T18:04:37.035Z"
+  "saved": "2026-07-24T18:16:17.883Z"
  },
  "courses": [
   {
@@ -2067,6 +2067,26 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-24T17:53:37.014Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmrz9gitqacyax",
+   "createdAt": "2026-07-24T18:15:36.782Z",
+   "by": "",
+   "scope": "week",
+   "recordType": "defect",
+   "course": "Z515",
+   "week": 8,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "sme_revision",
+   "status": "Open",
+   "note": "Week 8 Lecture links back to Week 5 Lecture. Need Jackie to swap/re-embed Week 8 in.",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-24T18:15:36.782Z",
    "updatedBy": ""
   }
  ],
@@ -4179,7 +4199,7 @@
     true,
     false,
     false,
-    false,
+    true,
     false,
     false,
     false
@@ -4209,7 +4229,8 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-07-24T18:15:57.682Z"
   },
   "Z515-9": {
    "status": "todo",
