@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T13:49:59.150Z"
+  "saved": "2026-07-24T13:54:09.123Z"
  },
  "courses": [
   {
@@ -2008,6 +2008,26 @@
    "createdAt": "2026-07-24T13:39:37.257Z",
    "updatedAt": "2026-07-24T13:46:39.590Z",
    "updatedBy": "sheet: cpierce4@binghamton.edu"
+  },
+  {
+   "id": "gmrz049tf1hh6f",
+   "scope": "week",
+   "course": "Z525",
+   "week": 2,
+   "type": "Video",
+   "prio": "HIGH",
+   "status": "Open",
+   "effort": "medium",
+   "workflow": "needs_sme",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "TEST TEST TEST",
+   "recommendation": "",
+   "smeResponse": "",
+   "by": "Connor",
+   "createdAt": "2026-07-24T13:54:08.691Z",
+   "updatedAt": "2026-07-24T13:54:08.695Z",
+   "updatedBy": "Connor"
   }
  ],
  "standards": [
