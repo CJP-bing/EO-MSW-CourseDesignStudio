@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T17:56:41.396Z"
+  "saved": "2026-07-24T17:59:53.189Z"
  },
  "courses": [
   {
@@ -3990,6 +3990,54 @@
     false,
     false,
     true,
+    true,
+    false,
+    false
+   ],
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": "",
+   "u": "2026-07-24T17:59:23.458Z"
+  },
+  "Z515-5": {
+   "status": "todo",
+   "checks": [
+    true,
+    true,
+    false,
+    false,
+    true,
     false,
     false,
     false
@@ -4028,54 +4076,7 @@
     ]
    },
    "note": "",
-   "u": "2026-07-24T17:56:21.258Z"
-  },
-  "Z515-5": {
-   "status": "todo",
-   "checks": [
-    true,
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-   ],
-   "activityChecks": {
-    "0": [
-     false,
-     false,
-     false,
-     false,
-     false
-    ],
-    "1": [
-     false,
-     false,
-     false,
-     false,
-     false,
-     false
-    ],
-    "2": [
-     false,
-     false,
-     false,
-     false,
-     false,
-     false
-    ],
-    "3": [
-     false,
-     false,
-     false,
-     false,
-     false,
-     false
-    ]
-   },
-   "note": ""
+   "u": "2026-07-24T17:59:33.050Z"
   },
   "Z515-6": {
    "status": "todo",
