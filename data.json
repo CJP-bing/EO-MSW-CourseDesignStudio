@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T12:57:42.774Z"
+  "saved": "2026-07-24T13:39:41.196Z"
  },
  "courses": [
   {
@@ -1987,6 +1987,26 @@
    "recommendation": "",
    "smeResponse": "Jackie shared folder for Z515 to CP; should be somewhere in the Assignments folder.",
    "updatedAt": "2026-07-23T15:57:28.158Z"
+  },
+  {
+   "id": "xmryzllewxdfhd",
+   "scope": "course",
+   "course": "Z504",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "effort": "medium",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "TEST - IGNORE",
+   "recommendation": "",
+   "smeResponse": "",
+   "by": "",
+   "createdAt": "2026-07-24T13:39:37.257Z",
+   "updatedAt": "2026-07-24T13:39:37.256Z",
+   "updatedBy": ""
   }
  ],
  "standards": [
