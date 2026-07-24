@@ -316,9 +316,17 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
       <div style="flex:1"><label>Data file path</label><input type="text" id="cPath"></div>
     </div>
     <div class="row">
+      <label>Your name or initials (shown on issues you log & in commit messages)</label>
+      <input type="text" id="cAuthor" placeholder="e.g. CP" style="width:100%">
+    </div>
+    <div class="row">
+      <label>Team endpoint URL (Google Apps Script) — lets anyone log issues with NO GitHub token</label>
+      <input type="text" id="cHook" placeholder="https://script.google.com/macros/s/…/exec" style="width:100%">
+    </div>
+    <div class="row">
       <label>Fine-grained personal access token</label>
       <input type="password" id="cToken" placeholder="github_pat_…" style="width:100%">
-      <p class="small muted" style="margin:6px 0 0">Create at GitHub → Settings → Developer settings → <b>Fine-grained tokens</b>. Scope it to <b>only this repository</b> with <b>Contents: Read and write</b> permission (nothing else). The token is stored only in this browser. Anyone with access to this computer profile could read it, so never use a broadly-scoped token.</p>
+      <p class="small muted" style="margin:6px 0 0">Create at GitHub → Settings → Developer settings → <b>Fine-grained tokens</b>. Scope it to <b>only this repository</b> with <b>Contents: Read and write</b> permission (nothing else). The token is stored only in this browser. Anyone with access to this computer profile could read it, so never use a broadly-scoped token. Note: GitHub fine-grained tokens only work on repos owned by <b>your own account or an organization you belong to</b> — collaborators on someone else's personal repo need a token supplied by the owner, or move the repo to a (free) GitHub organization.</p>
     </div>
     <div class="row">
       <label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cAuto"> Auto-commit ~20s after I stop editing</label>
@@ -584,7 +592,9 @@ const esc = s => String(s??"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;'
 /* ============ PERSISTENCE ============ */
 const LS_DATA = "msw-design-studio-data";
 const LS_CFG  = "msw-design-studio-cfg";
-let CFG = { owner:"CJP-bing", repo:"EO-MSW-CourseDesignStudio", branch:"main", path:"data.json", token:"", auto:true };
+// Paste the Apps Script "Web app" URL here to give EVERY visitor tokenless issue-logging:
+const DEFAULT_HOOK = "https://script.google.com/a/macros/binghamton.edu/s/AKfycbx3b3jTuccXxjGTLa6V_IThjFZ2l40EG5QYg1FhNseqaYMmkeauFcJJOjz56CTcyywD/exec";
+let CFG = { owner:"CJP-bing", repo:"EO-MSW-CourseDesignStudio", branch:"main", path:"data.json", token:"", auto:true, author:"", hook:"" };
 let hasLS = true;
 let baselineSaved = null;     // meta.saved of the copy we believe is on GitHub
 let unsynced = false;         // local edits not yet committed to GitHub
@@ -595,6 +605,7 @@ function lsSet(k,v){ try { localStorage.setItem(k,v); return true; } catch(e){ h
 function loadCfg(){
   const raw = lsGet(LS_CFG);
   if(raw){ try { Object.assign(CFG, JSON.parse(raw)); } catch(e){} }
+  if(!CFG.hook && DEFAULT_HOOK) CFG.hook = DEFAULT_HOOK;
   const fr = document.getElementById("footRepo");
   if(fr) fr.textContent = CFG.owner+"/"+CFG.repo;
 }
@@ -630,9 +641,85 @@ function migrate(j){
     s.example = s.example || "";
     s.updatedAt = s.updatedAt || null;
   });
-  if(!j.nextIssueId) j.nextIssueId = Math.max(0, ...j.issues.map(i=>i.id||0)) + 1;
-  if(!j.nextStandardId) j.nextStandardId = Math.max(0, ...j.standards.map(s=>s.id||0)) + 1;
+  if(!j.nextIssueId) j.nextIssueId = Math.max(0, ...j.issues.map(i=>+i.id||0)) + 1;
+  if(!j.nextStandardId) j.nextStandardId = Math.max(0, ...j.standards.map(s=>+s.id||0)) + 1;
   return j;
+}
+const nowIso = () => new Date().toISOString();
+const uid = () => "x" + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+function touch(o){ o.updatedAt = nowIso(); if(CFG.author) o.updatedBy = CFG.author; }
+/* Tokenless write path: send issue changes to the Google Sheet hub (Apps Script),
+   which merges them into data.json server-side. Used only when no GitHub token. */
+let hookPending = new Map(), hookTimer = null;
+function hookURL(){ return CFG.hook || DEFAULT_HOOK; }
+function hookQueue(i){
+  if(!i || CFG.token || !hookURL()) return;
+  hookPending.set(String(i.id), i);
+  clearTimeout(hookTimer); hookTimer = setTimeout(hookPush, 2500);
+}
+async function hookPush(){
+  const url = hookURL();
+  if(!url || !hookPending.size) return;
+  const issues = [...hookPending.values()]; hookPending.clear();
+  setChip("Sending to the shared tracker\u2026");
+  try {
+    const r = await fetch(url, { method:"POST", headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      body: JSON.stringify({ action:"upsertIssues", issues }) });
+    let ok = r.ok;
+    try { ok = (await r.json()).ok; } catch(e){}
+    if(!ok) throw new Error("endpoint rejected");
+    setChip("\u2713 Shared with the team tracker", "ok");
+    setTimeout(chipIdle, 4000);
+  } catch(e){
+    issues.forEach(i=>hookPending.set(String(i.id), i));
+    setChip("\u26a0 Couldn't reach the shared tracker \u2014 saved here; will retry", "warn");
+    setTimeout(hookPush, 30000);
+  }
+}
+// Merge another copy of the data into L (local). Record-level, newest-edit-wins,
+// union of records — so two people editing different things never erase each other.
+function mergeData(L, R){
+  if(!R) return L;
+  const localWins = (a,b) => (a||"") >= (b||"");   // ties/no-timestamps → keep local
+  const iById = new Map(L.issues.map(i=>[String(i.id), i]));
+  R.issues.forEach(ri=>{
+    const li = iById.get(String(ri.id));
+    if(!li) L.issues.push(ri);
+    else if(!localWins(li.updatedAt, ri.updatedAt)) Object.assign(li, ri);
+  });
+  const sById = new Map(L.standards.map(s=>[String(s.id), s]));
+  (R.standards||[]).forEach(rs=>{
+    const ls = sById.get(String(rs.id));
+    if(!ls) L.standards.push(rs);
+    else if(!localWins(ls.updatedAt, rs.updatedAt)) Object.assign(ls, rs);
+  });
+  Object.entries(R.weekState||{}).forEach(([k,rv])=>{
+    const lv = L.weekState[k];
+    if(!lv || !localWins(lv.u, rv.u)) L.weekState[k] = rv;
+  });
+  Object.entries(R.standardChecks||{}).forEach(([k,rv])=>{
+    const lv = L.standardChecks[k];
+    if(!lv || !localWins(lv.u, rv.u)) L.standardChecks[k] = rv;
+  });
+  (R.courses||[]).forEach(rc=>{
+    const lc = L.courses.find(c=>c.id===rc.id);
+    if(!lc){ L.courses.push(rc); return; }
+    if(!localWins(lc.u, rc.u)){ lc.status = rc.status; lc.notes = rc.notes; lc.u = rc.u; }
+    if((!lc.weeks || !lc.weeks.length) && rc.weeks && rc.weeks.length){
+      lc.weeks = rc.weeks;
+      if(rc.assessments && rc.assessments.length) lc.assessments = rc.assessments;
+    }
+  });
+  L.nextIssueId = Math.max(L.nextIssueId||1, R.nextIssueId||1);
+  L.nextStandardId = Math.max(L.nextStandardId||1, R.nextStandardId||1);
+  if((R.meta?.saved||"") > (L.meta.saved||"")) L.meta.saved = R.meta.saved;
+  return L;
+}
+// Comparable fingerprint of everything except volatile meta — used to decide
+// whether a merge actually changed anything / whether a commit is needed.
+function contentKey(j){
+  const { meta, ...rest } = j;
+  return JSON.stringify(rest);
 }
 function setChip(text, tone){
   const c = $("#syncChip");
@@ -641,7 +728,11 @@ function setChip(text, tone){
 }
 function chipIdle(){
   if(!hasLS){ setChip("⚠ No browser storage — use Export JSON to save", "warn"); return; }
-  if(!CFG.token){ setChip(unsynced ? "Saved on this device · GitHub sync off (⚙)" : "Saved on this device"); return; }
+  if(!CFG.token){
+    if(hookURL()) setChip("Saved on this device · issues sync via the team tracker");
+    else setChip(unsynced ? "Saved on this device · GitHub sync off (⚙)" : "Saved on this device");
+    return;
+  }
   setChip(unsynced ? "Saved on this device · GitHub sync pending…" : "✓ Saved & synced to GitHub", unsynced? null:"ok");
 }
 function saveLocal(){
@@ -694,32 +785,63 @@ async function syncToGitHub(manual){
   syncing = true;
   setChip("Syncing to GitHub…");
   try {
-    clearTimeout(saveTimer); saveLocal();
-    let existing = null;
-    try { existing = await ghGetFile(); } catch(e){ /* read fail — still try create */ }
-    if(existing && existing.data.meta && existing.data.meta.saved &&
-       baselineSaved && existing.data.meta.saved > baselineSaved &&
-       existing.data.meta.saved !== D.meta.saved){
-      const ok = confirm("The copy on GitHub has newer edits than what this page loaded (maybe from another device or tab).\n\nOK = overwrite GitHub with THIS page's data.\nCancel = keep GitHub's version (reload the page to pull it).");
-      if(!ok){ syncing=false; setChip("Sync skipped — GitHub has newer data. Reload to pull it.", "warn"); return; }
+    clearTimeout(saveTimer);
+    for(let attempt = 0; attempt < 2; attempt++){
+      // Pull the repo copy and MERGE it in first — teammates' edits are kept,
+      // never overwritten (record-level, newest-edit-wins).
+      let existing = null;
+      try { existing = await ghGetFile(); } catch(e){ /* read fail — still try create */ }
+      if(existing){
+        const before = contentKey(D);
+        mergeData(D, existing.data);
+        if(contentKey(D) !== before) render();
+        if(contentKey(D) === contentKey(existing.data)){
+          // Nothing local that the repo doesn't already have — no commit needed.
+          saveLocal(); baselineSaved = D.meta.saved; unsynced = false; chipIdle();
+          syncing = false; return;
+        }
+      }
+      saveLocal();
+      const who = CFG.author ? ` (${CFG.author})` : "";
+      const body = { message: "Design Studio autosave"+who+" — "+new Date().toLocaleString(), content: b64enc(JSON.stringify(D, null, 1)), branch: CFG.branch };
+      if(existing) body.sha = existing.sha;
+      const r = await fetch(apiURL(), { method:"PUT",
+        headers:{ "Accept":"application/vnd.github+json", "Authorization":"Bearer "+CFG.token, "Content-Type":"application/json" },
+        body: JSON.stringify(body) });
+      if(r.status===409 && attempt===0) continue; // someone committed mid-flight — re-pull, re-merge, retry
+      if(!r.ok){
+        const msg = r.status===401||r.status===403 ? "token rejected — check its scope/expiry in ⚙" : "HTTP "+r.status;
+        throw new Error(msg);
+      }
+      baselineSaved = D.meta.saved;
+      unsynced = false;
+      chipIdle();
+      break;
     }
-    const body = { message: "Design Studio autosave — "+new Date().toLocaleString(), content: b64enc(JSON.stringify(D, null, 1)), branch: CFG.branch };
-    if(existing) body.sha = existing.sha;
-    const r = await fetch(apiURL(), { method:"PUT",
-      headers:{ "Accept":"application/vnd.github+json", "Authorization":"Bearer "+CFG.token, "Content-Type":"application/json" },
-      body: JSON.stringify(body) });
-    if(!r.ok){
-      const msg = r.status===401||r.status===403 ? "token rejected — check its scope/expiry in ⚙" : "HTTP "+r.status;
-      throw new Error(msg);
-    }
-    baselineSaved = D.meta.saved;
-    unsynced = false;
-    chipIdle();
   } catch(e){
     setChip("⚠ GitHub sync failed: "+e.message, "warn");
   }
   syncing = false;
 }
+// Periodically pull teammates' edits into this open page (merge, never overwrite).
+async function pullRemote(){
+  if(syncing) return;
+  try {
+    const remote = await fetchRemoteData();
+    if(!remote) return;
+    const before = contentKey(D);
+    mergeData(D, remote);
+    if(contentKey(D) !== before){
+      saveLocal(); render();
+      setChip("↓ Pulled team updates from GitHub", "ok");
+      setTimeout(chipIdle, 5000);
+    }
+    if(contentKey(D) !== contentKey(remote)){ unsynced = true; }
+    else { unsynced = false; chipIdle(); }
+  } catch(e){}
+}
+setInterval(()=>{ if(document.visibilityState==="visible") pullRemote(); }, 180000);
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible") pullRemote(); });
 function course(id){ return D.courses.find(c=>c.id===id); }
 function issueCourse(i){ return i && i.scope!=="program" ? course(i.course) : null; }
 function issueLocation(i){
@@ -732,6 +854,7 @@ function issueLocation(i){
 function scopeLabel(i){ return SCOPES[i.scope] || SCOPES.course; }
 function workflowLabel(i){ return WORKFLOWS[i.workflow] || WORKFLOWS.id_can_resolve; }
 function recordTypeLabel(i){ return RECORD_TYPES[i.recordType] || RECORD_TYPES.improvement; }
+function byline(i){ const who=i.by||i.updatedBy; return who? `<span class="muted small"> · ${esc(who)}</span>`:""; }
 function isOverdue(i){ return !!i.targetDate && i.status==="Open" && i.targetDate < new Date().toISOString().slice(0,10); }
 function issueSort(a,b){
   const po={HIGH:0,MEDIUM:1,LOW:2};
@@ -886,10 +1009,10 @@ function renderFocus(){
   $("#fqEffort").addEventListener("change",e=>{f.effort=e.target.value;renderFocus();});
   $("#fqQ").addEventListener("input",e=>{f.q=e.target.value;clearTimeout(window._fq);window._fq=setTimeout(renderFocus,250);});
   $("#fqNew").addEventListener("click",()=>openModal({}));
-  el.querySelectorAll(".fq-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>i.id===+b.dataset.id)})));
-  el.querySelectorAll(".fq-open").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>x.id===+b.dataset.id);activeCourse=i.course;switchTab("course");}));
-  el.querySelectorAll(".fq-promote").forEach(b=>b.addEventListener("click",()=>openStandardModal({issue:D.issues.find(i=>i.id===+b.dataset.id)})));
-  el.querySelectorAll(".fq-resolve").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>x.id===+b.dataset.id);i.status="Resolved";i.updatedAt=new Date().toISOString();markDirty();renderFocus();}));
+  el.querySelectorAll(".fq-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>String(i.id)===b.dataset.id)})));
+  el.querySelectorAll(".fq-open").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>String(x.id)===b.dataset.id);activeCourse=i.course;switchTab("course");}));
+  el.querySelectorAll(".fq-promote").forEach(b=>b.addEventListener("click",()=>openStandardModal({issue:D.issues.find(i=>String(i.id)===b.dataset.id)})));
+  el.querySelectorAll(".fq-resolve").forEach(b=>b.addEventListener("click",()=>{const i=D.issues.find(x=>String(x.id)===b.dataset.id);i.status="Resolved";touch(i);hookQueue(i);markDirty();renderFocus();}));
 }
 
 /* ---------- OVERVIEW ---------- */
@@ -1047,7 +1170,7 @@ function renderCourse(){
   `;
 
   $("#coursePick").addEventListener("change", e=>{ activeCourse=e.target.value; renderCourse(); });
-  $("#courseStatus").addEventListener("change", e=>{ c.status=e.target.value; markDirty(); renderCourse(); });
+  $("#courseStatus").addEventListener("change", e=>{ c.status=e.target.value; c.u=nowIso(); markDirty(); renderCourse(); });
   $("#addIssueCourse")?.addEventListener("click", ()=>openModal({course:c.id}));
   $("#expandAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>openWeeks[wkKey(c.id,w.n)]=true); renderCourse(); });
   $("#collapseAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>delete openWeeks[wkKey(c.id,w.n)]); renderCourse(); });
@@ -1061,12 +1184,13 @@ function renderCourse(){
     });
   });
   el.querySelectorAll("select.wk-status-sel").forEach(s=>{
-    s.addEventListener("change", ()=>{ wkState(c.id, +s.dataset.week).status = s.value; markDirty(); renderCourse(); });
+    s.addEventListener("change", ()=>{ const st=wkState(c.id, +s.dataset.week); st.status = s.value; st.u=nowIso(); markDirty(); renderCourse(); });
   });
   el.querySelectorAll(".general-checklist input").forEach(cb=>{
     cb.addEventListener("change", ()=>{
       const st = wkState(c.id, +cb.dataset.week);
       st.checks[+cb.dataset.idx] = cb.checked;
+      st.u=nowIso();
       markDirty();
       // auto-suggest done
       const head = el.querySelector(`.week[data-wk="${wkKey(c.id,+cb.dataset.week)}"] .ck-count`);
@@ -1077,20 +1201,22 @@ function renderCourse(){
     cb.addEventListener("change",()=>{
       const arr=activityCheckState(c.id,+cb.dataset.week,+cb.dataset.activity,cb.dataset.type);
       arr[+cb.dataset.check]=cb.checked;
+      wkState(c.id,+cb.dataset.week).u=nowIso();
       markDirty();
       const summary=cb.closest("details").querySelector(".activity-count");
       if(summary) summary.textContent=arr.filter(Boolean).length+"/"+arr.length;
     });
   });
   el.querySelectorAll(".wk-note").forEach(t=>{
-    t.addEventListener("change", ()=>{ wkState(c.id, +t.dataset.week).note = t.value; markDirty(); });
+    t.addEventListener("change", ()=>{ const st=wkState(c.id, +t.dataset.week); st.note = t.value; st.u=nowIso(); markDirty(); });
   });
   el.querySelectorAll(".add-wk-issue").forEach(b=>{
     b.addEventListener("click", ()=>openModal({course:c.id, week:+b.dataset.week}));
   });
   el.querySelectorAll(".toggle-issue").forEach(b=>{
     b.addEventListener("click", ()=>{
-      const iss = D.issues.find(i=>i.id===+b.dataset.id);
+      const iss = D.issues.find(i=>String(i.id)===b.dataset.id);
+      touch(iss); hookQueue(iss);
       iss.status = iss.status==="Open" ? "Resolved":"Open";
       markDirty(); renderCourse();
     });
@@ -1138,7 +1264,7 @@ function weekRow(c, w){
       <h4>Issues (${iss.length}) <button class="linkish add-wk-issue" data-week="${w.n}" style="margin-left:8px">+ log issue</button></h4>
       ${iss.length? iss.map(i=>`<div class="issue-line ${i.status==='Resolved'?'resolved':''}">
           <span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span>
-          <span class="txt" style="flex:1">${esc(i.note)} <span class="muted small">(${esc(i.type)})</span></span>
+          <span class="txt" style="flex:1">${esc(i.note)} <span class="muted small">(${esc(i.type)})</span>${byline(i)}</span>
           <button class="linkish toggle-issue" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button>
         </div>`).join("") : `<p class="muted small" style="margin:2px 0">None logged.</p>`}
       <h4>Working note</h4>
@@ -1228,7 +1354,7 @@ function renderIssues(){
         <td>${esc(scopeLabel(i))}</td>
         <td>${esc(issueLocation(i))}</td>
         <td class="muted">${esc(recordTypeLabel(i))}</td>
-        <td ${i.status==='Resolved'? 'style="text-decoration:line-through;color:var(--ink-3)"':''}>${esc(i.note)}</td>
+        <td ${i.status==='Resolved'? 'style="text-decoration:line-through;color:var(--ink-3)"':''}>${esc(i.note)}${byline(i)}</td>
         <td><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></td>
         <td>${esc(i.status)}</td>
         <td style="white-space:nowrap"><button class="linkish t-iss" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button> · <button class="linkish e-iss" data-id="${i.id}">edit</button>${i.scope==="program"||i.recordType==="design_decision"?` · <button class="linkish p-iss" data-id="${i.id}">standard</button>`:""}</td>
@@ -1247,14 +1373,14 @@ function renderIssues(){
   $("#fQ").addEventListener("input", e=>{ f.q=e.target.value; clearTimeout(window._qq); window._qq=setTimeout(renderIssues,350); });
   $("#btnNewIssue").addEventListener("click", ()=>openModal({}));
   el.querySelectorAll(".t-iss").forEach(b=>b.addEventListener("click", ()=>{
-    const i = D.issues.find(x=>x.id===+b.dataset.id);
-    i.status = i.status==="Open"?"Resolved":"Open"; markDirty(); renderIssues();
+    const i = D.issues.find(x=>String(x.id)===b.dataset.id);
+    i.status = i.status==="Open"?"Resolved":"Open"; touch(i); hookQueue(i); markDirty(); renderIssues();
   }));
   el.querySelectorAll(".e-iss").forEach(b=>b.addEventListener("click", ()=>{
-    openModal({edit: D.issues.find(x=>x.id===+b.dataset.id)});
+    openModal({edit: D.issues.find(x=>String(x.id)===b.dataset.id)});
   }));
   el.querySelectorAll(".p-iss").forEach(b=>b.addEventListener("click", ()=>{
-    openStandardModal({issue:D.issues.find(x=>x.id===+b.dataset.id)});
+    openStandardModal({issue:D.issues.find(x=>String(x.id)===b.dataset.id)});
   }));
 }
 
@@ -1311,12 +1437,12 @@ function renderStandards(){
   $("#stdStatusFilter").addEventListener("change",e=>{f.status=e.target.value;renderStandards();});
   $("#stdQ").addEventListener("input",e=>{f.q=e.target.value;clearTimeout(window._sq);window._sq=setTimeout(renderStandards,250);});
   $("#stdNew").addEventListener("click",()=>openStandardModal({}));
-  el.querySelectorAll(".std-edit").forEach(b=>b.addEventListener("click",()=>openStandardModal({edit:D.standards.find(s=>s.id===+b.dataset.id)})));
+  el.querySelectorAll(".std-edit").forEach(b=>b.addEventListener("click",()=>openStandardModal({edit:D.standards.find(s=>String(s.id)===b.dataset.id)})));
   el.querySelectorAll(".std-compliance").forEach(sel=>sel.addEventListener("change",()=>{
-    standardCheck(+sel.dataset.standard,sel.dataset.course).status=sel.value;markDirty();renderStandards();
+    const sc=standardCheck(sel.dataset.standard,sel.dataset.course);sc.status=sel.value;sc.u=nowIso();markDirty();renderStandards();
   }));
   el.querySelectorAll(".std-note").forEach(inp=>inp.addEventListener("change",()=>{
-    standardCheck(+inp.dataset.standard,inp.dataset.course).note=inp.value.trim();markDirty();
+    const sc=standardCheck(inp.dataset.standard,inp.dataset.course);sc.note=inp.value.trim();sc.u=nowIso();markDirty();
   }));
 }
 
@@ -1349,7 +1475,7 @@ function renderSme(){
   if(f.course!=="all") list=list.filter(i=>f.course==="program"?i.scope==="program":i.course===f.course&&i.scope!=="program");
   if(f.workflow!=="all") list=list.filter(i=>i.workflow===f.workflow);
   list.sort(issueSort);
-  const chosen=all.filter(i=>handoffSelected.has(i.id));
+  const chosen=all.filter(i=>handoffSelected.has(String(i.id)));
   el.innerHTML=`
     <div class="tiles">
       <div class="tile"><div class="label">Needs SME answer</div><div class="value">${all.filter(i=>i.workflow==="needs_sme").length}</div></div>
@@ -1372,7 +1498,7 @@ function renderSme(){
       <div class="status-note" id="smeStatus">${chosen.length} item${chosen.length===1?"":"s"} selected</div>
       <div style="margin-top:8px">
         ${list.length?list.map(i=>`<div class="handoff-item">
-          <input type="checkbox" class="sme-pick" data-id="${i.id}" ${handoffSelected.has(i.id)?"checked":""} aria-label="Include ${esc(issueLocation(i))}">
+          <input type="checkbox" class="sme-pick" data-id="${i.id}" ${handoffSelected.has(String(i.id))?"checked":""} aria-label="Include ${esc(issueLocation(i))}">
           <div>
             <div class="focus-top"><span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span><span class="scope-pill">${esc(scopeLabel(i))}</span><span class="type-pill">${esc(recordTypeLabel(i))}</span><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></div>
             <div style="font-weight:600;margin-top:6px">${esc(issueLocation(i))}</div>
@@ -1388,9 +1514,9 @@ function renderSme(){
   $("#smeWorkflow").addEventListener("change",e=>{f.workflow=e.target.value;renderSme();});
   $("#smeAll").addEventListener("click",()=>{list.forEach(i=>handoffSelected.add(i.id));renderSme();});
   $("#smeNone").addEventListener("click",()=>{handoffSelected.clear();renderSme();});
-  el.querySelectorAll(".sme-pick").forEach(cb=>cb.addEventListener("change",()=>{cb.checked?handoffSelected.add(+cb.dataset.id):handoffSelected.delete(+cb.dataset.id);renderSme();}));
-  el.querySelectorAll(".sme-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>i.id===+b.dataset.id)})));
-  el.querySelectorAll(".sme-flow").forEach(sel=>sel.addEventListener("change",()=>{const i=D.issues.find(x=>x.id===+sel.dataset.id);i.workflow=sel.value;i.updatedAt=new Date().toISOString();if(sel.value==="approved")i.status="Resolved";markDirty();renderSme();}));
+  el.querySelectorAll(".sme-pick").forEach(cb=>cb.addEventListener("change",()=>{cb.checked?handoffSelected.add(cb.dataset.id):handoffSelected.delete(cb.dataset.id);renderSme();}));
+  el.querySelectorAll(".sme-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>String(i.id)===b.dataset.id)})));
+  el.querySelectorAll(".sme-flow").forEach(sel=>sel.addEventListener("change",()=>{const i=D.issues.find(x=>String(x.id)===sel.dataset.id);i.workflow=sel.value;touch(i);if(sel.value==="approved")i.status="Resolved";hookQueue(i);markDirty();renderSme();}));
   $("#smeCopy").addEventListener("click",async()=>{try{await copyText(handoffMarkdown(chosen));$("#smeStatus").textContent="Copied handoff to clipboard.";}catch(e){$("#smeStatus").textContent="Could not copy; use Download instead.";}});
   $("#smeDownload").addEventListener("click",()=>download(`msw-sme-handoff-${new Date().toISOString().slice(0,10)}.md`,handoffMarkdown(chosen),"text/markdown"));
 }
@@ -1408,7 +1534,11 @@ function renderAbout(){
     <b>4. Turn decisions into standards.</b> Promote program decisions into the Standards library and track compliance by course.<br>
     <b>5. Hand off only what faculty need.</b> SME Handoff builds a concise review document from selected questions and proposed changes.</p>
     <h2 style="margin-top:16px">Saving your work</h2>
-    <p><b>Autosave is on.</b> Every edit saves to this browser instantly. With a GitHub token configured (⚙ in the header), edits also auto-commit to <b>data.json</b> in the site's own repo about 20 seconds after you stop editing — the header chip shows the current state, and <b>Sync to GitHub</b> forces a commit immediately. On load, the page pulls the newest copy (browser vs. repo), so you can move between devices. If the repo copy is ever newer than what your page loaded (edits from another device), you'll be asked before anything is overwritten.</p>
+    <p><b>Autosave is on.</b> Every edit saves to this browser instantly. With a GitHub token configured (⚙ in the header), edits also auto-commit to <b>data.json</b> in the site's own repo about 20 seconds after you stop editing — the header chip shows the current state, and <b>Sync to GitHub</b> forces a commit immediately.</p>
+    <h2 style="margin-top:16px">Working as a team</h2>
+    <p><b>Everyone can read; only people with a token can write.</b> Without a token, your edits save only to your own browser — they never reach the shared copy, and the chip says so ("GitHub sync off"). To contribute, each person needs write access to the repo and a token pasted into ⚙ once per browser, plus their name/initials so entries are attributed.</p>
+    <p><b>Syncs merge — they don't overwrite.</b> On every sync and every few minutes, the page pulls the shared copy and merges it record-by-record (newest edit wins per item, new items from anyone are kept). Two people can work at the same time without erasing each other; open pages pull teammates' changes automatically.</p>
+    <p><b>No GitHub token needed to log issues.</b> This studio is paired with the program's Google Sheet: anyone can open this page, add or resolve issues, and they're sent to the shared tracker automatically (chip shows \u201c\u2713 Shared with the team tracker\u201d). The same issues appear live in the Google Sheet, where teammates can also add issues via its \u201c\u2795 Add issues\u201d tab or flip an issue's Status column. A GitHub token (\u2699) is only needed for full curriculum editing \u2014 week checklists, course statuses, standards.</p>
     <p><b>Backups:</b> <b>Export JSON</b> downloads a snapshot file and <b>Import JSON</b> restores one. <b>Issues → CSV</b> exports the issue log for the shared Google Sheet. Every GitHub sync is also a commit, so the repo history is itself a full backup timeline.</p>
     <h2 style="margin-top:16px">Data provenance & caveats</h2>
     <p>The five pilot courses (Z503, Z504, Z505, Z510, Z515) were seeded from the master syllabi you provided (OCR'd), and the Z504 issues from your Course Issues Google Sheet. Syllabi may lag the live Brightspace shells — treat seeded weekly maps as a starting hypothesis and correct them as you audit. Items marked ⚠ are grading weights the syllabus didn't state clearly.</p>
@@ -1475,11 +1605,11 @@ $("#mSave").addEventListener("click", ()=>{
     targetDate:$("#mTarget").value, workflow:$("#mWorkflow").value,
     status: $("#mStatus").value, note,
     recommendation:$("#mRecommendation").value.trim(), smeResponse:$("#mSmeResponse").value.trim(),
-    updatedAt:new Date().toISOString()
+    updatedAt:new Date().toISOString(), updatedBy: CFG.author||""
   };
   if(rec.workflow==="approved") rec.status="Resolved";
-  if(editingIssue){ Object.assign(editingIssue, rec); }
-  else { D.issues.push({ id: D.nextIssueId++, createdAt:new Date().toISOString(), ...rec }); }
+  if(editingIssue){ Object.assign(editingIssue, rec); hookQueue(editingIssue); }
+  else { const ni = { id: uid(), createdAt:new Date().toISOString(), by: CFG.author||"", ...rec }; D.issues.push(ni); hookQueue(ni); }
   markDirty();
   $("#modalBack").classList.remove("show");
   render();
@@ -1506,8 +1636,8 @@ $("#stdBack").addEventListener("click",e=>{if(e.target.id==="stdBack")$("#stdBac
 $("#sSave").addEventListener("click",()=>{
   const title=$("#sTitle").value.trim();if(!title){$("#sTitle").focus();return;}
   let applies=[...$("#sApplies").selectedOptions].map(o=>o.value);if(!applies.length||applies.includes("*"))applies=["*"];
-  const rec={title,status:$("#sStatus").value,appliesTo:applies,rationale:$("#sRationale").value.trim(),example:$("#sExample").value.trim(),sourceIssueId:standardSourceIssueId,updatedAt:new Date().toISOString()};
-  if(editingStandard)Object.assign(editingStandard,rec);else D.standards.push({id:D.nextStandardId++,...rec});
+  const rec={title,status:$("#sStatus").value,appliesTo:applies,rationale:$("#sRationale").value.trim(),example:$("#sExample").value.trim(),sourceIssueId:standardSourceIssueId,updatedAt:new Date().toISOString(),updatedBy:CFG.author||""};
+  if(editingStandard)Object.assign(editingStandard,rec);else D.standards.push({id:uid(),...rec});
   markDirty();$("#stdBack").classList.remove("show");switchTab("standards");
 });
 
@@ -1548,7 +1678,7 @@ $("#btnSync").addEventListener("click", ()=>syncToGitHub(true));
 function openCfg(){
   $("#cOwner").value = CFG.owner; $("#cRepo").value = CFG.repo;
   $("#cBranch").value = CFG.branch; $("#cPath").value = CFG.path;
-  $("#cToken").value = CFG.token; $("#cAuto").checked = CFG.auto;
+  $("#cToken").value = CFG.token; $("#cAuto").checked = CFG.auto; $("#cAuthor").value = CFG.author||""; $("#cHook").value = CFG.hook||"";
   $("#cfgBack").classList.add("show");
 }
 $("#btnSettings").addEventListener("click", openCfg);
@@ -1557,7 +1687,7 @@ $("#cfgBack").addEventListener("click", e=>{ if(e.target.id==="cfgBack") $("#cfg
 $("#cSave").addEventListener("click", ()=>{
   CFG.owner = $("#cOwner").value.trim(); CFG.repo = $("#cRepo").value.trim();
   CFG.branch = $("#cBranch").value.trim() || "main"; CFG.path = $("#cPath").value.trim() || "data.json";
-  CFG.token = $("#cToken").value.trim(); CFG.auto = $("#cAuto").checked;
+  CFG.token = $("#cToken").value.trim(); CFG.auto = $("#cAuto").checked; CFG.author = $("#cAuthor").value.trim(); CFG.hook = $("#cHook").value.trim();
   lsSet(LS_CFG, JSON.stringify(CFG));
   const fr = document.getElementById("footRepo"); if(fr) fr.textContent = CFG.owner+"/"+CFG.repo;
   $("#cfgBack").classList.remove("show");
@@ -1605,19 +1735,17 @@ const newer = (a,b) => (a||"") > (b||"");
   baselineSaved = D.meta.saved || null;
   chipIdle();
   render();
-  // 2. Then check the repo for an even newer copy (from another device)
+  // 2. Then merge in the repo copy (teammates' edits) — union, never overwrite
   try {
     const remote = await fetchRemoteData();
     if(remote){
-      if(newer(remote.meta.saved, D.meta.saved)){
-        D = remote; unsynced = false;
-        lsSet(LS_DATA, JSON.stringify(D));
-        baselineSaved = remote.meta.saved;
-        render();
-      } else {
-        baselineSaved = remote.meta.saved || baselineSaved;
-        if(newer(D.meta.saved, remote.meta.saved)) unsynced = true; // local ahead of repo
-      }
+      const before = contentKey(D);
+      mergeData(D, remote);
+      if(contentKey(D) !== before){ lsSet(LS_DATA, JSON.stringify(D)); render(); }
+      baselineSaved = D.meta.saved || baselineSaved;
+      // local holds anything the repo doesn't? then a sync is still owed
+      unsynced = contentKey(D) !== contentKey(remote);
+      if(unsynced && CFG.token && CFG.auto) syncToGitHub(false);
     } else if(D.meta.saved) { unsynced = true; } // repo has no data.json yet
   } catch(e){}
   chipIdle();
