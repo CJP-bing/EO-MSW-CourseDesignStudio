@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T18:35:51.311Z"
+  "saved": "2026-07-24T18:37:55.731Z"
  },
  "courses": [
   {
@@ -4319,8 +4319,8 @@
     true,
     false,
     false,
-    false,
-    false,
+    true,
+    true,
     false,
     false
    ],
@@ -4349,7 +4349,8 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-07-24T18:37:35.542Z"
   },
   "Z515-12": {
    "status": "todo",
