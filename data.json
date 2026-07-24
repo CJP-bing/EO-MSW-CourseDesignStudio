@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T13:46:39.594Z"
+  "saved": "2026-07-24T13:49:59.150Z"
  },
  "courses": [
   {
@@ -1892,11 +1892,12 @@
    "effort": "deep",
    "targetDate": "",
    "workflow": "needs_sme",
-   "status": "Open",
+   "status": "Resolved",
    "note": "Brightspace tour video will be a bit outdated visually after our first update pass. Not a huge deal, but should be updated at some point in the future. Also, might not even be the right place for a video like this; it should be included in a resource hub or orientation course, not really necessary in the course pages.",
    "recommendation": "Leave it for now or unpublish/hide from view.",
    "smeResponse": "Remove/hide or delete for now, agreed on orientation materials addressing this.",
-   "updatedAt": "2026-07-23T15:59:59.201Z"
+   "updatedAt": "2026-07-24T13:49:59.148Z",
+   "updatedBy": "sheet: cpierce4@binghamton.edu"
   },
   {
    "id": 17,
