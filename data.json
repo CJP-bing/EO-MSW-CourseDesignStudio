@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T14:21:23.391Z"
+  "saved": "2026-07-24T17:53:57.314Z"
  },
  "courses": [
   {
@@ -2047,6 +2047,26 @@
    "by": "",
    "createdAt": "2026-07-24T14:21:24.016Z",
    "updatedAt": "2026-07-24T14:21:24.016Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmrz8o8his6fbp",
+   "createdAt": "2026-07-24T17:53:37.014Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "improvement",
+   "course": "Z515",
+   "week": 0,
+   "type": "Reading",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Pull lecture slides from google and upload directly into course. Complete for all modules that contain lecture video/slides.",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-07-24T17:53:37.014Z",
    "updatedBy": ""
   }
  ],
