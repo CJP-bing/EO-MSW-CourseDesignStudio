@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-23T16:00:19.203Z"
+  "saved": "2026-07-24T12:57:42.774Z"
  },
  "courses": [
   {
@@ -2013,10 +2013,22 @@
    ],
    "sourceIssueId": 11,
    "updatedAt": null
+  },
+  {
+   "id": 3,
+   "title": "Consistent Assignment and Discussion Deadlines",
+   "status": "draft",
+   "appliesTo": [
+    "*"
+   ],
+   "rationale": "Consistent weekly deadlines reduce cognitive load and help learners balance coursework with work, family, and other responsibilities. From a design perspective, a predictable rhythm simplifies course navigation, calendar planning, reminders, and instructor communication. Assignments should be due Sundays at 11:59 p.m. Eastern Time, while initial discussion posts requiring peer responses should be due Thursdays at 11:59 p.m. Eastern Time. This gives learners sufficient time to engage meaningfully with classmates before the week closes.",
+   "example": "In a weekly module containing a discussion and written assignment:\n\nInitial discussion post due Thursday at 11:59 p.m. ET\nPeer responses due Sunday at 11:59 p.m. ET\nWritten assignment due Sunday at 11:59 p.m. ET\n\nThese deadlines are entered consistently in Brightspace and clearly stated in the syllabus, course calendar, weekly overview, and activity instructions. Exceptions are used only when necessary and communicated well in advance.\n\nNote: “Eastern Time” or “ET” is preferable to “EST” because it remains accurate during both standard time and daylight saving time.",
+   "sourceIssueId": null,
+   "updatedAt": "2026-07-24T12:57:22.772Z"
   }
  ],
  "nextIssueId": 22,
- "nextStandardId": 3,
+ "nextStandardId": 4,
  "standardChecks": {
   "1:Z504": {
    "status": "not_reviewed",
@@ -2127,6 +2139,62 @@
    "note": ""
   },
   "2:Z525": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z504": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z503": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z505": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z510": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z515": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z506": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z511": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z512": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z520": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z521": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z522": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z523": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z524": {
+   "status": "not_reviewed",
+   "note": ""
+  },
+  "3:Z525": {
    "status": "not_reviewed",
    "note": ""
   }
