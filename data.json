@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T13:54:40.168Z"
+  "saved": "2026-07-24T14:21:23.391Z"
  },
  "courses": [
   {
@@ -2028,6 +2028,26 @@
    "createdAt": "2026-07-24T13:54:08.691Z",
    "updatedAt": "2026-07-24T13:54:40.165Z",
    "updatedBy": "sheet: cpierce4@binghamton.edu"
+  },
+  {
+   "id": "xmrz13bn4ao612",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "HIGH",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "Z523 was originally designed without a synchronous facilitation activity; therefore, the Multicultural Perspective Paper currently serves as the Z523 anchor assignment for Competency 6. The original course developer has recommended that this be reconsidered. Earlier discussions among the 523/Z523 course instructors recommended Group Facilitation as the anchor assignment, consistent with the facilitation-based anchor used in SW524. At the time Z523 was developed, a comparable facilitation activity was not included because of uncertainty about how it could be implemented in an asynchronous course. With students now able to meet and facilitate groups via Zoom, this limitation may no longer apply.",
+   "recommendation": "Flag Z523 for a future course redesign to consider replacing the Multicultural Perspective Paper as the anchor with an applied Group Facilitation assignment, aligned with the intended SW523 curriculum and adapted for the exclusively online format.",
+   "smeResponse": "",
+   "by": "",
+   "createdAt": "2026-07-24T14:21:24.016Z",
+   "updatedAt": "2026-07-24T14:21:24.016Z",
+   "updatedBy": ""
   }
  ],
  "standards": [
