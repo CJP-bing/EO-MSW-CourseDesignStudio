@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T13:39:41.196Z"
+  "saved": "2026-07-24T13:46:39.594Z"
  },
  "courses": [
   {
@@ -1995,7 +1995,7 @@
    "week": 0,
    "type": "Assignment",
    "prio": "MEDIUM",
-   "status": "Open",
+   "status": "Resolved",
    "effort": "medium",
    "workflow": "id_can_resolve",
    "recordType": "improvement",
@@ -2005,8 +2005,8 @@
    "smeResponse": "",
    "by": "",
    "createdAt": "2026-07-24T13:39:37.257Z",
-   "updatedAt": "2026-07-24T13:39:37.256Z",
-   "updatedBy": ""
+   "updatedAt": "2026-07-24T13:46:39.590Z",
+   "updatedBy": "sheet: cpierce4@binghamton.edu"
   }
  ],
  "standards": [
