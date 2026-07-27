@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-24T18:41:21.184Z"
+  "saved": "2026-07-27T17:39:42.927Z"
  },
  "courses": [
   {
@@ -2087,6 +2087,26 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-07-24T18:15:36.782Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms3ihgrcnvpk5",
+   "createdAt": "2026-07-27T17:39:22.008Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "content_verification",
+   "course": "Z504",
+   "week": 0,
+   "type": "Reading",
+   "prio": "LOW",
+   "effort": "quick",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "Course currently still lists 9th edition for the textbook. Some instructors were asking if they should recommend the newer 10th edition.",
+   "recommendation": "It does seem like 10th edition would be the better modern choice considering updated EPAS and refreshed content, but we would need to update any artifacts in the master/syllabus to reflect this update.",
+   "smeResponse": "",
+   "updatedAt": "2026-07-27T17:39:22.008Z",
    "updatedBy": ""
   }
  ],
