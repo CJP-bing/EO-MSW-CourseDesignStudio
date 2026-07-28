@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-28T15:10:54.716Z"
+  "saved": "2026-07-28T15:13:19.082Z"
  },
  "courses": [
   {
@@ -2107,6 +2107,26 @@
    "recommendation": "It does seem like 10th edition would be the better modern choice considering updated EPAS and refreshed content, but we would need to update any artifacts in the master/syllabus to reflect this update.",
    "smeResponse": "",
    "updatedAt": "2026-07-27T17:39:22.008Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms4sp2bbbxlw3",
+   "createdAt": "2026-07-28T15:12:58.871Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "improvement",
+   "course": "Z505",
+   "week": 0,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "effort": "deep",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Lecture videos have poor audio quality; good candidate for a HeyGen lecture refresh. \"Course Overview\" video bakes the format in pretty heavily, not very modular, consider correcting in the future.",
+   "recommendation": "Use HeyGen to replace/update the lecture videos using the closed captions for scripts for the videos.",
+   "smeResponse": "",
+   "updatedAt": "2026-07-28T15:12:58.871Z",
    "updatedBy": ""
   }
  ],
