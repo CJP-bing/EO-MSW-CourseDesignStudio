@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-27T17:39:42.927Z"
+  "saved": "2026-07-28T15:10:54.716Z"
  },
  "courses": [
   {
@@ -3455,8 +3455,8 @@
   "Z505-1": {
    "status": "todo",
    "checks": [
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -3464,8 +3464,32 @@
     false,
     false
    ],
-   "activityChecks": {},
-   "note": ""
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
+   "note": "",
+   "u": "2026-07-28T15:10:34.492Z"
   },
   "Z505-2": {
    "status": "todo",
@@ -3479,7 +3503,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-3": {
@@ -3494,7 +3541,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-4": {
@@ -3509,7 +3579,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-5": {
@@ -3524,7 +3625,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-6": {
@@ -3539,7 +3663,31 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-7": {
@@ -3554,7 +3702,39 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-8": {
@@ -3569,7 +3749,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-9": {
@@ -3584,7 +3787,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-10": {
@@ -3599,7 +3825,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-11": {
@@ -3614,7 +3863,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-12": {
@@ -3629,7 +3901,38 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "3": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-13": {
@@ -3644,7 +3947,30 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "2": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z505-14": {
@@ -3659,7 +3985,23 @@
     false,
     false
    ],
-   "activityChecks": {},
+   "activityChecks": {
+    "0": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "1": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   },
    "note": ""
   },
   "Z510-1": {
