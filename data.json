@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:10:28.165Z"
+  "saved": "2026-07-29T01:10:33.556Z"
  },
  "courses": [
   {
@@ -1951,11 +1951,11 @@
    "effort": "quick",
    "targetDate": "",
    "workflow": "id_can_resolve",
-   "status": "Open",
+   "status": "Resolved",
    "note": "Lecture video not embedded, links out successfully though.",
    "recommendation": "",
    "smeResponse": "Created web page for each weekly lecture, which embeds video + uses standard format + provides prompts for consideration when watching and estimated time to complete.",
-   "updatedAt": "2026-07-29T01:10:25.333Z",
+   "updatedAt": "2026-07-29T01:10:30.182Z",
    "by": "",
    "updatedBy": ""
   },
