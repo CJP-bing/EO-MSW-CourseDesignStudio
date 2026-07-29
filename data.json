@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:06:00.857Z"
+  "saved": "2026-07-29T01:07:17.284Z"
  },
  "courses": [
   {
@@ -1974,7 +1974,7 @@
    "updatedAt": "2026-07-21T18:38:40.833Z"
   },
   {
-   "id": 21,
+   "id": "21",
    "createdAt": "2026-07-21T18:39:14.890Z",
    "scope": "week",
    "recordType": "defect",
@@ -1985,11 +1985,13 @@
    "effort": "quick",
    "targetDate": "",
    "workflow": "needs_sme",
-   "status": "Open",
+   "status": "Resolved",
    "note": "Policy Analysis WORKSHEET LINK BROKEN",
    "recommendation": "",
-   "smeResponse": "Jackie shared folder for Z515 to CP; should be somewhere in the Assignments folder.",
-   "updatedAt": "2026-07-23T15:57:28.158Z"
+   "smeResponse": "Jackie shared folder for Z515 to CP; should be somewhere in the Assignments folder.\n\nUPDATE 7/28 - Assignment & Linked Resources in Weeks were updated.",
+   "updatedAt": "2026-07-29T01:07:13.946Z",
+   "by": "",
+   "updatedBy": ""
   },
   {
    "id": "xmryzllewxdfhd",
