@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:24:37.972Z"
+  "saved": "2026-07-29T10:24:52.402Z"
  },
  "courses": [
   {
@@ -2204,7 +2204,7 @@
    "scope": "course",
    "course": "Z515",
    "week": 0,
-   "type": "Assignment",
+   "type": "Other",
    "prio": "LOW",
    "status": "Open",
    "effort": "deep",
@@ -2216,7 +2216,7 @@
    "smeResponse": "Part One may be better as a brief, recorded presentation - both to improve ease of grading and minimize unapproved AI use.",
    "by": "",
    "createdAt": "2026-07-29T10:24:35.105Z",
-   "updatedAt": "2026-07-29T10:24:35.105Z",
+   "updatedAt": "2026-07-29T10:24:49.553Z",
    "updatedBy": ""
   }
  ],
