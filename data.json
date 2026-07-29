@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:27:12.455Z"
+  "saved": "2026-07-29T14:56:13.395Z"
  },
  "courses": [
   {
@@ -2145,7 +2145,7 @@
    "course": "Z515",
    "week": 0,
    "type": "Reading",
-   "prio": "HIGH",
+   "prio": "MEDIUM",
    "status": "Open",
    "effort": "deep",
    "workflow": "id_can_resolve",
@@ -2156,7 +2156,7 @@
    "smeResponse": "It is recommended that the new edition of the Segal text be adopted.  This will require updates to the: syllabus, weeks (where readings are outlined & prompts for reflection provided), and weekly reflections.",
    "by": "",
    "createdAt": "2026-07-29T10:18:34.735Z",
-   "updatedAt": "2026-07-29T10:25:26.538Z",
+   "updatedAt": "2026-07-29T14:55:07.127Z",
    "updatedBy": ""
   },
   {
