@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:21:54.545Z"
+  "saved": "2026-07-29T10:23:08.149Z"
  },
  "courses": [
   {
@@ -2177,6 +2177,26 @@
    "by": "",
    "createdAt": "2026-07-29T10:21:51.702Z",
    "updatedAt": "2026-07-29T10:21:51.702Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms5xs3vkjn2wf",
+   "scope": "course",
+   "course": "Z515",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "medium",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "Photos removed from overview.",
+   "recommendation": "",
+   "smeResponse": "For ease (and to avoid a technical issue within the HTML Source Code), photos were removed from the overviews at the start of each weekly module.  It may be worth considering adding them back in.",
+   "by": "",
+   "createdAt": "2026-07-29T10:23:05.120Z",
+   "updatedAt": "2026-07-29T10:23:05.120Z",
    "updatedBy": ""
   }
  ],
