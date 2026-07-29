@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:10:33.556Z"
+  "saved": "2026-07-29T01:11:00.414Z"
  },
  "courses": [
   {
@@ -1960,7 +1960,7 @@
    "updatedBy": ""
   },
   {
-   "id": 20,
+   "id": "20",
    "createdAt": "2026-07-21T18:38:40.833Z",
    "scope": "week",
    "recordType": "defect",
@@ -1971,11 +1971,13 @@
    "effort": "medium",
    "targetDate": "",
    "workflow": "id_can_resolve",
-   "status": "Open",
+   "status": "Resolved",
    "note": "\"Sample Policy Issue Brief\" link broken",
    "recommendation": "",
-   "smeResponse": "",
-   "updatedAt": "2026-07-21T18:38:40.833Z"
+   "smeResponse": "All Assignments were updated, along with Assignment Overview web pages.",
+   "updatedAt": "2026-07-29T01:10:57.416Z",
+   "by": "",
+   "updatedBy": ""
   },
   {
    "id": "21",
