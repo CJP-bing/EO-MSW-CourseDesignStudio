@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:25:29.227Z"
+  "saved": "2026-07-29T10:27:12.455Z"
  },
  "courses": [
   {
@@ -2217,6 +2217,26 @@
    "by": "",
    "createdAt": "2026-07-29T10:24:35.105Z",
    "updatedAt": "2026-07-29T10:24:49.553Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms5xxaqh73c5z",
+   "scope": "course",
+   "course": "Z515",
+   "week": 0,
+   "type": "Other",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "HTML Web Pages all have same design.",
+   "recommendation": "",
+   "smeResponse": "It may be helpful to change colors or add small graphics so it is quickly clear to students when they are expected to: READ, VIEW, or OVERVIEW an assignment.  Right now, all these web pages has a similar feel and might be easily mistaken for one another.",
+   "by": "",
+   "createdAt": "2026-07-29T10:27:07.289Z",
+   "updatedAt": "2026-07-29T10:27:07.288Z",
    "updatedBy": ""
   }
  ],
