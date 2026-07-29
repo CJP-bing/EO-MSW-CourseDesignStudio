@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:18:38.097Z"
+  "saved": "2026-07-29T10:21:54.545Z"
  },
  "courses": [
   {
@@ -2157,6 +2157,26 @@
    "by": "",
    "createdAt": "2026-07-29T10:18:34.735Z",
    "updatedAt": "2026-07-29T10:18:34.735Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms5xqj86r2pv4",
+   "scope": "course",
+   "course": "Z515",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-08-01",
+   "note": "Bill for Legislative Meeting Simulation from 2025-2026 Session.",
+   "recommendation": "",
+   "smeResponse": "The bill to be used by students as part of the legislative meeting simulation is from the NYS Senate/Assembly 2025-2026 session.  Strategies were used for Fall 2026 to keep this evergreen and functional.  However, the bill should be considered for update for Fall 2027 (and probably annually) - or, an alternative approach to this assignment be considered to allow for the assignment to function in a more evergreen manner.  Any changes to the bill will require updates to the: syllabus, weeks (overviews, instructions), assignment in Brightspace (including attachments), resource folder.",
+   "by": "",
+   "createdAt": "2026-07-29T10:21:51.702Z",
+   "updatedAt": "2026-07-29T10:21:51.702Z",
    "updatedBy": ""
   }
  ],
