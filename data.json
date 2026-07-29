@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:11:00.414Z"
+  "saved": "2026-07-29T10:18:38.097Z"
  },
  "courses": [
   {
@@ -2137,6 +2137,26 @@
    "recommendation": "Use HeyGen to replace/update the lecture videos using the closed captions for scripts for the videos.",
    "smeResponse": "",
    "updatedAt": "2026-07-28T15:12:58.871Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms5xmb8v2ir36",
+   "scope": "course",
+   "course": "Z515",
+   "week": 0,
+   "type": "Reading",
+   "prio": "HIGH",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-08-01",
+   "note": "Textbook has new edition available.",
+   "recommendation": "It is recommende",
+   "smeResponse": "It is recommended that the new edition of the Segal text be adopted.  This will require updates to the: syllabus, weeks (where readings are outlined & prompts for reflection provided), and weekly reflections.",
+   "by": "",
+   "createdAt": "2026-07-29T10:18:34.735Z",
+   "updatedAt": "2026-07-29T10:18:34.735Z",
    "updatedBy": ""
   }
  ],
