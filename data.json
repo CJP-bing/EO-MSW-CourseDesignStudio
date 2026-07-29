@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-28T15:32:48.480Z"
+  "saved": "2026-07-29T01:06:00.857Z"
  },
  "courses": [
   {
@@ -1918,7 +1918,7 @@
    "updatedAt": "2026-07-21T18:09:06.406Z"
   },
   {
-   "id": 18,
+   "id": "18",
    "createdAt": "2026-07-21T18:13:46.182Z",
    "scope": "course",
    "recordType": "content_verification",
@@ -1929,11 +1929,13 @@
    "effort": "medium",
    "targetDate": "",
    "workflow": "needs_sme",
-   "status": "Open",
+   "status": "Resolved",
    "note": "Jackie/Instructor to review and update general due dates throughout, or just suggest the assignment cadence to me and I can update throughout (Wednesdays for discussion board, Sundays for assignments, etc.)",
    "recommendation": "",
    "smeResponse": "Always Sundays 11:59 PM EST in the course; when JM made this course they got a lot of feedback that Wednesday discussions created too much pressure for 2 days first thing in the week. Philosophically JM standardized this course to always be Sundays (this is great practice).",
-   "updatedAt": "2026-07-23T15:45:10.355Z"
+   "updatedAt": "2026-07-29T01:05:57.211Z",
+   "by": "",
+   "updatedBy": ""
   },
   {
    "id": 19,
