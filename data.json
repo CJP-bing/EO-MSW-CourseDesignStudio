@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T10:23:08.149Z"
+  "saved": "2026-07-29T10:24:37.972Z"
  },
  "courses": [
   {
@@ -2197,6 +2197,26 @@
    "by": "",
    "createdAt": "2026-07-29T10:23:05.120Z",
    "updatedAt": "2026-07-29T10:23:05.120Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xms5xu1b5168lc",
+   "scope": "course",
+   "course": "Z515",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-08-01",
+   "note": "Policy Analysis Assignment includes two papers.",
+   "recommendation": "",
+   "smeResponse": "Part One may be better as a brief, recorded presentation - both to improve ease of grading and minimize unapproved AI use.",
+   "by": "",
+   "createdAt": "2026-07-29T10:24:35.105Z",
+   "updatedAt": "2026-07-29T10:24:35.105Z",
    "updatedBy": ""
   }
  ],
