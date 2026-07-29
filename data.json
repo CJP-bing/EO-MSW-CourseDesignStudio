@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:08:12.814Z"
+  "saved": "2026-07-29T01:09:29.988Z"
  },
  "courses": [
   {
@@ -1900,7 +1900,7 @@
    "updatedBy": "sheet: cpierce4@binghamton.edu"
   },
   {
-   "id": 17,
+   "id": "17",
    "createdAt": "2026-07-21T18:09:06.406Z",
    "scope": "week",
    "recordType": "improvement",
@@ -1911,11 +1911,13 @@
    "effort": "quick",
    "targetDate": "",
    "workflow": "needs_sme",
-   "status": "Open",
+   "status": "Resolved",
    "note": "IPE assignment is embedded on the page as a google doc (requires sign-in). We should ideally provide the instructions for the assignment directly in HTML on this page, and link out only where absolutely necessary.",
    "recommendation": "",
-   "smeResponse": "",
-   "updatedAt": "2026-07-21T18:09:06.406Z"
+   "smeResponse": "Web Pages created for IPE in Week #1 and Week #2, along with updates to Assignment.  Attempted to make Course Master and syllabus V4 evergreen relative to IPE.",
+   "updatedAt": "2026-07-29T01:09:26.665Z",
+   "by": "",
+   "updatedBy": ""
   },
   {
    "id": "18",
