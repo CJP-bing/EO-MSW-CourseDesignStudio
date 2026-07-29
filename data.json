@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-07-29T01:09:29.988Z"
+  "saved": "2026-07-29T01:09:47.926Z"
  },
  "courses": [
   {
@@ -2087,12 +2087,12 @@
    "prio": "MEDIUM",
    "effort": "medium",
    "targetDate": "",
-   "workflow": "sme_revision",
-   "status": "Open",
+   "workflow": "id_can_resolve",
+   "status": "Resolved",
    "note": "Week 8 Lecture links back to Week 5 Lecture. Need Jackie to swap/re-embed Week 8 in.",
    "recommendation": "",
-   "smeResponse": "",
-   "updatedAt": "2026-07-24T18:15:36.782Z",
+   "smeResponse": "Addressed in Web Page description/instructions for each video.",
+   "updatedAt": "2026-07-29T01:09:44.665Z",
    "updatedBy": ""
   },
   {
