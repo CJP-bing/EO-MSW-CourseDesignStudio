@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-05T18:36:22.023Z"
+  "saved": "2026-08-05T18:37:08.327Z"
  },
  "courses": [
   {
@@ -2297,6 +2297,26 @@
    "recommendation": "Move the speaker series (ideally after deciding whether to break it up into 2+ weeks) directly into the weekly module flow as Watch: videos.",
    "smeResponse": "",
    "updatedAt": "2026-08-05T18:35:53.389Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsgfhzsbdnspt",
+   "createdAt": "2026-08-05T18:36:48.107Z",
+   "by": "",
+   "scope": "week",
+   "recordType": "improvement",
+   "course": "Z510",
+   "week": 8,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "effort": "quick",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Need Rubric added to guest speaker assignment",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-08-05T18:36:48.107Z",
    "updatedBy": ""
   }
  ],
