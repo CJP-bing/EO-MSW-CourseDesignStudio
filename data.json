@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-05T00:27:10.656Z"
+  "saved": "2026-08-05T18:33:58.968Z"
  },
  "courses": [
   {
@@ -2257,6 +2257,26 @@
    "by": "",
    "createdAt": "2026-08-05T00:27:07.476Z",
    "updatedAt": "2026-08-05T00:27:07.476Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsgfdxil7cj03",
+   "createdAt": "2026-08-05T18:33:38.541Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "improvement",
+   "course": "Z510",
+   "week": 0,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "effort": "deep",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "The speaker series is a fantastic resource and assignment, but it is all front loaded into a single module (Week 8). There are 14 (!) interview videos to watch this week, each one 15-30 minutes. This is almost 5 hours of content, which seems a bit much for a single week.",
+   "recommendation": "We should reevaluate or spread out these videos throughout the weeks prior leading up to the paper, even if just breaking them into 7 videos in 2 weeks would make it more manageable, and more time between sessions vs binge watching them all will help with spaced learning and memory recall.",
+   "smeResponse": "",
+   "updatedAt": "2026-08-05T18:33:38.541Z",
    "updatedBy": ""
   }
  ],
