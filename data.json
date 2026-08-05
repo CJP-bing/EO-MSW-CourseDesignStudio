@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-05T19:17:35.172Z"
+  "saved": "2026-08-05T20:10:39.200Z"
  },
  "courses": [
   {
@@ -4563,14 +4563,14 @@
    "u": "2026-08-05T19:17:13.944Z"
   },
   "Z510-11": {
-   "status": "todo",
+   "status": "done",
    "checks": [
     true,
-    false,
-    false,
-    false,
     true,
     false,
+    true,
+    true,
+    true,
     false,
     false
    ],
@@ -4592,17 +4592,17 @@
     ]
    },
    "note": "",
-   "u": "2026-08-04T15:39:10.280Z"
+   "u": "2026-08-05T20:09:39.923Z"
   },
   "Z510-12": {
-   "status": "todo",
+   "status": "done",
    "checks": [
+    true,
+    true,
     false,
     false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
     false,
     false
    ],
@@ -4623,17 +4623,18 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-08-05T20:09:48.309Z"
   },
   "Z510-13": {
-   "status": "todo",
+   "status": "done",
    "checks": [
+    true,
+    true,
     false,
     false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
     false,
     false
    ],
@@ -4654,17 +4655,18 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-08-05T20:10:01.576Z"
   },
   "Z510-14": {
-   "status": "todo",
+   "status": "done",
    "checks": [
+    true,
+    true,
     false,
-    false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
+    true,
     false,
     false
    ],
@@ -4684,7 +4686,8 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-08-05T20:10:18.383Z"
   },
   "Z515-1": {
    "status": "todo",
