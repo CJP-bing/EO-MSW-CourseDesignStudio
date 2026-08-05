@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-05T18:33:58.968Z"
+  "saved": "2026-08-05T18:36:22.023Z"
  },
  "courses": [
   {
@@ -2278,6 +2278,26 @@
    "smeResponse": "",
    "updatedAt": "2026-08-05T18:33:38.541Z",
    "updatedBy": ""
+  },
+  {
+   "id": "xmsgfgtkdmnrz1",
+   "createdAt": "2026-08-05T18:35:53.389Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "improvement",
+   "course": "Z510",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "effort": "quick",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "\"Guest Speaker Series\" is broken out into a module of it's own in BS. This should be integrated into the weekly course flow for less clicking/navigating.",
+   "recommendation": "Move the speaker series (ideally after deciding whether to break it up into 2+ weeks) directly into the weekly module flow as Watch: videos.",
+   "smeResponse": "",
+   "updatedAt": "2026-08-05T18:35:53.389Z",
+   "updatedBy": ""
   }
  ],
  "standards": [
@@ -4423,11 +4443,11 @@
    "status": "todo",
    "checks": [
     true,
-    false,
+    true,
     false,
     false,
     true,
-    false,
+    true,
     false,
     false
    ],
@@ -4457,7 +4477,7 @@
     ]
    },
    "note": "",
-   "u": "2026-08-04T15:34:31.890Z"
+   "u": "2026-08-05T18:36:01.630Z"
   },
   "Z510-9": {
    "status": "todo",
