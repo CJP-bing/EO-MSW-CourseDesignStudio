@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-04T19:47:36.391Z"
+  "saved": "2026-08-05T00:27:10.656Z"
  },
  "courses": [
   {
@@ -2237,6 +2237,26 @@
    "by": "",
    "createdAt": "2026-07-29T10:27:07.289Z",
    "updatedAt": "2026-07-30T15:10:54.915Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsfcknro0amnp",
+   "scope": "course",
+   "course": "Z520",
+   "week": 0,
+   "type": "Other",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-01-01",
+   "note": "Weeks use submodule format.",
+   "recommendation": "",
+   "smeResponse": "Weeks need to be flattened, following best practices and standardized design, ahead of next offering in Spring 2027.  JM would have done this directly, but there are often references to the submodule sections embedded in content descriptions and overviews.  More time is needed to complete this task thoroughly.",
+   "by": "",
+   "createdAt": "2026-08-05T00:27:07.476Z",
+   "updatedAt": "2026-08-05T00:27:07.476Z",
    "updatedBy": ""
   }
  ],
