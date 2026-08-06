@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-06T10:29:08.598Z"
+  "saved": "2026-08-06T10:30:34.703Z"
  },
  "courses": [
   {
@@ -2337,6 +2337,26 @@
    "by": "",
    "createdAt": "2026-08-06T10:29:05.032Z",
    "updatedAt": "2026-08-06T10:29:05.032Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmshdkgx1n8n84",
+   "scope": "course",
+   "course": "Z520",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "medium",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "0007-01-01",
+   "note": "Major assignments have attached rubrics, not Brightspace rubrics.",
+   "recommendation": "",
+   "smeResponse": "The major assignments in this course have rubrics attached to assignments, often as docx or pdf files.  It would be better to convert these to Brightspace Rubrics and attach to assignments to allow for easier grading and feedback.",
+   "by": "",
+   "createdAt": "2026-08-06T10:30:30.565Z",
+   "updatedAt": "2026-08-06T10:30:30.565Z",
    "updatedBy": ""
   }
  ],
