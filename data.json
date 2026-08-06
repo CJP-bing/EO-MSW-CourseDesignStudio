@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-05T20:10:39.200Z"
+  "saved": "2026-08-06T10:29:08.598Z"
  },
  "courses": [
   {
@@ -2317,6 +2317,26 @@
    "recommendation": "",
    "smeResponse": "",
    "updatedAt": "2026-08-05T18:36:48.107Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmshdimx419cyd",
+   "scope": "course",
+   "course": "Z520",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "needs_sme",
+   "recordType": "improvement",
+   "targetDate": "2027-08-01",
+   "note": "Capstone assignment may be updated.",
+   "recommendation": "",
+   "smeResponse": "The Capstone assignment in this course may be replaced.  This will necessitate significant revisions to the course, including removal of capstone artifacts and replacement with an alternative assignment.  Consult with Department Chair or Program Director on status of efforts before launching course in AY27-28.",
+   "by": "",
+   "createdAt": "2026-08-06T10:29:05.032Z",
+   "updatedAt": "2026-08-06T10:29:05.032Z",
    "updatedBy": ""
   }
  ],
