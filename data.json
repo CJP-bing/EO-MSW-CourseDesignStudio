@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-06T10:31:20.718Z"
+  "saved": "2026-08-07T13:49:09.850Z"
  },
  "courses": [
   {
@@ -2377,6 +2377,26 @@
    "by": "",
    "createdAt": "2026-08-06T10:31:17.415Z",
    "updatedAt": "2026-08-06T10:31:17.415Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsj03cmokrqjx",
+   "createdAt": "2026-08-07T13:48:49.200Z",
+   "by": "",
+   "scope": "course",
+   "recordType": "improvement",
+   "course": "Z505",
+   "week": 0,
+   "type": "Reading",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "id_can_resolve",
+   "status": "Open",
+   "note": "Z505 textbook has a new edition, which might be a little different from the version that was originally used to develop the Z505. We may need to review and adapt the new textbook soon so that students can access the updated textbook.",
+   "recommendation": "",
+   "smeResponse": "",
+   "updatedAt": "2026-08-07T13:48:49.199Z",
    "updatedBy": ""
   }
  ],
