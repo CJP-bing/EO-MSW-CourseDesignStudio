@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-12T04:22:41.695Z"
+  "saved": "2026-08-12T04:35:13.074Z"
  },
  "courses": [
   {
@@ -2417,6 +2417,26 @@
    "by": "",
    "createdAt": "2026-08-12T04:22:37.024Z",
    "updatedAt": "2026-08-12T04:22:37.023Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsplil6oq67cb",
+   "scope": "course",
+   "course": "Z521",
+   "week": 0,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "needs_sme",
+   "recordType": "improvement",
+   "targetDate": "2027-08-01",
+   "note": "Weekly lectures have slides only; no pre-recorded lectures.",
+   "recommendation": "",
+   "smeResponse": "This raises a larger question: If lecture slides exist in a course, should there be a recorded lecture?  Who is responsible for creating?  \n\nFor now, the course guide provides prompting to create lectures or weekly videos to support RSI.  Language is also integrated into weekly overviews, which keep the modules evergreen in case instructors do add recorded content.",
+   "by": "",
+   "createdAt": "2026-08-12T04:35:09.120Z",
+   "updatedAt": "2026-08-12T04:35:09.120Z",
    "updatedBy": ""
   }
  ],
