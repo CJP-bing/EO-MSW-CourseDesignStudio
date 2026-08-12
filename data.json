@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-12T04:37:33.541Z"
+  "saved": "2026-08-12T04:44:59.331Z"
  },
  "courses": [
   {
@@ -2477,6 +2477,26 @@
    "by": "",
    "createdAt": "2026-08-12T04:37:29.803Z",
    "updatedAt": "2026-08-12T04:37:29.803Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmsplv5cuqyjnz",
+   "scope": "course",
+   "course": "Z521",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "Assignment scaffolding appears weak.",
+   "recommendation": "",
+   "smeResponse": "The course pre-supposes (and maybe this okay as it is an advanced generalist course) student understanding and ability to apply knowledge to specific assignments, e.g., conducting a mental status exam with little instruction.\n\nIt may be helpful to assess if that scaffolding is present elsewhere in the curriculum and these assumptions are valid.  Or, if not, additional scaffolding needs to be built into the course (maybe as discussions or assignment resources) to help prepare students for what they are tasked to do during assignments.",
+   "by": "",
+   "createdAt": "2026-08-12T04:44:55.134Z",
+   "updatedAt": "2026-08-12T04:44:55.134Z",
    "updatedBy": ""
   }
  ],
