@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T09:28:02.558Z"
+  "saved": "2026-08-14T09:38:47.884Z"
  },
  "courses": [
   {
@@ -2577,6 +2577,26 @@
    "by": "",
    "createdAt": "2026-08-14T09:27:53.771Z",
    "updatedAt": "2026-08-14T09:27:53.771Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmssr8lgc1woy6",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-05-01",
+   "note": "Assignments lack clear scaffolding.",
+   "recommendation": "",
+   "smeResponse": "Major assignments come due at three points during the semester.  The course does not have - in the weekly overviews - reminders to ensure students' are working on these assignments ahead of their due date.  For Fall 2026, instructors were reminded to provide this guidance periodically via weekly announcements/videos.  There are great modules within the Content area with assignment resources, but it may be more helpful to have one webpage per assignment that overviews it ... and then embedding that strategically in the modules 2-4 weeks before the assignment comes due.",
+   "by": "",
+   "createdAt": "2026-08-14T09:38:39.132Z",
+   "updatedAt": "2026-08-14T09:38:39.132Z",
    "updatedBy": ""
   }
  ],
