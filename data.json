@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T00:56:53.856Z"
+  "saved": "2026-08-14T09:28:02.558Z"
  },
  "courses": [
   {
@@ -2557,6 +2557,26 @@
    "by": "",
    "createdAt": "2026-08-14T00:56:47.046Z",
    "updatedAt": "2026-08-14T00:56:47.046Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmssqurhnve03n",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "needs_sme",
+   "recordType": "improvement",
+   "targetDate": "2027-05-01",
+   "note": "All assignments in this course are written, with a heavy reliance on papers.  It is highly vulnerable to extensive AI use by students.",
+   "recommendation": "",
+   "smeResponse": "There are a number of small and large changes that could be made to prevent a student from hitting the \"easy\" button for the ENTIRE course.  (1) The Short Essay Prompts could be submitted as short videos (vs. essays) OR discussed in small group meetings or 1:1 meetings with students. (2) The three major assignments for the course are ALL papers.  Could one be a presentation?  Would a simulation be more appropriate in a course on applied group work?  Could the students be tasked with using software to create their group curriculum, which will limit AI use?",
+   "by": "",
+   "createdAt": "2026-08-14T09:27:53.771Z",
+   "updatedAt": "2026-08-14T09:27:53.771Z",
    "updatedBy": ""
   }
  ],
