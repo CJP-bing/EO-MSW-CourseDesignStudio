@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T00:50:19.480Z"
+  "saved": "2026-08-14T00:56:53.856Z"
  },
  "courses": [
   {
@@ -2537,6 +2537,26 @@
    "by": "",
    "createdAt": "2026-08-14T00:46:18.551Z",
    "updatedAt": "2026-08-14T00:46:18.551Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmss8lgw6a8rv5",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Assignment",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "",
+   "note": "Recorded lectures are not shared with MSW Design.  They also appear to be set to require log-in to access.",
+   "recommendation": "",
+   "smeResponse": "Ask Course Builder (Monica Adams) to follow instructions (see JM/CP email) for adding MSW Design as a collaborator on the videos; update access to be anyone with the link.",
+   "by": "",
+   "createdAt": "2026-08-14T00:56:47.046Z",
+   "updatedAt": "2026-08-14T00:56:47.046Z",
    "updatedBy": ""
   }
  ],
