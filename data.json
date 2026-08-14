@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T00:45:03.252Z"
+  "saved": "2026-08-14T00:46:24.678Z"
  },
  "courses": [
   {
@@ -2517,6 +2517,26 @@
    "by": "",
    "createdAt": "2026-08-14T00:44:56.757Z",
    "updatedAt": "2026-08-14T00:44:56.757Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmss87zxzq4l3n",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Reading",
+   "prio": "MEDIUM",
+   "status": "Open",
+   "effort": "deep",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-05-01",
+   "note": "Accessibility of course materials (particularly readings) is inconsistent.",
+   "recommendation": "",
+   "smeResponse": "Given time constraints, not all accessibility issues flagged within Brightspace could be addressed.  Attention is required, particularly to required readings, which may be better as links vs. PDFs.",
+   "by": "",
+   "createdAt": "2026-08-14T00:46:18.551Z",
+   "updatedAt": "2026-08-14T00:46:18.551Z",
    "updatedBy": ""
   }
  ],
