@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-12T04:44:59.331Z"
+  "saved": "2026-08-14T00:45:03.252Z"
  },
  "courses": [
   {
@@ -2497,6 +2497,26 @@
    "by": "",
    "createdAt": "2026-08-12T04:44:55.134Z",
    "updatedAt": "2026-08-12T04:44:55.134Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmss868txnsadw",
+   "scope": "course",
+   "course": "Z523",
+   "week": 0,
+   "type": "Other",
+   "prio": "LOW",
+   "status": "Open",
+   "effort": "medium",
+   "workflow": "id_can_resolve",
+   "recordType": "improvement",
+   "targetDate": "2027-05-01",
+   "note": "Course has checklists & overviews, which do not adhere to new design standards.",
+   "recommendation": "",
+   "smeResponse": "The course checklists and overviews were present and not problematic, in fact - likely useful.  JM opted not to update to current design templates given time for course updates/copying.  However, this remains an area for attention in the future.",
+   "by": "",
+   "createdAt": "2026-08-14T00:44:56.757Z",
+   "updatedAt": "2026-08-14T00:44:56.757Z",
    "updatedBy": ""
   }
  ],
