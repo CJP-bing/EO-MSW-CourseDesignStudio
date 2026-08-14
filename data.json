@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T09:38:47.884Z"
+  "saved": "2026-08-14T14:58:39.635Z"
  },
  "courses": [
   {
@@ -2597,6 +2597,26 @@
    "by": "",
    "createdAt": "2026-08-14T09:38:39.132Z",
    "updatedAt": "2026-08-14T09:38:39.132Z",
+   "updatedBy": ""
+  },
+  {
+   "id": "xmst2np1o8jium",
+   "createdAt": "2026-08-14T14:58:19.404Z",
+   "by": "",
+   "scope": "week",
+   "recordType": "defect",
+   "course": "Z503",
+   "week": 9,
+   "type": "Video",
+   "prio": "MEDIUM",
+   "effort": "medium",
+   "targetDate": "",
+   "workflow": "needs_sme",
+   "status": "Open",
+   "note": "\"Crip Camp\" is a redundant viewing experience, as it was already introduced and watched as an assignment in the previous semester in Z515 Week 6.",
+   "recommendation": "Need SME to decide whether this better relates and belongs here in Z503 or stays in Z515, and then we find an alternative to replace it with.",
+   "smeResponse": "",
+   "updatedAt": "2026-08-14T14:58:19.404Z",
    "updatedBy": ""
   }
  ],
