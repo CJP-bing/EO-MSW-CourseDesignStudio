@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-18T13:57:41.432Z"
+  "saved": "2026-08-18T15:45:38.002Z"
  },
  "courses": [
   {
@@ -2001,7 +2001,7 @@
    "course": "Z504",
    "week": 3,
    "type": "Assignment",
-   "prio": "HIGH",
+   "prio": "MEDIUM",
    "status": "Open",
    "note": "Submission cadence/instructions unclear: are they ONLY submitting a group research question together? How and when are groups communicated?",
    "scope": "week",
@@ -2011,7 +2011,8 @@
    "targetDate": "",
    "recommendation": "",
    "smeResponse": "",
-   "updatedAt": null
+   "updatedAt": "2026-08-18T15:45:17.786Z",
+   "updatedBy": ""
   },
   {
    "id": 4,
