@@ -21,6 +21,7 @@
   --s1:#2a78d6; --s2:#1baf7a; --s3:#eda100; --s4:#008300; --s5:#4a3aa7; --s6:#e34948; --s7:#e87ba4; --s8:#eb6834;
   --crit:#d03b3b; --warn:#fab219; --serious:#ec835a; --good:#0ca30c; --good-text:#006300;
   --wash: rgba(42,120,214,0.08);
+  --warn-text: #7a5800;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -37,6 +38,7 @@
   --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#008300; --s5:#9085e9; --s6:#e66767; --s7:#d55181; --s8:#d95926;
   --good-text:#0ca30c;
   --wash: rgba(57,135,229,0.14);
+  --warn-text: #fab219;
 }
 * { box-sizing: border-box; }
 body {
@@ -99,10 +101,12 @@ main { max-width: 1220px; margin: 0 auto; padding: 22px; }
 .pill.st-0 { }
 .pill.st-1 { background: var(--wash); color: var(--ink-1); }
 .pill.st-2 { background: var(--accent); color: #fff; border-color: var(--accent); }
-.pill.st-3 { background: var(--seq-600); color: #fff; border-color: var(--seq-600); }
-.pill.st-4 { background: var(--good); color: #fff; border-color: var(--good); }
-.meter { height: 6px; border-radius: 4px; background: var(--accent-soft); overflow: hidden; margin-top: 10px; }
-.meter > div { height: 100%; background: var(--accent); border-radius: 4px; }
+.pill.st-3 { background: var(--accent-soft); color: var(--ink-1); border-color: var(--seq-300); }
+.pill.st-4 { background: var(--seq-600); color: #fff; border-color: var(--seq-600); }
+.pill.st-5 { background: var(--good); color: #fff; border-color: var(--good); }
+.meter { height: 6px; border-radius: 4px; background: var(--accent-soft); overflow: hidden; margin-top: 10px; display: flex; }
+.meter .m-done { height: 100%; background: var(--accent); }
+.meter .m-basic { height: 100%; background: var(--seq-300); opacity: .55; }
 .ccard .foot { display: flex; justify-content: space-between; color: var(--ink-3); font-size: 11.5px; margin-top: 6px; }
 .issue-dots { display: flex; gap: 6px; font-size: 11.5px; color: var(--ink-2); }
 .issue-dots b { font-weight: 600; }
@@ -164,12 +168,41 @@ table.data td { padding: 8px 10px; border-bottom: 1px solid var(--grid); vertica
 table.data tr:hover td { background: var(--wash); }
 table.data td.num { font-variant-numeric: tabular-nums; }
 .table-wrap { overflow-x: auto; }
+/* metadata-diet components */
+.prio-mark { font-size: 11px; font-weight: 700; letter-spacing: .03em; white-space: nowrap; }
+.prio-mark.HIGH { color: var(--crit); }
+.prio-mark.MEDIUM { color: var(--warn-text); }
+.prio-mark.LOW { color: var(--ink-3); font-weight: 600; }
+.meta-line { color: var(--ink-3); font-size: 12px; }
+.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.clamp.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.more-t { color: var(--accent); cursor: pointer; font-size: 12px; background: none; border: none; padding: 2px 0 0; }
+.btn-sm { font-size: 12px; padding: 4px 12px; border-radius: 7px; }
+.btn-sm.resolve { color: var(--good-text); }
+.btn-sm.resolve:hover { background: var(--good); color: #fff; border-color: var(--good); }
+.mini-meter { display: inline-block; width: 36px; height: 4px; border-radius: 3px; background: var(--accent-soft); vertical-align: 2px; overflow: hidden; }
+.mini-meter i { display: block; height: 100%; background: var(--accent); }
+.fq-group { border: 1px solid var(--grid); border-radius: 10px; margin-bottom: 10px; background: var(--surface-1); }
+.fq-group > summary { cursor: pointer; padding: 10px 14px; font-weight: 600; font-size: 13.5px; list-style: none; display: flex; gap: 10px; align-items: baseline; }
+.fq-group > summary::before { content: "▸"; color: var(--ink-3); font-size: 11px; }
+.fq-group[open] > summary::before { content: "▾"; }
+.fq-group > summary .gcount { color: var(--ink-3); font-size: 12px; font-weight: 400; }
+.fq-group .focus-list { padding: 0 12px 12px; }
+.next-num { min-width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.suggest-note { display: inline-flex; gap: 8px; align-items: center; background: var(--wash); border: 1px solid var(--ring); border-radius: 8px; padding: 5px 10px; font-size: 12.5px; color: var(--ink-2); margin-top: 10px; }
+/* header data menu */
+.menu { position: relative; display: inline-block; }
+.menu-list { position: absolute; right: 0; top: calc(100% + 4px); background: var(--surface-1); border: 1px solid var(--grid); border-radius: 10px; padding: 6px; display: none; z-index: 50; min-width: 170px; box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.menu.open .menu-list { display: block; }
+.menu-list button { display: block; width: 100%; text-align: left; border: none; background: none; padding: 7px 10px; border-radius: 7px; font-size: 13px; }
 /* focus queue */
 .focus-list { display: grid; gap: 10px; }
-.focus-item { border: 1px solid var(--grid); border-radius: 10px; padding: 12px 14px; background: var(--surface-1); }
-.focus-item.overdue { border-left: 4px solid var(--crit); }
+.focus-item { border: 1px solid var(--grid); border-left-width: 3px; border-radius: 10px; padding: 12px 14px; background: var(--surface-1); }
+.focus-item.p-HIGH { border-left-color: var(--crit); }
+.focus-item.p-MEDIUM { border-left-color: var(--warn); }
+.focus-item.p-LOW { border-left-color: var(--baseline); }
 .focus-top { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
-.focus-title { flex: 1; min-width: 240px; font-weight: 600; }
+.focus-title { flex: 1; min-width: 240px; font-weight: 600; font-size: 14px; }
 .focus-meta { color: var(--ink-3); font-size: 12px; margin-top: 5px; }
 .focus-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 9px; }
 .scope-pill, .workflow-pill, .type-pill { font-size: 10.5px; border-radius: 5px; padding: 2px 7px; border: 1px solid var(--ring); background: var(--page); color: var(--ink-2); white-space: nowrap; }
@@ -195,8 +228,11 @@ table.data td.num { font-variant-numeric: tabular-nums; }
 .activity-audit summary { cursor: pointer; padding: 8px 10px; font-size: 12.5px; font-weight: 600; }
 .activity-audit .checklist { padding: 0 10px 10px; }
 /* SME handoff */
-.handoff-item { border: 1px solid var(--grid); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: var(--surface-1); display: grid; grid-template-columns: auto 1fr; gap: 10px; }
+.handoff-item { border: 1px solid var(--grid); border-left-width: 3px; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: var(--surface-1); display: grid; grid-template-columns: auto 1fr; gap: 10px; }
 .handoff-item input[type=checkbox] { margin-top: 3px; accent-color: var(--accent); }
+.handoff-item.p-HIGH { border-left-color: var(--crit); }
+.handoff-item.p-MEDIUM { border-left-color: var(--warn); }
+.handoff-item.p-LOW { border-left-color: var(--baseline); }
 .handoff-copy { white-space: pre-wrap; }
 .status-note { color: var(--good-text); font-size: 12px; min-height: 1.2em; }
 /* svg chart bits */
@@ -246,10 +282,16 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
   <div class="spacer"></div>
   <span class="dirty-pill show" id="syncChip" title="Save status">Loading…</span>
   <button id="btnSync" class="primary" title="Commit data.json to the GitHub repo now">Sync to GitHub</button>
-  <button id="btnCSV" title="Download issues as CSV for Google Sheets">Issues → CSV</button>
-  <button id="btnImport" title="Restore from a JSON backup file">Import JSON</button>
-  <button id="btnExport" title="Download a JSON backup file">Export JSON</button>
+  <div class="menu" id="dataMenu">
+    <button id="btnData" title="Backups & exports">Data ▾</button>
+    <div class="menu-list">
+      <button id="btnCSV" title="Download issues as CSV for Google Sheets">Issues → CSV</button>
+      <button id="btnExport" title="Download a JSON backup file">Export JSON</button>
+      <button id="btnImport" title="Restore from a JSON backup file">Import JSON</button>
+    </div>
+  </div>
   <button id="btnSettings" title="Sync settings">⚙</button>
+  <button id="btnHelp" title="How this works">?</button>
   <button id="btnTheme" class="ghost" title="Toggle light/dark">◐</button>
   <input type="file" id="fileImport" accept=".json" style="display:none">
 </header>
@@ -260,8 +302,7 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
   <button data-tab="issues">Issue Log</button>
   <button data-tab="standards">Standards</button>
   <button data-tab="sme">SME Handoff</button>
-  <button data-tab="about">How This Works</button>
-</nav>
+  </nav>
 <main>
   <section id="tab-focus"></section>
   <section id="tab-overview" style="display:none"></section>
@@ -355,8 +396,8 @@ footer.foot { text-align: center; color: var(--ink-3); font-size: 12px; padding:
 </div>
 <script>
 /* ============ SEED DATA ============ */
-const STATUSES = ["Not Started","Auditing","Rebuilding","SME Review","Finalized"];
-const WEEK_STATUSES = { todo:"Not reviewed", doing:"In progress", done:"Done" };
+const STATUSES = ["Not Started","Auditing","Rebuilding","Basic Pass Done","SME Review","Finalized"];
+const WEEK_STATUSES = { todo:"Not reviewed", doing:"In progress", basic:"Basic pass", done:"Done" };
 const ACTIVITY_TYPES = ["Reading","Video","Discussion","Assignment","Quiz","Group Work","Milestone"];
 const TYPE_COLORS = { "Reading":"var(--s1)","Video":"var(--s2)","Discussion":"var(--s5)","Assignment":"var(--s8)","Quiz":"var(--s3)","Group Work":"var(--s7)","Milestone":"var(--s4)" };
 const CHECKLIST = [
@@ -540,6 +581,34 @@ const SEED = {
       {n:14, dates:"12/1–12/7", title:"Legislative Meeting Simulations", acts:[{t:"Group Work",n:"Convene Legislative Meeting Simulation (as assigned)",major:true},{t:"Assignment",n:"Send follow-up email by 12/7"}]}
     ]
   },
+  {
+    id:"Z542", code:"SW Z542", title:"Complex Trauma & Recovery: Theory & Practice",
+    term:"Fall \u00b7 Elective", credits:3, status:"Not Started", pilot:true,
+    notes:"Elective. Seeded from the Fall 2026 syllabus template (V1). Rotating small-group Lead Discussions run weeks 4\u201313; weekly small-group meetings + participation surveys run most of the term.",
+    assessments:[
+      {name:"Participation (weekly small groups, surveys, discussions)", weight:"25 pts"},
+      {name:"Reflection Paper (wk 3)", weight:"10 pts"},
+      {name:"Leading an Online Discussion (assigned week)", weight:"15 pts"},
+      {name:"Trauma-Informed Practice Paper (wk 10)", weight:"25 pts"},
+      {name:"Group Presentation (wk 13, feedback wk 14)", weight:"25 pts"}
+    ],
+    weeks:[
+      {n:1, title:"Course overview \u00b7 Stressors & rewards of trauma work \u00b7 Vicarious trauma and self-care", acts:[{t:"Reading",n:"Required readings (incl. Bransford & Blizard 2017)"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Discussion",n:"Post your introduction to the class"}]},
+      {n:2, title:"Historical perspectives \u00b7 Importance of safety \u00b7 Building safe relationships \u00b7 Self-care and coping skills", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + participation survey"}]},
+      {n:3, title:"Working with trauma survivors \u00b7 Types of traumatic events \u00b7 Witnessing trauma", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Assignment",n:"Reflection Paper due",major:true}]},
+      {n:4, title:"Vulnerability & cultural considerations \u00b7 Attachment and ACEs", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 4 online discussion (all) \u00b7 SG1 posts Lead Discussion for wk 5"}]},
+      {n:5, title:"Neurobiology & effects of trauma \u00b7 War and terrorism \u00b7 Life-threatening illness", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 5 discussion (all) \u00b7 SG1 moderates \u00b7 SG2 posts wk 6 lead"}]},
+      {n:6, title:"Intimate partner violence \u00b7 Child abuse/neglect \u00b7 Abuse of older adults & people with disabilities", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 6 discussion (all) \u00b7 SG2 moderates \u00b7 SG3 posts wk 7 lead"}]},
+      {n:7, title:"Dissociation \u00b7 Traumatic loss and sudden death", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 7 discussion (all) \u00b7 SG3 moderates \u00b7 SG4 posts wk 8 lead"},{t:"Milestone",n:"Midterm break"}]},
+      {n:8, title:"Prevention and community organizing \u00b7 The Sanctuary Model", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 8 discussion (all) \u00b7 SG4 moderates \u00b7 SG5 posts wk 9 lead"}]},
+      {n:9, title:"Preparing for treatment \u00b7 Assessment & crisis intervention \u00b7 Risk to self or others \u00b7 Strengths-based approaches", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 9 discussion (all) \u00b7 SG5 moderates \u00b7 SG6 posts wk 10 lead"}]},
+      {n:10, title:"Psychosocial interventions I \u00b7 Communication \u00b7 Safety, stabilization & engagement", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 10 discussion (all) \u00b7 SG6 moderates \u00b7 SG7 posts wk 11 lead"},{t:"Assignment",n:"Trauma-Informed Practice Paper due",major:true}]},
+      {n:11, title:"Psychosocial interventions II \u00b7 Hypnosis & guided imagery \u00b7 EMDR \u00b7 Relaxation, meditation, creative arts", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 11 discussion (all) \u00b7 SG7 moderates \u00b7 SG8 posts wk 12 lead"}]},
+      {n:12, title:"Identity-based trauma and resilience \u00b7 Community trauma", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Group Work",n:"Small group meeting + survey"},{t:"Discussion",n:"Week 12 discussion (all) \u00b7 SG8 moderates \u00b7 SG9 posts wk 13 lead"}]},
+      {n:13, title:"Advocating for survivors \u00b7 Micro/macro advocacy \u00b7 Program development", acts:[{t:"Reading",n:"Required readings"},{t:"Video",n:"Assigned viewing (see module)"},{t:"Discussion",n:"Week 13 discussion (all) \u00b7 SG9 moderates"},{t:"Group Work",n:"Post Group Presentation to designated discussion",major:true}]},
+      {n:14, title:"Presentation feedback & responses \u00b7 Endings and saying goodbye \u00b7 SOOTS survey", acts:[{t:"Video",n:"Watch \u2265 2 other groups' presentations"},{t:"Discussion",n:"Give feedback \u00b7 respond to feedback on your group's presentation \u00b7 Goodbye Reflection"},{t:"Assignment",n:"Complete the final evaluation"}]}
+    ]
+  },
   { id:"Z506", code:"SW Z506", title:"Psychopathology & Pharmacology", term:"Spring · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
   { id:"Z511", code:"SW Z511", title:"Generalist Social Work Practice II", term:"Spring · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
   { id:"Z512", code:"SW Z512", title:"Generalist Social Work Practice III", term:"Summer · Year 1 (Generalist)", credits:3, status:"Not Started", pilot:false, notes:"", assessments:[], weeks:[] },
@@ -721,19 +790,20 @@ function contentKey(j){
   const { meta, ...rest } = j;
   return JSON.stringify(rest);
 }
-function setChip(text, tone){
+function setChip(text, tone, titleText){
   const c = $("#syncChip");
   c.textContent = text;
+  c.title = titleText || text;
   c.style.color = tone==="warn" ? "var(--crit)" : (tone==="ok" ? "var(--good-text)" : "var(--ink-2)");
 }
 function chipIdle(){
   if(!hasLS){ setChip("⚠ No browser storage — use Export JSON to save", "warn"); return; }
   if(!CFG.token){
-    if(hookURL()) setChip("Saved on this device · issues sync via the team tracker");
-    else setChip(unsynced ? "Saved on this device · GitHub sync off (⚙)" : "Saved on this device");
+    if(hookURL()) setChip("● Saved here · tracker on", null, "Edits save to this browser instantly; issues you log are sent to the shared team tracker automatically. A GitHub token (⚙) is only needed for full curriculum editing.");
+    else setChip("● Saved here", null, "Edits save to this browser instantly. Add a GitHub token in ⚙ to sync everything to the shared copy.");
     return;
   }
-  setChip(unsynced ? "Saved on this device · GitHub sync pending…" : "✓ Saved & synced to GitHub", unsynced? null:"ok");
+  setChip(unsynced ? "● Sync pending…" : "✓ Synced", unsynced? null:"ok", unsynced? "Local edits will auto-commit to GitHub shortly." : "Everything is saved and committed to the shared GitHub copy.");
 }
 function saveLocal(){
   D.meta.saved = new Date().toISOString();
@@ -855,7 +925,56 @@ function scopeLabel(i){ return SCOPES[i.scope] || SCOPES.course; }
 function workflowLabel(i){ return WORKFLOWS[i.workflow] || WORKFLOWS.id_can_resolve; }
 function recordTypeLabel(i){ return RECORD_TYPES[i.recordType] || RECORD_TYPES.improvement; }
 function byline(i){ const who=i.by||i.updatedBy; return who? `<span class="muted small"> · ${esc(who)}</span>`:""; }
-function isOverdue(i){ return !!i.targetDate && i.status==="Open" && i.targetDate < new Date().toISOString().slice(0,10); }
+function isOverdue(i){ return !!i.targetDate && /^20\d\d-/.test(i.targetDate) && i.status==="Open" && i.targetDate < new Date().toISOString().slice(0,10); }
+function prioMark(i){ return `<span class="prio-mark ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio.charAt(0)+i.prio.slice(1).toLowerCase())}</span>`; }
+function metaLine(i, opts){
+  opts = opts||{};
+  const bits = [];
+  if(!opts.noLocation) bits.push(issueLocation(i));
+  bits.push(recordTypeLabel(i));
+  if(opts.workflowText) bits.push(workflowLabel(i));
+  const eff = (EFFORTS[i.effort]||"").split(" ·")[0]; if(eff) bits.push(eff);
+  if(i.targetDate) bits.push((isOverdue(i)? "Overdue ":"Target ")+i.targetDate);
+  const who = i.by||i.updatedBy; if(who) bits.push(who);
+  return `<div class="meta-line">${bits.filter(Boolean).map(esc).join(" · ")}</div>`;
+}
+function clampBlock(inner, plainLen){
+  if(plainLen<=190) return `<div>${inner}</div>`;
+  return `<div><div class="clamp">${inner}</div><button class="more-t">more</button></div>`;
+}
+function focusRank(i){
+  if(isOverdue(i)) return 0;
+  if(i.prio==="HIGH") return 1;
+  if(i.effort==="quick" && i.workflow==="id_can_resolve") return 2;
+  if(i.prio==="MEDIUM") return 3;
+  return 4;
+}
+function issueCardHTML(i, extra){
+  const promote = i.scope==="program" || i.recordType==="design_decision";
+  const bodyPlain = (i.note||"") + (i.recommendation||"");
+  const body = `<div class="focus-title">${esc(i.note)}</div>${i.recommendation? `<div class="small muted" style="margin-top:4px"><b>Rec:</b> ${esc(i.recommendation)}</div>`:""}`;
+  return `<div class="focus-item p-${esc(i.prio)}">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      ${extra&&extra.num? `<span class="next-num">${extra.num}</span>`:""}
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">
+          ${prioMark(i)}
+          ${["needs_sme","ready_sme_review","sme_revision"].includes(i.workflow)? `<span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span>`:""}
+          <span style="flex:1"></span>
+          <span class="meta-line">${esc(issueLocation(i))}</span>
+        </div>
+        <div style="margin-top:4px">${clampBlock(body, bodyPlain.length)}</div>
+        ${metaLine(i,{noLocation:true})}
+        <div class="focus-actions">
+          <button class="btn-sm fq-edit" data-id="${i.id}">✎ Edit</button>
+          <button class="btn-sm resolve fq-resolve" data-id="${i.id}">✓ Resolve</button>
+          ${i.scope!=="program"? `<button class="linkish fq-open" data-id="${i.id}">open course</button>`:""}
+          ${promote? `<button class="linkish fq-promote" data-id="${i.id}">promote to standard</button>`:""}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
 function issueSort(a,b){
   const po={HIGH:0,MEDIUM:1,LOW:2};
   const ad=a.targetDate||"9999-12-31", bd=b.targetDate||"9999-12-31";
@@ -892,9 +1011,24 @@ function standardCounts(s){
 }
 function courseProgress(c){
   if(!c.weeks.length) return null;
-  let done=0, doing=0;
-  c.weeks.forEach(w=>{ const s=wkState(c.id,w.n).status; if(s==="done") done++; else if(s==="doing") doing++; });
-  return { done, doing, total:c.weeks.length, pct: Math.round(100*done/c.weeks.length) };
+  let done=0, basic=0, doing=0;
+  c.weeks.forEach(w=>{ const s=wkState(c.id,w.n).status; if(s==="done") done++; else if(s==="basic") basic++; else if(s==="doing") doing++; });
+  const total=c.weeks.length;
+  return { done, basic, doing, total, pct: Math.round(100*done/total), pctBasic: Math.round(100*basic/total) };
+}
+function meterHTML(p, tipText){
+  return `<div class="meter" ${tipText?`data-tip="${tipText}"`:""}><span class="m-done" style="width:${p.pct}%"></span><span class="m-basic" style="width:${p.pctBasic}%"></span></div>`;
+}
+function progressTip(p){
+  const bits=[`${p.done} done`]; if(p.basic) bits.push(`${p.basic} basic pass`); if(p.doing) bits.push(`${p.doing} in progress`);
+  return bits.join(" · ")+` of ${p.total} weeks`;
+}
+function suggestStatus(c){
+  const p = courseProgress(c); if(!p) return null;
+  const touched = p.done+p.basic+p.doing;
+  if((p.done+p.basic)===p.total && ["Not Started","Auditing","Rebuilding"].includes(c.status)) return "Basic Pass Done";
+  if(touched>0 && c.status==="Not Started") return "Rebuilding";
+  return null;
 }
 function courseIssues(cid, onlyOpen=true){
   return D.issues.filter(i=>i.scope!=="program" && i.course===cid && (!onlyOpen || i.status==="Open"));
@@ -962,51 +1096,44 @@ function renderFocus(){
     </div>
     <div class="card">
       <h2>My next actions</h2>
-      <p class="note">Your working queue across program standards, courses, modules, and individual activities.</p>
+      <p class="note">Ranked by what deserves attention first: overdue, then high priority, then quick wins. Groups are collapsed — expand a course to work through it.</p>
       <div class="quick-filters">
         ${[["all","All open"],["mine","I can resolve"],["sme","SME work"],["quick","Quick fixes"],["overdue","Overdue"]].map(([v,l])=>`<button class="qf ${f.quick===v?"active":""}" data-value="${v}">${l}</button>`).join("")}
-      </div>
-      <div class="filter-row">
-        <label for="fqCourse">Scope / course</label>
-        <select id="fqCourse"><option value="all">All</option><option value="program" ${f.course==="program"?"selected":""}>Program-wide</option>${D.courses.map(c=>`<option value="${esc(c.id)}" ${f.course===c.id?"selected":""}>${esc(c.code)}</option>`).join("")}</select>
-        <label for="fqWorkflow">Workflow</label>
-        <select id="fqWorkflow"><option value="all">All</option>${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${f.workflow===v?"selected":""}>${l}</option>`).join("")}</select>
-        <label for="fqPrio">Priority</label>
-        <select id="fqPrio"><option value="all">All</option>${["HIGH","MEDIUM","LOW"].map(v=>`<option ${f.prio===v?"selected":""}>${v}</option>`).join("")}</select>
-        <label for="fqEffort">Effort</label>
-        <select id="fqEffort"><option value="all">All</option>${Object.entries(EFFORTS).map(([v,l])=>`<option value="${v}" ${f.effort===v?"selected":""}>${l}</option>`).join("")}</select>
+        <select id="fqCourse" title="Scope to one course"><option value="all">All courses</option><option value="program" ${f.course==="program"?"selected":""}>Program-wide</option>${D.courses.map(c=>`<option value="${esc(c.id)}" ${f.course===c.id?"selected":""}>${esc(c.code)}</option>`).join("")}</select>
         <input id="fqQ" type="text" placeholder="Search queue…" value="${esc(f.q)}" style="flex:1;min-width:150px">
         <button class="primary" id="fqNew">+ Log item</button>
       </div>
-      <div class="focus-list">
-        ${list.length?list.map(i=>{
-          const promote=i.scope==="program" || i.recordType==="design_decision";
-          return `<div class="focus-item ${isOverdue(i)?"overdue":""}">
-            <div class="focus-top">
-              <span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span>
-              <span class="scope-pill">${esc(scopeLabel(i))}</span>
-              <span class="type-pill">${esc(recordTypeLabel(i))}</span>
-              <span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span>
-              <div class="focus-title">${esc(i.note)}</div>
-            </div>
-            ${i.recommendation?`<div class="small" style="margin-top:7px"><b>Recommendation:</b> ${esc(i.recommendation)}</div>`:""}
-            <div class="focus-meta">${esc(issueLocation(i))} · ${esc(EFFORTS[i.effort]||i.effort)}${i.targetDate?` · ${isOverdue(i)?"Overdue ":"Target "}${esc(i.targetDate)}`:""}</div>
-            <div class="focus-actions">
-              <button class="linkish fq-edit" data-id="${i.id}">edit</button>
-              ${i.scope!=="program"?`<button class="linkish fq-open" data-id="${i.id}">open course</button>`:""}
-              ${promote?`<button class="linkish fq-promote" data-id="${i.id}">promote to standard</button>`:""}
-              <button class="linkish fq-resolve" data-id="${i.id}">resolve</button>
-            </div>
-          </div>`;
-        }).join(""):`<p class="muted">Nothing matches these filters.</p>`}
-      </div>
+      ${(() => {
+        if(!list.length) return `<p class="muted">Nothing matches these filters.</p>`;
+        const filtered = f.quick!=="all" || f.course!=="all" || f.q;
+        const ranked = list.slice().sort((a,b)=>focusRank(a)-focusRank(b) || issueSort(a,b));
+        if(filtered) return `<div class="focus-list">${ranked.map(i=>issueCardHTML(i)).join("")}</div>`;
+        const next = ranked.slice(0,5);
+        const nextIds = new Set(next.map(i=>String(i.id)));
+        const rest = ranked.filter(i=>!nextIds.has(String(i.id)));
+        const groups = [];
+        const prog = rest.filter(i=>i.scope==="program");
+        if(prog.length) groups.push({ label:"Program-wide", items:prog });
+        D.courses.forEach(c=>{
+          const items = rest.filter(i=>i.scope!=="program" && i.course===c.id);
+          if(items.length) groups.push({ label:c.code+" — "+c.title, items });
+        });
+        groups.sort((a,b)=>b.items.length-a.items.length);
+        return `
+          <h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin:4px 0 8px">Up next</h4>
+          <div class="focus-list" style="margin-bottom:16px">${next.map((i,ix)=>issueCardHTML(i,{num:ix+1})).join("")}</div>
+          <h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin:0 0 8px">Everything else, by course</h4>
+          ${groups.map(g=>{
+            const hi = g.items.filter(i=>i.prio==="HIGH").length;
+            return `<details class="fq-group"><summary>${esc(g.label)} <span class="gcount">${g.items.length} open${hi? ` · <span style="color:var(--crit)">${hi} high</span>`:""}</span></summary>
+              <div class="focus-list">${g.items.map(i=>issueCardHTML(i)).join("")}</div>
+            </details>`;
+          }).join("")}`;
+      })()}
     </div>`;
 
   el.querySelectorAll(".qf").forEach(b=>b.addEventListener("click",()=>{f.quick=b.dataset.value;renderFocus();}));
   $("#fqCourse").addEventListener("change",e=>{f.course=e.target.value;renderFocus();});
-  $("#fqWorkflow").addEventListener("change",e=>{f.workflow=e.target.value;renderFocus();});
-  $("#fqPrio").addEventListener("change",e=>{f.prio=e.target.value;renderFocus();});
-  $("#fqEffort").addEventListener("change",e=>{f.effort=e.target.value;renderFocus();});
   $("#fqQ").addEventListener("input",e=>{f.q=e.target.value;clearTimeout(window._fq);window._fq=setTimeout(renderFocus,250);});
   $("#fqNew").addEventListener("click",()=>openModal({}));
   el.querySelectorAll(".fq-edit").forEach(b=>b.addEventListener("click",()=>openModal({edit:D.issues.find(i=>String(i.id)===b.dataset.id)})));
@@ -1021,10 +1148,10 @@ function renderOverview(){
   const open = D.issues.filter(i=>i.status==="Open");
   const pc = prioCounts(open);
   const pilots = D.courses.filter(c=>c.weeks.length);
-  let weeksDone=0, weeksTotal=0;
-  pilots.forEach(c=>{ const p=courseProgress(c); weeksDone+=p.done; weeksTotal+=p.total; });
+  let weeksDone=0, weeksBasic=0, weeksTotal=0;
+  pilots.forEach(c=>{ const p=courseProgress(c); weeksDone+=p.done; weeksBasic+=p.basic; weeksTotal+=p.total; });
   const finalized = D.courses.filter(c=>c.status==="Finalized").length;
-  const inFlight = D.courses.filter(c=>["Auditing","Rebuilding","SME Review"].includes(c.status)).length;
+  const inFlight = D.courses.filter(c=>["Auditing","Rebuilding","Basic Pass Done","SME Review"].includes(c.status)).length;
 
   // pipeline counts
   const pipe = STATUSES.map(s=>({ s, n: D.courses.filter(c=>c.status===s).length }));
@@ -1032,7 +1159,7 @@ function renderOverview(){
   el.innerHTML = `
   <div class="tiles">
     <div class="tile"><div class="label">Courses finalized</div><div class="value">${finalized}<span class="muted" style="font-size:16px;font-weight:400"> / ${D.courses.length}</span></div><div class="detail">${inFlight} in active redesign</div></div>
-    <div class="tile"><div class="label">Weeks reviewed (pilot courses)</div><div class="value">${weeksDone}<span class="muted" style="font-size:16px;font-weight:400"> / ${weeksTotal}</span></div><div class="detail">across ${pilots.length} mapped courses</div></div>
+    <div class="tile"><div class="label">Weeks reviewed (mapped courses)</div><div class="value">${weeksDone+weeksBasic}<span class="muted" style="font-size:16px;font-weight:400"> / ${weeksTotal}</span></div><div class="detail">${weeksDone} done · ${weeksBasic} basic pass · ${pilots.length} courses</div></div>
     <div class="tile"><div class="label">Open issues</div><div class="value">${open.length}</div><div class="detail"><span style="color:${PRIO_COLOR.HIGH}">${PRIO_ICON.HIGH}</span> ${pc.HIGH} high · <span style="color:${PRIO_COLOR.MEDIUM}">${PRIO_ICON.MEDIUM}</span> ${pc.MEDIUM} medium · ${PRIO_ICON.LOW} ${pc.LOW} low</div></div>
     <div class="tile"><div class="label">Issues resolved</div><div class="value">${D.issues.length-open.length}</div><div class="detail">of ${D.issues.length} logged</div></div>
   </div>
@@ -1056,7 +1183,7 @@ function renderOverview(){
 
   <div class="card">
     <h2>Courses</h2>
-    <p class="note">Progress bar = weeks marked “Done” in the week-by-week review. Issue counts are open issues.</p>
+    <p class="note">Progress bar: solid = weeks Done, lighter = Basic pass. Issue counts are open issues.</p>
     <div class="course-grid">
       ${D.courses.map(c=>{
         const p = courseProgress(c);
@@ -1065,8 +1192,8 @@ function renderOverview(){
           <div class="code">${esc(c.code)}${c.pilot? "":""}</div>
           <div class="title">${esc(c.title)}</div>
           <div class="meta"><span class="pill ${STATUS_CLASS(c.status)}">${c.status}</span><span class="muted small">${esc(c.term)}</span></div>
-          ${p? `<div class="meter" data-tip="${p.done} of ${p.total} weeks done${p.doing? ` · ${p.doing} in progress`:''}"><div style="width:${p.pct}%"></div></div>
-          <div class="foot"><span>${p.done}/${p.total} weeks</span>
+          ${p? `${meterHTML(p, progressTip(p))}
+          <div class="foot"><span>${p.done+p.basic}/${p.total} weeks</span>
             <span class="issue-dots">${ci.HIGH? `<span><span class="dot" style="background:${PRIO_COLOR.HIGH}"></span><b>${ci.HIGH}</b></span>`:""}${ci.MEDIUM? `<span><span class="dot" style="background:${PRIO_COLOR.MEDIUM}"></span><b>${ci.MEDIUM}</b></span>`:""}${ci.LOW? `<span><span class="dot" style="background:var(--baseline)"></span><b>${ci.LOW}</b></span>`:""}</span></div>`
           : `<div class="foot" style="margin-top:12px"><span class="muted">Weekly map not built yet</span><span class="linkish">+ map it</span></div>`}
         </div>`;
@@ -1140,8 +1267,9 @@ function renderCourse(){
       <select id="courseStatus">${STATUSES.map(s=>`<option ${s===c.status?"selected":""}>${s}</option>`).join("")}</select>
     </div>
     ${c.notes? `<p class="note" style="margin-top:10px">${esc(c.notes)}</p>`:""}
-    ${p? `<div class="meter" style="max-width:420px" data-tip="${p.done}/${p.total} weeks done"><div style="width:${p.pct}%"></div></div>
-      <div class="small muted" style="margin-top:4px">${p.done} of ${p.total} weeks done · ${p.doing} in progress · ${openIss.length} open issue${openIss.length===1?"":"s"}</div>`:""}
+    ${p? `<div style="max-width:420px">${meterHTML(p, progressTip(p))}</div>
+      <div class="small muted" style="margin-top:4px">${p.done} done · ${p.basic} basic pass · ${p.doing} in progress of ${p.total} weeks · ${openIss.length} open issue${openIss.length===1?"":"s"}</div>`:""}
+    ${(()=>{ const sug = suggestStatus(c); return sug? `<div class="suggest-note">Week progress suggests this course is at <b>“${sug}”</b><button class="btn-sm" id="applySuggest" data-status="${sug}">Apply</button></div>`:""; })()}
     ${c.assessments.length? `<h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin:14px 0 6px">Graded components</h4>
       <div>${c.assessments.map(a=>`<span class="chip" ${a.verify? `data-tip="Weight not confirmed in syllabus — verify"`:""}>${esc(a.name)} — <b>${esc(a.weight)}</b>${a.verify? " ⚠":""}</span>`).join("")}</div>`:""}
   </div>
@@ -1171,6 +1299,7 @@ function renderCourse(){
 
   $("#coursePick").addEventListener("change", e=>{ activeCourse=e.target.value; renderCourse(); });
   $("#courseStatus").addEventListener("change", e=>{ c.status=e.target.value; c.u=nowIso(); markDirty(); renderCourse(); });
+  $("#applySuggest")?.addEventListener("click", e=>{ c.status=e.target.dataset.status; c.u=nowIso(); markDirty(); renderCourse(); });
   $("#addIssueCourse")?.addEventListener("click", ()=>openModal({course:c.id}));
   $("#expandAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>openWeeks[wkKey(c.id,w.n)]=true); renderCourse(); });
   $("#collapseAll")?.addEventListener("click", ()=>{ c.weeks.forEach(w=>delete openWeeks[wkKey(c.id,w.n)]); renderCourse(); });
@@ -1213,6 +1342,9 @@ function renderCourse(){
   el.querySelectorAll(".add-wk-issue").forEach(b=>{
     b.addEventListener("click", ()=>openModal({course:c.id, week:+b.dataset.week}));
   });
+  el.querySelectorAll(".wk-edit-issue").forEach(b=>{
+    b.addEventListener("click", ()=>openModal({edit: D.issues.find(i=>String(i.id)===b.dataset.id)}));
+  });
   el.querySelectorAll(".toggle-issue").forEach(b=>{
     b.addEventListener("click", ()=>{
       const iss = D.issues.find(i=>String(i.id)===b.dataset.id);
@@ -1224,6 +1356,18 @@ function renderCourse(){
   bindTips(el);
 }
 
+function actSummary(w){
+  const PLURAL = { "Reading":"readings","Video":"videos","Discussion":"discussions","Assignment":"assignments","Quiz":"quizzes","Group Work":"group work","Milestone":"milestones" };
+  const parts = [];
+  ACTIVITY_TYPES.forEach(t=>{
+    const items = w.acts.filter(a=>a.t===t);
+    if(!items.length) return;
+    const major = items.some(a=>a.major);
+    const label = items.length>1 ? items.length+" "+PLURAL[t] : t.toLowerCase();
+    parts.push(`<span style="white-space:nowrap"><span class="dot" style="background:${TYPE_COLORS[t]};width:6px;height:6px"></span>${esc(label)}${major? ' <b style="color:var(--ink-1)">●</b>':""}</span>`);
+  });
+  return parts.join('<span class="muted"> · </span>');
+}
 function weekRow(c, w){
   const st = wkState(c.id, w.n);
   const k = wkKey(c.id, w.n);
@@ -1244,11 +1388,11 @@ function weekRow(c, w){
     <div class="week-head">
       <div class="wk-num">Wk ${w.n}</div>
       <div class="wk-title">${esc(w.title)}${w.dates? `<span class="dates">${esc(w.dates)}</span>`:""}
-        <div style="margin-top:3px">${w.acts.map(a=>`<span class="chip" data-tip="${esc(a.n)}"><span class="dot" style="background:${TYPE_COLORS[a.t]}"></span>${a.t}${a.major? " ●":""}</span>`).join("")}</div>
+        <div class="meta-line" style="margin-top:3px">${actSummary(w)}</div>
       </div>
       <div class="wk-flags">
         ${openIss.length? `<span class="small" data-tip="${openIss.length} open issue${openIss.length>1?'s':''} this week" style="color:${openIss.some(i=>i.prio==='HIGH')? PRIO_COLOR.HIGH:'var(--ink-2)'}">${openIss.some(i=>i.prio==='HIGH')? PRIO_ICON.HIGH:PRIO_ICON.MEDIUM} ${openIss.length}</span>`:""}
-        <span class="small muted ck-count" data-tip="Design-standards checklist">${ckDone}/${CHECKLIST.length}</span>
+        <span data-tip="Design-standards checklist: ${ckDone} of ${CHECKLIST.length} checks done" style="white-space:nowrap"><span class="mini-meter"><i style="width:${Math.round(100*ckDone/CHECKLIST.length)}%"></i></span> <span class="small muted ck-count">${ckDone}/${CHECKLIST.length}</span></span>
         <select class="wk-status-sel" data-week="${w.n}">
           ${Object.entries(WEEK_STATUSES).map(([v,l])=>`<option value="${v}" ${st.status===v?"selected":""}>${l}</option>`).join("")}
         </select>
@@ -1263,9 +1407,10 @@ function weekRow(c, w){
       <div class="activity-audits">${activityAudits}</div>
       <h4>Issues (${iss.length}) <button class="linkish add-wk-issue" data-week="${w.n}" style="margin-left:8px">+ log issue</button></h4>
       ${iss.length? iss.map(i=>`<div class="issue-line ${i.status==='Resolved'?'resolved':''}">
-          <span class="prio ${i.prio}">${PRIO_ICON[i.prio]} ${i.prio}</span>
+          ${prioMark(i)}
           <span class="txt" style="flex:1">${esc(i.note)} <span class="muted small">(${esc(i.type)})</span>${byline(i)}</span>
-          <button class="linkish toggle-issue" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button>
+          <button class="linkish wk-edit-issue" data-id="${i.id}">edit</button>
+          <button class="btn-sm ${i.status==="Open"?"resolve":""} toggle-issue" data-id="${i.id}">${i.status==="Open"?"✓ Resolve":"Reopen"}</button>
         </div>`).join("") : `<p class="muted small" style="margin:2px 0">None logged.</p>`}
       <h4>Working note</h4>
       <textarea class="wk-note" data-week="${w.n}" rows="2" placeholder="Scratch notes for this week's rebuild…">${esc(st.note)}</textarea>
@@ -1300,8 +1445,8 @@ function heatmap(c){
       const x = lbl + wi*(cell+gap);
       const n = counts[t+"-"+w.n];
       const items = w.acts.filter(a=>a.t===t).map(a=>esc(a.n)).join("<br>");
-      const col = n===0? "var(--page)" : ramp[Math.min(ramp.length-1, Math.ceil(n/max*(ramp.length-1)))];
-      const ink = n/max>0.55? "#fff" : "var(--ink-2)";
+      const col = n===0? "var(--page)" : (max===1? "var(--seq-300)" : ramp[Math.min(ramp.length-1, Math.ceil(n/max*(ramp.length-1)))]);
+      const ink = (max>1 && n/max>0.55)? "#fff" : "var(--ink-2)";
       svg += `<g data-tip="<b>Week ${w.n} · ${t}</b>${n? "<br>"+items : "<br>none"}">
         <rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="5" fill="${col}" ${n===0? 'stroke="var(--grid)" stroke-width="1"':''}/>
         ${n? `<text x="${x+cell/2}" y="${y+cell/2+4}" font-size="11.5" fill="${ink}" text-anchor="middle">${n}</text>`:""}
@@ -1347,18 +1492,26 @@ function renderIssues(){
     </div>
     <div class="table-wrap">
     <table class="data">
-      <thead><tr><th>Priority</th><th>Scope</th><th>Location</th><th>Record</th><th style="width:38%">Description</th><th>Workflow</th><th>Status</th><th></th></tr></thead>
+      <thead><tr><th>Priority</th><th>Location</th><th style="width:55%">Description</th>${f.status==="all"? "<th>Status</th>":""}<th></th></tr></thead>
       <tbody>
-      ${list.length? list.map(i=>`<tr class="${i.status==='Resolved'?'':''}">
-        <td><span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span></td>
-        <td>${esc(scopeLabel(i))}</td>
-        <td>${esc(issueLocation(i))}</td>
-        <td class="muted">${esc(recordTypeLabel(i))}</td>
-        <td ${i.status==='Resolved'? 'style="text-decoration:line-through;color:var(--ink-3)"':''}>${esc(i.note)}${byline(i)}</td>
-        <td><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></td>
-        <td>${esc(i.status)}</td>
-        <td style="white-space:nowrap"><button class="linkish t-iss" data-id="${i.id}">${i.status==="Open"?"resolve":"reopen"}</button> · <button class="linkish e-iss" data-id="${i.id}">edit</button>${i.scope==="program"||i.recordType==="design_decision"?` · <button class="linkish p-iss" data-id="${i.id}">standard</button>`:""}</td>
-      </tr>`).join("") : `<tr><td colspan="8" class="muted">No issues match these filters.</td></tr>`}
+      ${list.length? list.map(i=>{
+        const resolved = i.status==='Resolved';
+        const detail = `${esc(i.note)}${i.recommendation? `<div class="small muted" style="margin-top:3px"><b>Rec:</b> ${esc(i.recommendation)}</div>`:""}${i.smeResponse? `<div class="small muted" style="margin-top:3px"><b>SME:</b> ${esc(i.smeResponse)}</div>`:""}`;
+        const plainLen = (i.note||"").length + (i.recommendation||"").length + (i.smeResponse||"").length;
+        return `<tr>
+        <td>${prioMark(i)}</td>
+        <td style="white-space:nowrap">${esc(issueLocation(i)).replace(" · Week "," · Wk ")}</td>
+        <td ${resolved? 'style="color:var(--ink-3)"':''}>
+          <div ${resolved? 'style="text-decoration:line-through"':''}>${clampBlock(detail, plainLen)}</div>
+          ${metaLine(i,{noLocation:true,workflowText:true})}
+        </td>
+        ${f.status==="all"? `<td class="muted">${esc(i.status)}</td>`:""}
+        <td style="white-space:nowrap;text-align:right">
+          <button class="btn-sm e-iss" data-id="${i.id}">✎ Edit</button>
+          <button class="btn-sm ${resolved? "":"resolve"} t-iss" data-id="${i.id}">${resolved? "Reopen":"✓ Resolve"}</button>
+          ${i.scope==="program"||i.recordType==="design_decision"? `<div style="margin-top:4px"><button class="linkish p-iss" data-id="${i.id}">promote to standard</button></div>`:""}
+        </td>
+      </tr>`;}).join("") : `<tr><td colspan="5" class="muted">No issues match these filters.</td></tr>`}
       </tbody>
     </table>
     </div>
@@ -1497,17 +1650,22 @@ function renderSme(){
       </div>
       <div class="status-note" id="smeStatus">${chosen.length} item${chosen.length===1?"":"s"} selected</div>
       <div style="margin-top:8px">
-        ${list.length?list.map(i=>`<div class="handoff-item">
+        ${list.length?list.map(i=>{
+          const detail = `<div class="small">${esc(i.note)}</div>${i.recommendation?`<div class="small muted" style="margin-top:4px"><b>ID recommendation:</b> ${esc(i.recommendation)}</div>`:""}${i.smeResponse?`<div class="small muted" style="margin-top:4px"><b>SME response:</b> ${esc(i.smeResponse)}</div>`:""}`;
+          const plainLen = (i.note||"").length + (i.recommendation||"").length + (i.smeResponse||"").length;
+          return `<div class="handoff-item p-${esc(i.prio)}">
           <input type="checkbox" class="sme-pick" data-id="${i.id}" ${handoffSelected.has(String(i.id))?"checked":""} aria-label="Include ${esc(issueLocation(i))}">
           <div>
-            <div class="focus-top"><span class="prio ${esc(i.prio)}">${PRIO_ICON[i.prio]} ${esc(i.prio)}</span><span class="scope-pill">${esc(scopeLabel(i))}</span><span class="type-pill">${esc(recordTypeLabel(i))}</span><span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span></div>
-            <div style="font-weight:600;margin-top:6px">${esc(issueLocation(i))}</div>
-            <div class="small" style="margin-top:4px">${esc(i.note)}</div>
-            ${i.recommendation?`<div class="note" style="margin:6px 0 0"><b>ID recommendation:</b> ${esc(i.recommendation)}</div>`:""}
-            ${i.smeResponse?`<div class="note" style="margin:6px 0 0"><b>SME response:</b> ${esc(i.smeResponse)}</div>`:""}
-            <div class="focus-actions"><button class="linkish sme-edit" data-id="${i.id}">edit record</button><select class="sme-flow" data-id="${i.id}">${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${i.workflow===v?"selected":""}>${l}</option>`).join("")}</select></div>
+            <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">
+              ${prioMark(i)}
+              <span style="font-weight:600;font-size:13.5px">${esc(issueLocation(i))}</span>
+              <span class="workflow-pill ${esc(i.workflow)}">${esc(workflowLabel(i))}</span>
+            </div>
+            <div style="margin-top:5px">${clampBlock(detail, plainLen)}</div>
+            ${metaLine(i,{noLocation:true})}
+            <div class="focus-actions"><button class="btn-sm sme-edit" data-id="${i.id}">✎ Edit record</button><select class="sme-flow" data-id="${i.id}">${Object.entries(WORKFLOWS).map(([v,l])=>`<option value="${v}" ${i.workflow===v?"selected":""}>${l}</option>`).join("")}</select></div>
           </div>
-        </div>`).join(""):`<p class="muted">No SME items match these filters.</p>`}
+        </div>`;}).join(""):`<p class="muted">No SME items match these filters.</p>`}
       </div>
     </div>`;
   $("#smeCourse").addEventListener("change",e=>{f.course=e.target.value;renderSme();});
@@ -1528,8 +1686,8 @@ function renderAbout(){
     <h2>What this is</h2>
     <p>Your instructional-design cockpit for auditing, standardizing, improving, and maintaining the Exclusively Online MSW courses in Brightspace.</p>
     <h2 style="margin-top:16px">The workflow</h2>
-    <p><b>1. Start in Focus Queue.</b> Filter your next actions by course, SME state, priority, effort, or target date.<br>
-    <b>2. Audit a course week by week.</b> Use the shared module checklist plus activity-specific checks for readings, videos, discussions, assignments, quizzes, and group work.<br>
+    <p><b>1. Start in Focus Queue.</b> The top of the queue is ranked for you \u2014 overdue first, then high priority, then quick wins \u2014 with everything else grouped by course.<br>
+    <b>2. Audit a course week by week.</b> Use the shared module checklist plus activity-specific checks. Mark a week \u201cBasic pass\u201d when it\u2019s minimally corrected but still owed deeper work, and \u201cDone\u201d only when truly finished \u2014 courses likewise pass through \u201cBasic Pass Done\u201d before SME Review and Finalized, so nothing drops off the radar half-fixed.<br>
     <b>3. Capture records at the right scope.</b> An item can belong to the program, a course, a week/module, or one activity, and can be a defect, improvement, SME question, decision, or content verification.<br>
     <b>4. Turn decisions into standards.</b> Promote program decisions into the Standards library and track compliance by course.<br>
     <b>5. Hand off only what faculty need.</b> SME Handoff builds a concise review document from selected questions and proposed changes.</p>
@@ -1541,7 +1699,7 @@ function renderAbout(){
     <p><b>No GitHub token needed to log issues.</b> This studio is paired with the program's Google Sheet: anyone can open this page, add or resolve issues, and they're sent to the shared tracker automatically (chip shows \u201c\u2713 Shared with the team tracker\u201d). The same issues appear live in the Google Sheet, where teammates can also add issues via its \u201c\u2795 Add issues\u201d tab or flip an issue's Status column. A GitHub token (\u2699) is only needed for full curriculum editing \u2014 week checklists, course statuses, standards.</p>
     <p><b>Backups:</b> <b>Export JSON</b> downloads a snapshot file and <b>Import JSON</b> restores one. <b>Issues → CSV</b> exports the issue log for the shared Google Sheet. Every GitHub sync is also a commit, so the repo history is itself a full backup timeline.</p>
     <h2 style="margin-top:16px">Data provenance & caveats</h2>
-    <p>The five pilot courses (Z503, Z504, Z505, Z510, Z515) were seeded from the master syllabi you provided (OCR'd), and the Z504 issues from your Course Issues Google Sheet. Syllabi may lag the live Brightspace shells — treat seeded weekly maps as a starting hypothesis and correct them as you audit. Items marked ⚠ are grading weights the syllabus didn't state clearly.</p>
+    <p>The mapped courses (Z503, Z504, Z505, Z510, Z515, and elective Z542) were seeded from the master syllabi provided, and the original Z504 issues from the Course Issues Google Sheet. Syllabi may lag the live Brightspace shells \u2014 treat seeded weekly maps as a starting hypothesis and correct them as you audit. Items marked \u26a0 are grading weights the syllabus didn't state clearly.</p>
   </div>`;
 }
 
@@ -1695,6 +1853,22 @@ $("#cSave").addEventListener("click", ()=>{
   if(CFG.token && unsynced) syncToGitHub(false);
 });
 
+/* ---------- GLOBAL UI: clamp toggles, data menu, help ---------- */
+document.addEventListener("click", e=>{
+  if(e.target.classList && e.target.classList.contains("more-t")){
+    const c = e.target.previousElementSibling;
+    c.classList.toggle("expanded");
+    e.target.textContent = c.classList.contains("expanded")? "less":"more";
+    return;
+  }
+  const menu = $("#dataMenu");
+  if(menu){
+    if(e.target.id==="btnData"){ menu.classList.toggle("open"); }
+    else if(!menu.contains(e.target) || e.target.closest(".menu-list")){ menu.classList.remove("open"); }
+  }
+});
+$("#btnHelp").addEventListener("click", ()=>switchTab("about"));
+
 /* ---------- THEME / TABS / BOOT ---------- */
 $("#btnTheme").addEventListener("click", ()=>{
   const r = document.documentElement;
@@ -1732,6 +1906,8 @@ const newer = (a,b) => (a||"") > (b||"");
   // 1. Newest local copy beats the embedded seed
   const raw = lsGet(LS_DATA);
   if(raw){ try { const j = migrate(JSON.parse(raw)); if(newer(j.meta.saved, D.meta.saved)) D = j; } catch(e){} }
+  // Fold in anything newly added to the embedded seed (e.g. new courses shipped in an app update)
+  try { mergeData(D, migrate(JSON.parse(JSON.stringify(SEED)))); } catch(e){}
   baselineSaved = D.meta.saved || null;
   chipIdle();
   render();
