@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-14T18:25:12.257Z"
+  "saved": "2026-08-18T13:57:41.432Z"
  },
  "courses": [
   {
@@ -1618,6 +1618,347 @@
    "notes": "",
    "assessments": [],
    "weeks": []
+  },
+  {
+   "id": "Z542",
+   "code": "SW Z542",
+   "title": "Complex Trauma & Recovery: Theory & Practice",
+   "term": "Fall · Elective",
+   "credits": 3,
+   "status": "Not Started",
+   "pilot": true,
+   "notes": "Elective. Seeded from the Fall 2026 syllabus template (V1). Rotating small-group Lead Discussions run weeks 4–13; weekly small-group meetings + participation surveys run most of the term.",
+   "assessments": [
+    {
+     "name": "Participation (weekly small groups, surveys, discussions)",
+     "weight": "25 pts"
+    },
+    {
+     "name": "Reflection Paper (wk 3)",
+     "weight": "10 pts"
+    },
+    {
+     "name": "Leading an Online Discussion (assigned week)",
+     "weight": "15 pts"
+    },
+    {
+     "name": "Trauma-Informed Practice Paper (wk 10)",
+     "weight": "25 pts"
+    },
+    {
+     "name": "Group Presentation (wk 13, feedback wk 14)",
+     "weight": "25 pts"
+    }
+   ],
+   "weeks": [
+    {
+     "n": 1,
+     "title": "Course overview · Stressors & rewards of trauma work · Vicarious trauma and self-care",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings (incl. Bransford & Blizard 2017)"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Discussion",
+       "n": "Post your introduction to the class"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Historical perspectives · Importance of safety · Building safe relationships · Self-care and coping skills",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + participation survey"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Working with trauma survivors · Types of traumatic events · Witnessing trauma",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Assignment",
+       "n": "Reflection Paper due",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Vulnerability & cultural considerations · Attachment and ACEs",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 4 online discussion (all) · SG1 posts Lead Discussion for wk 5"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Neurobiology & effects of trauma · War and terrorism · Life-threatening illness",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 5 discussion (all) · SG1 moderates · SG2 posts wk 6 lead"
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Intimate partner violence · Child abuse/neglect · Abuse of older adults & people with disabilities",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 6 discussion (all) · SG2 moderates · SG3 posts wk 7 lead"
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Dissociation · Traumatic loss and sudden death",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 7 discussion (all) · SG3 moderates · SG4 posts wk 8 lead"
+      },
+      {
+       "t": "Milestone",
+       "n": "Midterm break"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Prevention and community organizing · The Sanctuary Model",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 8 discussion (all) · SG4 moderates · SG5 posts wk 9 lead"
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "title": "Preparing for treatment · Assessment & crisis intervention · Risk to self or others · Strengths-based approaches",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 9 discussion (all) · SG5 moderates · SG6 posts wk 10 lead"
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "title": "Psychosocial interventions I · Communication · Safety, stabilization & engagement",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 10 discussion (all) · SG6 moderates · SG7 posts wk 11 lead"
+      },
+      {
+       "t": "Assignment",
+       "n": "Trauma-Informed Practice Paper due",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "title": "Psychosocial interventions II · Hypnosis & guided imagery · EMDR · Relaxation, meditation, creative arts",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 11 discussion (all) · SG7 moderates · SG8 posts wk 12 lead"
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "title": "Identity-based trauma and resilience · Community trauma",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Group Work",
+       "n": "Small group meeting + survey"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 12 discussion (all) · SG8 moderates · SG9 posts wk 13 lead"
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "title": "Advocating for survivors · Micro/macro advocacy · Program development",
+     "acts": [
+      {
+       "t": "Reading",
+       "n": "Required readings"
+      },
+      {
+       "t": "Video",
+       "n": "Assigned viewing (see module)"
+      },
+      {
+       "t": "Discussion",
+       "n": "Week 13 discussion (all) · SG9 moderates"
+      },
+      {
+       "t": "Group Work",
+       "n": "Post Group Presentation to designated discussion",
+       "major": true
+      }
+     ]
+    },
+    {
+     "n": 14,
+     "title": "Presentation feedback & responses · Endings and saying goodbye · SOOTS survey",
+     "acts": [
+      {
+       "t": "Video",
+       "n": "Watch ≥ 2 other groups' presentations"
+      },
+      {
+       "t": "Discussion",
+       "n": "Give feedback · respond to feedback on your group's presentation · Goodbye Reflection"
+      },
+      {
+       "t": "Assignment",
+       "n": "Complete the final evaluation"
+      }
+     ]
+    }
+   ]
   }
  ],
  "issues": [
