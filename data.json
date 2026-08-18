@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-18T15:45:38.002Z"
+  "saved": "2026-08-18T18:55:19.767Z"
  },
  "courses": [
   {
@@ -3842,7 +3842,7 @@
   "Z503-1": {
    "status": "todo",
    "checks": [
-    false,
+    true,
     false,
     false,
     false,
@@ -3867,7 +3867,8 @@
      false
     ]
    },
-   "note": ""
+   "note": "",
+   "u": "2026-08-18T18:54:58.564Z"
   },
   "Z503-2": {
    "status": "todo",
@@ -5941,6 +5942,216 @@
    },
    "note": "",
    "u": "2026-07-24T18:41:00.468Z"
+  },
+  "Z542-1": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-2": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-3": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-4": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-5": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-6": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-7": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-8": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-9": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-10": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-11": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-12": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-13": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
+  },
+  "Z542-14": {
+   "status": "todo",
+   "checks": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "activityChecks": {},
+   "note": ""
   }
  }
 }
