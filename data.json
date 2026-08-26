@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-21T14:31:41.144Z"
+  "saved": "2026-08-26T14:44:24.065Z"
  },
  "courses": [
   {
@@ -935,7 +935,7 @@
    "title": "Generalist Social Work Practice I",
    "term": "Fall · Year 1 (Generalist)",
    "credits": 3,
-   "status": "Not Started",
+   "status": "Rebuilding",
    "pilot": true,
    "notes": "Fall 2025 syllabus. Two-session structure with mid-semester break after week 7. Weeks 11–13 center on role-play review.",
    "assessments": [
@@ -1191,7 +1191,8 @@
       }
      ]
     }
-   ]
+   ],
+   "u": "2026-08-26T14:44:03.840Z"
   },
   {
    "id": "Z515",
