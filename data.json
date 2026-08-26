@@ -4,7 +4,7 @@
   "org": "Binghamton University · CCPA · Dept. of Social Work",
   "exported": null,
   "version": 2,
-  "saved": "2026-08-26T14:44:24.065Z"
+  "saved": "2026-08-26T14:53:02.463Z"
  },
  "courses": [
   {
@@ -358,7 +358,7 @@
    "title": "Diversity and Oppression",
    "term": "Spring · Year 1 (Generalist)",
    "credits": 3,
-   "status": "Not Started",
+   "status": "Rebuilding",
    "pilot": true,
    "notes": "Spring 2026 syllabus. Recurring Social Issue Facilitation discussion runs weeks 3–9.",
    "assessments": [
@@ -631,7 +631,8 @@
       }
      ]
     }
-   ]
+   ],
+   "u": "2026-08-26T14:52:41.433Z"
   },
   {
    "id": "Z505",
